@@ -10,7 +10,7 @@ void SceneMgr::Init()
 	RegisterScene(L"Game_Scene", std::make_shared<Game_Scene>());
 
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Start_Scene");
+	LoadScene(L"Game_Scene");
 }
 
 void SceneMgr::Update()

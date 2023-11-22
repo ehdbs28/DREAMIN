@@ -135,5 +135,4 @@ void Player::Render(HDC _dc)
 	//	, (int)(vPos.y - vScale.y / 2)
 	//	, Width, Height, m_pTex->GetDC()
 	//	, 0, 0, Width, Height, RGB(255, 0, 255));
-	Component_Render(_dc);
 }

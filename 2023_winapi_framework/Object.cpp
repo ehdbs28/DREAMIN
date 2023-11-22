@@ -52,9 +52,6 @@ void Object::FinalUpdate()
 
 void Object::Render(HDC _dc)
 {
-	/*Vec2 vPos = m_obj.GetPos();
-	Vec2 vScale = m_obj.GetScale();*/
-	RECT_RENDER(m_vPos.x, m_vPos.y, m_vScale.x, m_vScale.y, _dc);
 	Component_Render(_dc);
 }
 

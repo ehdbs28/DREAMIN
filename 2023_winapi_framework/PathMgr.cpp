@@ -5,5 +5,5 @@ void PathMgr::Init()
 {
 	GetCurrentDirectory(255,m_strResPath);
 	wcscat_s(m_strResPath, 255, L"\\Res\\");
-	SetWindowText(Core::GetInst()->GetHwnd(),m_strResPath);
+	//SetWindowText(Core::GetInst()->GetHwnd(),m_strResPath);
 }

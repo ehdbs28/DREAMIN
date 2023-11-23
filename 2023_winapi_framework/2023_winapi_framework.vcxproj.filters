@@ -65,6 +65,9 @@
     <Filter Include="Engine\04. Object\MapObject">
       <UniqueIdentifier>{13b0aa42-a926-4cbd-b79d-488cc29aa0f7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\02. Core\ModuleSystem">
+      <UniqueIdentifier>{a2bd3c30-a583-41fd-baf7-56c6d4a6cfe1}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -160,6 +163,12 @@
     <ClInclude Include="Platform.h">
       <Filter>Engine\04. Object\MapObject</Filter>
     </ClInclude>
+    <ClInclude Include="BaseModule.h">
+      <Filter>Engine\02. Core\ModuleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleController.h">
+      <Filter>Engine\02. Core\ModuleSystem</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -249,6 +258,12 @@
     </ClCompile>
     <ClCompile Include="Platform.cpp">
       <Filter>Engine\04. Object\MapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseModule.cpp">
+      <Filter>Engine\02. Core\ModuleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleController.cpp">
+      <Filter>Engine\02. Core\ModuleSystem</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

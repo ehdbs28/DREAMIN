@@ -40,7 +40,7 @@ void TimeMgr::Update()
 		static wchar_t titlebuf[50] = {};		
 		swprintf_s(titlebuf, L"FPS: %d, DT: %f", m_fps, m_dT);
 		//wsprintf();
-		//SetWindowText(Core::GetInst()->GetHwnd(), titlebuf);
+		SetWindowText(Core::GetInst()->GetHwnd(), titlebuf);
 	}
 
 

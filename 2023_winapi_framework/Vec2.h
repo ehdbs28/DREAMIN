@@ -37,7 +37,7 @@ public:
 		assert(!(0.f == _vOther.x || 0.f == _vOther.y));
 		return Vec2(x / _vOther.x, y / _vOther.y);
 	}
-	Vec2 operator * (int _i)
+	Vec2 operator * (float _i)
 	{
 		return Vec2(x * (float)_i, y * (float)_i);
 	}

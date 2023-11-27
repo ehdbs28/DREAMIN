@@ -3,21 +3,26 @@
 #include "BaseModule.h"
 
 ModuleController::ModuleController()
+	: m_pOwner(nullptr)
 {
 }
 
 ModuleController::~ModuleController()
 {
+	for (auto& pair : m_moduleMap) {
+		delete pair.second;
+	}
+	m_moduleMap.clear();
 }
 
 void ModuleController::Update()
 {
-	for (auto& module : m_vecModule) {
-		module->UpdateModule();
+	for (auto& pair : m_moduleMap) {
+		pair.second->UpdateModule();
 	}
 }
 
-void ModuleController::AddModule(BaseModule* _module)
+void ModuleController::AddModule(wstring _key, BaseModule* _module)
 {
-	m_vecModule.push_back(_module);
+	m_moduleMap.insert({ _key, _module });
 }

@@ -68,6 +68,12 @@
     <Filter Include="Engine\02. Core\ModuleSystem">
       <UniqueIdentifier>{a2bd3c30-a583-41fd-baf7-56c6d4a6cfe1}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Player">
+      <UniqueIdentifier>{b9189707-b9c4-4fdb-85eb-397230e129af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Player\Module">
+      <UniqueIdentifier>{5938d3fc-f893-40cc-93e1-609490a86e7d}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -118,9 +124,6 @@
     <ClInclude Include="Start_Scene.h">
       <Filter>Engine\05. Scene\MainScene</Filter>
     </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Engine\04. Object\MainObject</Filter>
-    </ClInclude>
     <ClInclude Include="Monster.h">
       <Filter>Engine\04. Object\MainObject</Filter>
     </ClInclude>
@@ -168,6 +171,12 @@
     </ClInclude>
     <ClInclude Include="ModuleController.h">
       <Filter>Engine\02. Core\ModuleSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Engine\04. Object\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerMovementModule.h">
+      <Filter>Engine\04. Object\Player\Module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -217,9 +226,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Engine\02. Core</Filter>
     </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Engine\04. Object\MainObject</Filter>
-    </ClCompile>
     <ClCompile Include="Bullet.cpp">
       <Filter>Engine\04. Object\MainObject</Filter>
     </ClCompile>
@@ -264,6 +270,12 @@
     </ClCompile>
     <ClCompile Include="ModuleController.cpp">
       <Filter>Engine\02. Core\ModuleSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Engine\04. Object\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerMovementModule.cpp">
+      <Filter>Engine\04. Object\Player\Module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

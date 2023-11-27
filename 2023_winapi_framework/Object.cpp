@@ -34,25 +34,10 @@ void Object::CreateAnimator()
 	m_pAnimator->m_pOwner = this;
 }
 
-void Object::Update()
-{
-	//Vec2 vPos = m_obj.GetPos();
-
-//	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-//	if(KeyMgr::GetInst()->GetKey(KEY_TYPE::LEFT) == KEY_STATE::UP)
-
-	//m_obj.SetPos(vPos);
-}
-
 void Object::FinalUpdate()
 {
 	if (m_pCollider)
 		m_pCollider->FinalUpdate();
-}
-
-void Object::Render(HDC _dc)
-{
-	Component_Render(_dc);
 }
 
 void Object::EnterCollision(Collider* _pOther)
@@ -70,10 +55,9 @@ void Object::StayCollision(Collider* _pOther)
 
 void Object::Component_Render(HDC _dc)
 {
-	if (nullptr != m_pCollider)
-		m_pCollider->Render(_dc);
 	if (nullptr != m_pAnimator)
 		m_pAnimator->Render(_dc);
-
+	if (nullptr != m_pCollider)
+		m_pCollider->Render(_dc);
 }
 

@@ -12,6 +12,10 @@ Platform::~Platform()
 {
 }
 
+void Platform::Update()
+{
+}
+
 void Platform::Render(HDC _dc)
 {
 	HBRUSH brush = CreateSolidBrush(BLACK_BRUSH);

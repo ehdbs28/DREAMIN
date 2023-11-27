@@ -34,6 +34,11 @@ void Monster::Update()
 	SetPos(vCurPos);
 }
 
+void Monster::Render(HDC _dc)
+{
+	Component_Render(_dc);
+}
+
 void Monster::EnterCollision(Collider* _pOther)
 {
 	const Object* pOtherObj = _pOther->GetObj();

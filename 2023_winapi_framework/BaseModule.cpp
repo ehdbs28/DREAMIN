@@ -1,8 +1,9 @@
 #include "pch.h"
 #include "BaseModule.h"
+#include "ModuleController.h"
 
-BaseModule::BaseModule()
-	: m_pController(nullptr)
+BaseModule::BaseModule(ModuleController* _controller)
+	: m_pController(_controller)
 {
 }
 

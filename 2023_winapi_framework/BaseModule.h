@@ -5,15 +5,14 @@ class ModuleController;
 class BaseModule
 {
 public:
-	BaseModule();
+	BaseModule(ModuleController* _controller);
 	virtual ~BaseModule();
 
 public:
 	virtual void UpdateModule() abstract;
 
-private:
+protected:
 	ModuleController*		m_pController;
-	friend class ModuleController;
 
 };
 

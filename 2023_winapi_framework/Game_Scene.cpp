@@ -28,7 +28,7 @@ void Game_Scene::Init()
 	AddObject(underPlatform, OBJECT_GROUP::MAP);
 	AddObject(player, OBJECT_GROUP::PLAYER);
 
-	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::PLAYER);
+	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::PLAYER, OBJECT_GROUP::MAP);
 }
 
 void Game_Scene::Update()

@@ -7,9 +7,9 @@
 
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	: BaseModule(_controller)
-	, m_fGravity(4.9f)
-	, m_fMovementSpeed(10.f)
-	, m_fJumpPower(-10.f)
+	, m_fGravity(2.45f)
+	, m_fMovementSpeed(100.f)
+	, m_fJumpPower(-1000.f)
 	, m_inputDir(Vec2(0, 0))
 	, m_movementVelocity(Vec2(0, 0))
 	, m_verticalVelocity(Vec2(0, 0))
@@ -53,8 +53,8 @@ void PlayerMovementModule::CalcMovement()
 	m_movementVelocity = m_inputDir * m_fMovementSpeed;
 	m_movementVelocity = m_movementVelocity + m_verticalVelocity;
 
-	if (m_isGround && m_verticalVelocity.y < 0.0f) {
-		m_verticalVelocity.y = -1.0f;
+	if (m_isGround && m_verticalVelocity.y > 0.0f) {
+		m_verticalVelocity.y = 0.1f;
 	}
 	else {
 		m_verticalVelocity.y += m_fGravity;

@@ -93,6 +93,6 @@ void Player::ExitCollision(Collider* _other)
 {
 	if (_other->GetObj()->GetName() == L"UNDER_GROUND") {
 		((PlayerMovementModule*)m_pModuleController->GetModule(L"MOVEMENT_MODULE"))
-			->SetGround(true);
+			->SetGround(false);
 	}
 }

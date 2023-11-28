@@ -5,7 +5,7 @@
 Platform::Platform()
 {
 	CreateCollider();
-	GetCollider()->SetScale(Vec2((float)WINDOW_WIDTH, (float)WINDOW_HEIGHT / 6.f));
+	GetCollider()->SetScale(Vec2((float)WINDOW_WIDTH, (float)WINDOW_HEIGHT / 5.f));
 }
 
 Platform::~Platform()

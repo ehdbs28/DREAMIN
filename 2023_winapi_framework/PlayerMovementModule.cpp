@@ -8,7 +8,7 @@
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	: BaseModule(_controller)
 	, m_fGravity(2.45f)
-	, m_fMovementSpeed(100.f)
+	, m_fMovementSpeed(300.f)
 	, m_fJumpPower(-1000.f)
 	, m_inputDir(Vec2(0, 0))
 	, m_movementVelocity(Vec2(0, 0))

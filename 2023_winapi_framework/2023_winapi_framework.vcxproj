@@ -189,6 +189,7 @@
     <ClInclude Include="pch.h" />
     <ClInclude Include="Platform.h" />
     <ClInclude Include="Player.h" />
+    <ClInclude Include="PlayerAttackModule.h" />
     <ClInclude Include="PlayerMovementModule.h" />
     <ClInclude Include="Res.h" />
     <ClInclude Include="ResMgr.h" />
@@ -221,6 +222,7 @@
     <ClCompile Include="PathMgr.cpp" />
     <ClCompile Include="Platform.cpp" />
     <ClCompile Include="Player.cpp" />
+    <ClCompile Include="PlayerAttackModule.cpp" />
     <ClCompile Include="PlayerMovementModule.cpp" />
     <ClCompile Include="Res.cpp" />
     <ClCompile Include="ResMgr.cpp" />

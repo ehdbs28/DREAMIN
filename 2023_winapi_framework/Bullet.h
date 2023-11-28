@@ -1,25 +1,32 @@
 #pragma once
 #include "Object.h"
 class Texture;
+class Collider;
 class Bullet :
     public Object
 {
 public:
-    Bullet();
+    Bullet(OBJECT_GROUP _ownerObjectGroup);
     ~Bullet();
+
 public:
     void Update() override;
     void Render(HDC _dc) override;
-    void SetDir(float _f) { m_fTheta = _f; }
-    void SetDir(Vec2 _vDir) 
-    { 
-        m_vDir = _vDir; 
-        m_vDir.Normalize();
-    }
+
+public:
+    void EnterCollision(Collider* _pOther) override;
+
+public:
+    void SetDir(Vec2 _dir) { m_dir = _dir.Normalize(); }
+
 private:
-//    float m_fDir; // 총알 방향(-1 위, 1 아래);
-    float m_fTheta; // 삼각함수 방향.
-    Vec2 m_vDir;
     Texture* m_pTex;
+
+    OBJECT_GROUP m_ownerObjectGroup;
+
+    Vec2 m_dir;
+
+    float m_fSpeed;
+
 };
 

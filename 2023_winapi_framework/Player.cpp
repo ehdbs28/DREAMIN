@@ -13,6 +13,7 @@
 #include "Animation.h"
 #include "ModuleController.h"
 #include "PlayerMovementModule.h"
+#include "PlayerAttackModule.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -47,7 +48,8 @@ Player::Player()
 
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);
-	m_pModuleController->AddModule(L"MOVEMENT_MODULE", new PlayerMovementModule(m_pModuleController));
+	m_pModuleController->AddModule(L"MovementModule", new PlayerMovementModule(m_pModuleController));
+	m_pModuleController->AddModule(L"AttackModule", new PlayerAttackModule(m_pModuleController));
 }
 
 Player::~Player()
@@ -62,20 +64,6 @@ void Player::Update()
 	GetAnimator()->Update();
 }
 
-void Player::CreateBullet()
-{
-	Bullet* pBullet = new Bullet;
-	Vec2 vBulletPos = GetPos();
-	vBulletPos.y -= GetScale().y / 2.f;
-	pBullet->SetPos(vBulletPos);
-	pBullet->SetScale(Vec2(25.f,25.f));
-//	pBullet->SetDir(M_PI / 4 * 7);
-//	pBullet->SetDir(120* M_PI / 180);
-	pBullet->SetDir(Vec2(-10.f,-15.f));
-	pBullet->SetName(L"Player_Bullet");
-	SceneMgr::GetInst()->GetCurScene()->AddObject(pBullet, OBJECT_GROUP::BULLET);
-}
-
 void Player::Render(HDC _dc)
 {
 	Component_Render(_dc);
@@ -83,16 +71,16 @@ void Player::Render(HDC _dc)
 
 void Player::EnterCollision(Collider* _other)
 {
-	if (_other->GetObj()->GetName() == L"UNDER_GROUND") {
-		((PlayerMovementModule*)m_pModuleController->GetModule(L"MOVEMENT_MODULE"))
+	if (_other->GetObj()->GetName() == L"UnderGround") {
+		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
 			->SetGround(true);
 	}
 }
 
 void Player::ExitCollision(Collider* _other)
 {
-	if (_other->GetObj()->GetName() == L"UNDER_GROUND") {
-		((PlayerMovementModule*)m_pModuleController->GetModule(L"MOVEMENT_MODULE"))
+	if (_other->GetObj()->GetName() == L"UnderGround") {
+		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
 			->SetGround(false);
 	}
 }

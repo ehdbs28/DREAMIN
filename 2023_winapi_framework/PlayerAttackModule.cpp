@@ -2,6 +2,11 @@
 #include "PlayerAttackModule.h"
 #include "KeyMgr.h"
 #include "TimeMgr.h"
+#include "ModuleController.h"
+#include "Object.h"
+#include "Bullet.h"
+#include "SceneMgr.h"
+#include "Scene.h"
 
 PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -33,6 +38,13 @@ void PlayerAttackModule::InputSetting()
 	if (KEY_PRESS(KEY_TYPE::C)) {
 		Attack();
 	}
+
+	Vec2 mousePos = KeyMgr::GetInst()->GetMousePos();
+	Vec2 vPos = m_pController->GetOwner()->GetPos();
+	Vec2 mouseDir = (mousePos - vPos).Normalize();
+
+	m_attackDir = mouseDir;
+	m_attackPoint = vPos + mouseDir * 30;
 }
 
 void PlayerAttackModule::Attack()
@@ -43,6 +55,16 @@ void PlayerAttackModule::Attack()
 
 	m_isAttack = true;
 	m_fAttackDelayTimer = 0.f;
+	CreateBullet();
+}
 
-	// 총알 생성 들어가야 함
+void PlayerAttackModule::CreateBullet()
+{
+	Bullet* pBullet = new Bullet(OBJECT_GROUP::PLAYER);
+	pBullet->SetName(L"PlayerBullet");
+	pBullet->SetPos(m_attackPoint);
+	pBullet->SetScale(Vec2(25.f, 25.f));
+	pBullet->SetDir(m_attackDir);
+
+	SceneMgr::GetInst()->GetCurScene()->AddObject(pBullet, OBJECT_GROUP::BULLET);
 }

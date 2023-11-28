@@ -10,17 +10,17 @@ void Game_Scene::Init()
 	float platformPoint = platformHeight / 2.f;
 
 	Platform* upperPlatform = new Platform;
-	upperPlatform->SetName(L"UPPER_GROUND");
+	upperPlatform->SetName(L"UpperGround");
 	upperPlatform->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, platformPoint));
 	upperPlatform->SetScale(Vec2((float)WINDOW_WIDTH, platformHeight));
 
 	Platform* underPlatform = new Platform;
-	underPlatform->SetName(L"UNDER_GROUND");
+	underPlatform->SetName(L"UnderGround");
 	underPlatform->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT - platformPoint));
 	underPlatform->SetScale(Vec2((float)WINDOW_WIDTH, platformHeight));
 
 	Player* player = new Player;
-	player->SetName(L"PLAYER");
+	player->SetName(L"Player");
 	player->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 2.f));
 	player->SetScale(Vec2(50, 50));
 

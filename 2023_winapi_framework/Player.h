@@ -20,9 +20,6 @@ public:
     void ExitCollision(Collider* _other) override;
 
 private:
-    void CreateBullet();
-
-private:
     Texture* m_pTex;
     ModuleController* m_pModuleController;
 

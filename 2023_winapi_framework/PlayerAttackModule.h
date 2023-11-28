@@ -15,9 +15,13 @@ public:
 private:
 	void InputSetting();
 	void Attack();
+	void CreateBullet();
 
 private:
 	Object* m_pTarget;
+
+	Vec2 m_attackPoint;
+	Vec2 m_attackDir;
 
 	float m_fAttackDelayTimer;
 	float m_fAttackDelay;

@@ -13,6 +13,7 @@ PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	, m_inputDir(Vec2(0, 0))
 	, m_movementVelocity(Vec2(0, 0))
 	, m_verticalVelocity(Vec2(0, 0))
+	, m_frontDir(Vec2(1, 0))
 	, m_isGround(false)
 {
 }
@@ -34,9 +35,11 @@ void PlayerMovementModule::UpdateModule()
 void PlayerMovementModule::SetInputValue()
 {
 	if (KEY_PRESS(KEY_TYPE::LEFT)) {
+		m_frontDir.x = -1;
 		m_inputDir.x = -1;
 	}
 	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
+		m_frontDir.x = 1;
 		m_inputDir.x = 1;
 	}
 	else {

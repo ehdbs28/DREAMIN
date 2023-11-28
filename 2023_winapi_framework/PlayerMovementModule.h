@@ -14,7 +14,8 @@ public:
 	void SetGround(bool _val) { m_isGround = _val; }
 
 public:
-	const bool GetGround() const { return m_isGround; }
+	const bool& GetGround() const { return m_isGround; }
+	const Vec2& GetFrontDir() const { return m_frontDir; }
 
 private:
 	void SetInputValue();
@@ -29,6 +30,8 @@ private:
 	Vec2 m_inputDir;
 	Vec2 m_movementVelocity;
 	Vec2 m_verticalVelocity;
+
+	Vec2 m_frontDir;
 
 	bool m_isGround;
 

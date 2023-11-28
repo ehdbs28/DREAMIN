@@ -8,6 +8,7 @@ Object::Object()
 	: m_pCollider(nullptr)
 	, m_vPos{}
 	, m_vScale{}
+	, m_fAngle(0.f)
 	, m_IsAlive(true)
 	, m_pAnimator(nullptr)
 {

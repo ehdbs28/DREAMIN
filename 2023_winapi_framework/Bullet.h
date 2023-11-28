@@ -17,7 +17,10 @@ public:
     void EnterCollision(Collider* _pOther) override;
 
 public:
-    void SetDir(Vec2 _dir) { m_dir = _dir.Normalize(); }
+    void SetDir(Vec2 _dir) {
+        m_dir = _dir.Normalize();
+        SetAngle(atan2f(m_dir.y, m_dir.x) * (180.f / M_PI));
+    }
 
 private:
     Texture* m_pTex;

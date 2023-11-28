@@ -20,8 +20,10 @@ public:
 public:
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
+	void SetAngle(float _angle) { m_fAngle = _angle; }
 	const Vec2& GetPos() const { return m_vPos; }
 	const Vec2& GetScale() const { return m_vScale; }
+	const float& GetAngle() const { return m_fAngle; }
 	Collider* GetCollider() const 
 	{ return m_pCollider; }
 	Animator* GetAnimator()
@@ -40,6 +42,7 @@ public:
 private:
 	Vec2 m_vPos; // 위치
 	Vec2 m_vScale; // 크기
+	float m_fAngle;
 	Collider* m_pCollider;
 	wstring m_strName; // 이름.
 	bool m_IsAlive;

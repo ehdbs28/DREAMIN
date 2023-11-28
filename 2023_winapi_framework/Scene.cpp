@@ -14,10 +14,12 @@ void Scene::Update()
 {
 	for (UINT i = 0; i < (UINT)OBJECT_GROUP::END; ++i)
 	{
-		for (size_t j = 0; j < m_vecObj[i].size(); ++j)
+		for (size_t j = 0; j < m_vecObj[i].size();)
 		{
 			if(!m_vecObj[i][j]->GetIsDead())
-				m_vecObj[i][j]->Update();
+				m_vecObj[i][j++]->Update();
+			else
+				m_vecObj[i].erase(m_vecObj[i].begin() + j);
 		}
 	}
 }
@@ -37,15 +39,10 @@ void Scene::Render(HDC _dc)
 {
 	for (UINT i = 0; i < (UINT)OBJECT_GROUP::END; ++i)
 	{
-		for (size_t j = 0; j < m_vecObj[i].size();)
+		for (size_t j = 0; j < m_vecObj[i].size(); ++j)
 		{
 			if (!m_vecObj[i][j]->GetIsDead())
-			{
 				m_vecObj[i][j]->Render(_dc);
-				++j;
-			}
-			else
-				m_vecObj[i].erase(m_vecObj[i].begin() + j);
 		}
 	}
 }

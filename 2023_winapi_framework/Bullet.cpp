@@ -3,6 +3,9 @@
 #include "TimeMgr.h"
 #include "ResMgr.h"
 #include "Texture.h"
+#include "EventMgr.h"
+#include "Collider.h"
+
 Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 	: m_ownerObjectGroup(_ownerObjectGroup)
 	, m_dir(Vec2(0.f, 0.f))
@@ -20,6 +23,12 @@ Bullet::~Bullet()
 void Bullet::Update()
 {
 	Vec2 vPos = GetPos();
+
+	if (vPos.x < 0 || vPos.x > WINDOW_WIDTH ||
+		vPos.y < 0 || vPos.y > WINDOW_HEIGHT) {
+		EventMgr::GetInst()->DeleteObject(this);
+	}
+
 	vPos.x += m_fSpeed * fDT * m_dir.x;
 	vPos.y += m_fSpeed * fDT * m_dir.y;
 	SetPos(vPos);
@@ -87,4 +96,8 @@ void Bullet::Render(HDC _dc)
 
 void Bullet::EnterCollision(Collider* _pOther)
 {
+	if (_pOther->GetObj()->GetName() == L"UnderGround" ||
+		_pOther->GetObj()->GetName() == L"UpperGround") {
+		EventMgr::GetInst()->DeleteObject(this);
+	}
 }

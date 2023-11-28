@@ -33,17 +33,17 @@ void PlayerMovementModule::UpdateModule()
 
 void PlayerMovementModule::SetInputValue()
 {
-	if (KEY_PRESS(KEY_TYPE::A)) {
+	if (KEY_PRESS(KEY_TYPE::LEFT)) {
 		m_inputDir.x = -1;
 	}
-	else if (KEY_PRESS(KEY_TYPE::D)) {
+	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
 		m_inputDir.x = 1;
 	}
 	else {
 		m_inputDir.x = 0;
 	}
 
-	if (KEY_DOWN(KEY_TYPE::SPACE)) {
+	if (KEY_DOWN(KEY_TYPE::X)) {
 		m_verticalVelocity.y = m_fJumpPower;
 	}
 }

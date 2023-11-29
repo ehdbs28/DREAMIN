@@ -22,19 +22,20 @@ Player::Player()
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\PlayerMinsung.bmp");
 
 	CreateCollider();
-	GetCollider()->SetScale(Vec2(20.f,30.f));
+	GetCollider()->SetOffSetPos(Vec2(0.f, 15.f));
+	GetCollider()->SetScale(Vec2(30.f,50.f));
 	
 	CreateAnimator();
-	GetAnimator()->CreateAnim(L"Minsung_Idle", m_pTex,Vec2(0.f, 16.f),
-		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Idle", m_pTex,Vec2(0.f, 0.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Walk", m_pTex, Vec2(0.f, 32.f),
-		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Dash", m_pTex, Vec2(0.f, 48.f),
-		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Jump", m_pTex, Vec2(0.f, 64.f),
-		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Shoot", m_pTex, Vec2(0.f, 80.f),
-		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
 	GetAnimator()->PlayAnim(L"Minsung_Idle",true);
 
 	//// 오프셋 건드리기

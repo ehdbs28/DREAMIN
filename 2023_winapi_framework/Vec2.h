@@ -24,22 +24,37 @@ public:
 	{
 		return Vec2(x + _vOther.x, y + _vOther.y);
 	}
+	Vec2 operator += (Vec2 _vOther) {
+		return *this + _vOther;
+	}
 	Vec2 operator - (Vec2 _vOther)
 	{
 		return Vec2(x - _vOther.x, y - _vOther.y);
 	}
+	Vec2 operator -= (Vec2 _vOther) {
+		return *this - _vOther;
+	}
 	Vec2 operator * (Vec2 _vOther)
 	{
 		return Vec2(x * _vOther.x, y * _vOther.y);
+	}
+	Vec2 operator * (float _f)
+	{
+		return Vec2(x * _f, y * _f);
+	}
+	Vec2 operator *= (Vec2 _vOther) {
+		return *this * _vOther;
+	}
+	Vec2 operator *= (float _f) {
+		return *this * _f;
 	}
 	Vec2 operator / (Vec2 _vOther)
 	{
 		assert(!(0.f == _vOther.x || 0.f == _vOther.y));
 		return Vec2(x / _vOther.x, y / _vOther.y);
 	}
-	Vec2 operator * (float _f)
-	{
-		return Vec2(x * _f, y * _f);
+	Vec2 operator /= (Vec2 _vOther) {
+		return *this / _vOther;
 	}
 public:
 	float x;

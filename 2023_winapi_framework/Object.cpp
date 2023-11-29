@@ -4,6 +4,8 @@
 #include "TimeMgr.h"
 #include "Collider.h"
 #include "Animator.h"
+#include "Rigidbody.h"
+
 Object::Object()
 	: m_pCollider(nullptr)
 	, m_vPos{}
@@ -11,6 +13,7 @@ Object::Object()
 	, m_fAngle(0.f)
 	, m_IsAlive(true)
 	, m_pAnimator(nullptr)
+	, m_pRigidbody(nullptr)
 {
 }
 
@@ -35,10 +38,18 @@ void Object::CreateAnimator()
 	m_pAnimator->m_pOwner = this;
 }
 
+void Object::CreateRigidbody()
+{
+	m_pRigidbody = new Rigidbody;
+	m_pRigidbody->m_pOwner = this;
+}
+
 void Object::FinalUpdate()
 {
 	if (m_pCollider)
 		m_pCollider->FinalUpdate();
+	if (m_pRigidbody)
+		m_pRigidbody->FinalUpdate();
 }
 
 void Object::EnterCollision(Collider* _pOther)

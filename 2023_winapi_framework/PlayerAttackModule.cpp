@@ -7,7 +7,6 @@
 #include "Bullet.h"
 #include "SceneMgr.h"
 #include "Scene.h"
-#include "PlayerMovementModule.h"
 
 PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -40,22 +39,12 @@ void PlayerAttackModule::InputSetting()
 		Attack();
 	}
 
-	Vec2 targetPos;
+	Vec2 mousePos = KeyMgr::GetInst()->GetMousePos();
 	Vec2 vPos = m_pController->GetOwner()->GetPos();
+	Vec2 mouseDir = (mousePos - vPos).Normalize();
 
-	if (nullptr == m_pTarget) {
-		PlayerMovementModule* movementModule = (PlayerMovementModule*)m_pController->GetModule(L"MovementModule");
-		Vec2 frontDir = movementModule->GetFrontDir();
-		targetPos = vPos + frontDir;
-	}
-	else {
-		targetPos = m_pTarget->GetPos();
-	}
-
-	Vec2 targetDir = (targetPos - vPos).Normalize();
-
-	m_attackDir = targetDir;
-	m_attackPoint = vPos + targetDir * 30;
+	m_attackDir = mouseDir;
+	m_attackPoint = vPos + mouseDir * 30;
 }
 
 void PlayerAttackModule::Attack()

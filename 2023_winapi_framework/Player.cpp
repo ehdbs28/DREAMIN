@@ -46,6 +46,8 @@ Player::Player()
 	//for (size_t i = 0; i < pAnim->GetMaxFrame(); ++i)
 	//	pAnim->SetFrameOffset(i, Vec2(0.f, 20.f));
 
+	CreateRigidbody();
+
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);
 	m_pModuleController->AddModule(L"MovementModule", new PlayerMovementModule(m_pModuleController));

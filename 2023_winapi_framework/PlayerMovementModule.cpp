@@ -4,12 +4,13 @@
 #include "TimeMgr.h"
 #include "ModuleController.h"
 #include "Object.h"
+#include "Rigidbody.h"
 
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	: BaseModule(_controller)
 	, m_fGravity(2.45f)
 	, m_fMovementSpeed(300.f)
-	, m_fJumpPower(-850.f)
+	, m_fJumpPower(-1000.f)
 	, m_inputDir(Vec2(0, 0))
 	, m_movementVelocity(Vec2(0, 0))
 	, m_verticalVelocity(Vec2(0, 0))
@@ -27,9 +28,8 @@ void PlayerMovementModule::UpdateModule()
 	SetInputValue();
 	CalcMovement();
 
-	Vec2 vPos = m_pController->GetOwner()->GetPos();
-	vPos = vPos + m_movementVelocity * fDT;
-	m_pController->GetOwner()->SetPos(vPos);
+	Rigidbody* pRigidbody = m_pController->GetOwner()->GetRigidbody();
+	pRigidbody->SetVelocity(m_movementVelocity * fDT);
 }
 
 void PlayerMovementModule::SetInputValue()

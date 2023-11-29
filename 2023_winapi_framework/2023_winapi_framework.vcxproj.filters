@@ -74,6 +74,18 @@
     <Filter Include="Engine\04. Object\Player\Module">
       <UniqueIdentifier>{5938d3fc-f893-40cc-93e1-609490a86e7d}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\AttackModule">
+      <UniqueIdentifier>{9d8edbd0-0703-43ee-b2fa-d4c3828dcc7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\MovementModule">
+      <UniqueIdentifier>{9c6b59ac-7a55-467e-aec2-631bd28cab4a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Bullet">
+      <UniqueIdentifier>{76357ffe-4616-44e5-8c63-918b3bf9eeba}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\DashModule">
+      <UniqueIdentifier>{a5c9338b-fa8d-40db-a15b-b93fd9e20852}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -127,9 +139,6 @@
     <ClInclude Include="Monster.h">
       <Filter>Engine\04. Object\MainObject</Filter>
     </ClInclude>
-    <ClInclude Include="Bullet.h">
-      <Filter>Engine\04. Object\MainObject</Filter>
-    </ClInclude>
     <ClInclude Include="Res.h">
       <Filter>Engine\06. Resource</Filter>
     </ClInclude>
@@ -176,7 +185,16 @@
       <Filter>Engine\04. Object\Player</Filter>
     </ClInclude>
     <ClInclude Include="PlayerMovementModule.h">
-      <Filter>Engine\04. Object\Player\Module</Filter>
+      <Filter>Engine\04. Object\Player\Module\MovementModule</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAttackModule.h">
+      <Filter>Engine\04. Object\Player\Module\AttackModule</Filter>
+    </ClInclude>
+    <ClInclude Include="Bullet.h">
+      <Filter>Engine\04. Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="Rigidbody.h">
+      <Filter>Engine\07. Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -226,9 +244,6 @@
     <ClCompile Include="main.cpp">
       <Filter>Engine\02. Core</Filter>
     </ClCompile>
-    <ClCompile Include="Bullet.cpp">
-      <Filter>Engine\04. Object\MainObject</Filter>
-    </ClCompile>
     <ClCompile Include="Monster.cpp">
       <Filter>Engine\04. Object\MainObject</Filter>
     </ClCompile>
@@ -275,7 +290,16 @@
       <Filter>Engine\04. Object\Player</Filter>
     </ClCompile>
     <ClCompile Include="PlayerMovementModule.cpp">
-      <Filter>Engine\04. Object\Player\Module</Filter>
+      <Filter>Engine\04. Object\Player\Module\MovementModule</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAttackModule.cpp">
+      <Filter>Engine\04. Object\Player\Module\AttackModule</Filter>
+    </ClCompile>
+    <ClCompile Include="Bullet.cpp">
+      <Filter>Engine\04. Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="Rigidbody.cpp">
+      <Filter>Engine\07. Component</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

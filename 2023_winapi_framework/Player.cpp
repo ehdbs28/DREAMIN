@@ -19,23 +19,23 @@ Player::Player()
 	: m_pTex(nullptr)
 	, m_pModuleController(nullptr)
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\jiwoo.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\PlayerMinsung.bmp");
 
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(20.f,30.f));
 	
 	CreateAnimator();
-	GetAnimator()->CreateAnim(L"Jiwoo_Front", m_pTex,Vec2(0.f, 150.f),
+	GetAnimator()->CreateAnim(L"Minsung_Idle", m_pTex,Vec2(0.f, 16.f),
 		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
-	GetAnimator()->CreateAnim(L"Jiwoo_Back", m_pTex, Vec2(0.f, 100.f),
+	GetAnimator()->CreateAnim(L"Minsung_Walk", m_pTex, Vec2(0.f, 32.f),
 		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
-	GetAnimator()->CreateAnim(L"Jiwoo_Left", m_pTex, Vec2(0.f, 0.f),
+	GetAnimator()->CreateAnim(L"Minsung_Dash", m_pTex, Vec2(0.f, 48.f),
 		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
-	GetAnimator()->CreateAnim(L"Jiwoo_Right", m_pTex, Vec2(0.f, 50.f),
+	GetAnimator()->CreateAnim(L"Minsung_Jump", m_pTex, Vec2(0.f, 64.f),
 		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
-	GetAnimator()->CreateAnim(L"Jiwoo_Attack", m_pTex, Vec2(0.f, 200.f),
+	GetAnimator()->CreateAnim(L"Minsung_Shoot", m_pTex, Vec2(0.f, 80.f),
 		Vec2(50.f, 50.f), Vec2(50.f, 0.f), 5, 0.2f);
-	GetAnimator()->PlayAnim(L"Jiwoo_Front",true);
+	GetAnimator()->PlayAnim(L"Minsung_Idle",true);
 
 	//// 오프셋 건드리기
 	//Animation* pAnim = GetAnimator()->FindAnim(L"Jiwoo_Front");

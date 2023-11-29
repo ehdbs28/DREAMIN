@@ -178,6 +178,7 @@
     <ClInclude Include="PlayerMovementModule.h">
       <Filter>Engine\04. Object\Player\Module</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerAttackModule.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -277,5 +278,6 @@
     <ClCompile Include="PlayerMovementModule.cpp">
       <Filter>Engine\04. Object\Player\Module</Filter>
     </ClCompile>
+    <ClCompile Include="PlayerAttackModule.cpp" />
   </ItemGroup>
 </Project>

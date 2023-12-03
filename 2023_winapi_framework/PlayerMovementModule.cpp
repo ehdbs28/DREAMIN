@@ -5,6 +5,8 @@
 #include "ModuleController.h"
 #include "Object.h"
 #include "Rigidbody.h"
+#include "PlayerDashModule.h"
+#include "Player.h"
 
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -27,6 +29,10 @@ void PlayerMovementModule::UpdateModule()
 {
 	SetInputValue();
 	CalcMovement();
+
+	if (((PlayerDashModule*)m_pController->GetModule(L"DashModule"))->IsDash()) {
+		return;
+	}
 
 	Rigidbody* pRigidbody = m_pController->GetOwner()->GetRigidbody();
 	pRigidbody->SetVelocity(m_movementVelocity * fDT);
@@ -58,7 +64,7 @@ void PlayerMovementModule::SetInputValue()
 void PlayerMovementModule::CalcMovement()
 {
 	m_movementVelocity = m_inputDir * m_fMovementSpeed;
-	m_movementVelocity = m_movementVelocity + m_verticalVelocity;
+	m_movementVelocity = m_movementVelocity + (m_verticalVelocity * ((Player*)m_pController->GetOwner())->GetGravityDir());
 
 	if (m_isGround && m_verticalVelocity.y > 0.0f) {
 		m_verticalVelocity.y = 0.1f;

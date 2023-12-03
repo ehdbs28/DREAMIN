@@ -196,6 +196,9 @@
     <ClInclude Include="Rigidbody.h">
       <Filter>Engine\07. Component</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerDashModule.h">
+      <Filter>Engine\04. Object\Player\Module\DashModule</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -300,6 +303,9 @@
     </ClCompile>
     <ClCompile Include="Rigidbody.cpp">
       <Filter>Engine\07. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerDashModule.cpp">
+      <Filter>Engine\04. Object\Player\Module\DashModule</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

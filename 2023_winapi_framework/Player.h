@@ -19,9 +19,17 @@ public:
     void EnterCollision(Collider* _other) override;
     void ExitCollision(Collider* _other) override;
 
+public:
+    const int& GetGravityDir() const { return m_gravityDir; }
+
+public:
+    void ChangeGravity();
+
 private:
     Texture* m_pTex;
     ModuleController* m_pModuleController;
+
+    int m_gravityDir;
 
 };
 

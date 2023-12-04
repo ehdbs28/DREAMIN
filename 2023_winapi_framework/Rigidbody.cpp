@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Rigidbody.h"
 #include "Object.h"
+#include "TimeMgr.h"
 
 Rigidbody::Rigidbody()
 	: m_pOwner(nullptr)
@@ -8,8 +9,8 @@ Rigidbody::Rigidbody()
 	, m_fMass(1.f)
 	, m_accel(Vec2(0.f, 0.f))
 	, m_velocity(Vec2(0.f, 0.f))
-	, m_maxVelocity(10.f)
-	, m_friction(0.1f)
+	, m_maxVelocity(5.f)
+	, m_friction(0.01f)
 {
 }
 
@@ -17,10 +18,10 @@ Rigidbody::~Rigidbody()
 {
 }
 
-void Rigidbody::FinalUpdate(float _dt)
+void Rigidbody::FinalUpdate()
 {
 	m_accel = m_force / m_fMass;
-	m_velocity += m_accel * _dt;
+	m_velocity += m_accel * fDT;
 
 	if (m_velocity.x != 0.f || m_velocity.y != 0.f) {
 		Vec2 friction = -m_velocity;
@@ -40,13 +41,25 @@ void Rigidbody::FinalUpdate(float _dt)
 		m_velocity = m_velocity.Normalize() * m_maxVelocity;
 	}
 
-	ApplyVelocity(_dt);
+	ApplyVelocity();
 	m_force = Vec2(0.f, 0.f);
 }
 
-void Rigidbody::ApplyVelocity(float _dt)
+void Rigidbody::ApplyVelocity()
 {
 	Vec2 vPos = m_pOwner->GetPos();
 	vPos += m_velocity;
+	vPos = ClampPosition(vPos);
 	m_pOwner->SetPos(vPos);
+}
+
+Vec2 Rigidbody::ClampPosition(Vec2 _vPos)
+{
+	if (_vPos.x < 0.f + m_pOwner->GetScale().x / 2.f) {
+		_vPos.x = 0.f + m_pOwner->GetScale().x / 2.f;
+	}
+	else if (_vPos.x > WINDOW_WIDTH - m_pOwner->GetScale().x / 2.f) {
+		_vPos.x = WINDOW_WIDTH - m_pOwner->GetScale().x / 2.f;
+	}
+	return _vPos;
 }

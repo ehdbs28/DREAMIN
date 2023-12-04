@@ -14,10 +14,12 @@
 #include "ModuleController.h"
 #include "PlayerMovementModule.h"
 #include "PlayerAttackModule.h"
+#include "PlayerDashModule.h"
 
 Player::Player()
 	: m_pTex(nullptr)
 	, m_pModuleController(nullptr)
+	, m_gravityDir(1)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\PlayerMinsung.bmp");
 
@@ -77,10 +79,13 @@ Player::Player()
 	//for (size_t i = 0; i < pAnim->GetMaxFrame(); ++i)
 	//	pAnim->SetFrameOffset(i, Vec2(0.f, 20.f));
 
+	CreateRigidbody();
+
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);
 	m_pModuleController->AddModule(L"MovementModule", new PlayerMovementModule(m_pModuleController));
 	m_pModuleController->AddModule(L"AttackModule", new PlayerAttackModule(m_pModuleController));
+	m_pModuleController->AddModule(L"DashModule", new PlayerDashModule(m_pModuleController));
 }
 
 Player::~Player()
@@ -102,7 +107,7 @@ void Player::Render(HDC _dc)
 
 void Player::EnterCollision(Collider* _other)
 {
-	if (_other->GetObj()->GetName() == L"UnderGround") {
+	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
 		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
 			->SetGround(true);
 	}
@@ -110,8 +115,13 @@ void Player::EnterCollision(Collider* _other)
 
 void Player::ExitCollision(Collider* _other)
 {
-	if (_other->GetObj()->GetName() == L"UnderGround") {
+	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
 		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
 			->SetGround(false);
 	}
+}
+
+void Player::ChangeGravity()
+{
+	m_gravityDir *= -1;
 }

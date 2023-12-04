@@ -9,13 +9,17 @@ public:
 	~Rigidbody();
 
 public:
-	void FinalUpdate(float _dt);
+	void FinalUpdate();
 
 public:
 	void AddForce(Vec2 _force) { m_force += _force; }
 	void SetVelocity(Vec2 _velocity) { m_velocity = _velocity; }
 	void AddVelocity(Vec2 _velocity) { m_velocity += _velocity; }
 	void SetMaxVelocity(float _maxVelocity) { m_maxVelocity = _maxVelocity; }
+
+private:
+	void ApplyVelocity();
+	Vec2 ClampPosition(Vec2 _vPos);
 
 private:
 	Object* m_pOwner;

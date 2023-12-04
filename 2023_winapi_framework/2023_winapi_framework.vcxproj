@@ -172,6 +172,9 @@
     <ClInclude Include="Animator.h" />
     <ClInclude Include="BaseModule.h" />
     <ClInclude Include="BaseWindow.h" />
+    <ClInclude Include="Boss.h" />
+    <ClInclude Include="BossPattern.h" />
+    <ClInclude Include="BossPatternModule.h" />
     <ClInclude Include="Bullet.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionMgr.h" />
@@ -183,7 +186,6 @@
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="ModuleController.h" />
-    <ClInclude Include="Monster.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="PathMgr.h" />
     <ClInclude Include="pch.h" />
@@ -210,6 +212,9 @@
     <ClCompile Include="Animator.cpp" />
     <ClCompile Include="BaseModule.cpp" />
     <ClCompile Include="BaseWindow.cpp" />
+    <ClCompile Include="Boss.cpp" />
+    <ClCompile Include="BossPattern.cpp" />
+    <ClCompile Include="BossPatternModule.cpp" />
     <ClCompile Include="Bullet.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
@@ -219,7 +224,6 @@
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
-    <ClCompile Include="Monster.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="PathMgr.cpp" />
     <ClCompile Include="Platform.cpp" />

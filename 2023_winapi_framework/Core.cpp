@@ -7,6 +7,8 @@
 #include "ResMgr.h"
 #include "CollisionMgr.h"
 #include "EventMgr.h"
+#include <ctime>
+
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
 	// === 변수 초기화 === 
@@ -30,6 +32,9 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 //	m_obj.SetScale(Vec2(150, 150));
 
 	CreateGDI();
+
+	srand((UINT)time(nullptr));
+
 	// ==== Manager Init ====
 	PathMgr::GetInst()->Init();
 	TimeMgr::GetInst()->Init();

@@ -69,10 +69,10 @@ void PlayerDashModule::Dash()
 	Player* player = (Player*)m_pController->GetOwner();
 
 	if(player->GetPos().y != m_dashDest.y) {
-		if (!((PlayerMovementModule*)m_pController->GetModule(L"MovementModule"))->GetGround()) {
+		/*if (!((PlayerMovementModule*)m_pController->GetModule(L"MovementModule"))->GetGround()) {
 			player->ChangeGravity();
 			player->SetPos(m_dashDest);
-		}
+		}*/
 	}
 	else {
 		player->SetPos(m_dashDest);

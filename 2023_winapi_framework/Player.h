@@ -21,6 +21,7 @@ public:
 
 public:
     const int& GetGravityDir() const { return m_gravityDir; }
+    const bool& IsGround() const { return m_isGround; }
 
 public:
     void ChangeGravity();
@@ -30,6 +31,7 @@ private:
     ModuleController* m_pModuleController;
 
     int m_gravityDir;
+    bool m_isGround;
 
 };
 

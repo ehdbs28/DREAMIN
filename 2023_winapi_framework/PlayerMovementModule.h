@@ -8,32 +8,16 @@ public:
 	virtual ~PlayerMovementModule() override;
 
 public:
+	virtual void EnterModule() override;
 	virtual void UpdateModule() override;
-
-public:
-	void SetGround(bool _val) { m_isGround = _val; }
-
-public:
-	const bool& GetGround() const { return m_isGround; }
-	const Vec2& GetFrontDir() const { return m_frontDir; }
+	virtual void ExitModule() override;
 
 private:
 	void SetInputValue();
-	void CalcMovement();
 
 private:
-	float m_fGravity;
-	
 	float m_fMovementSpeed;
-	float m_fJumpPower;
-
 	Vec2 m_inputDir;
-	Vec2 m_movementVelocity;
-	Vec2 m_verticalVelocity;
-
-	Vec2 m_frontDir;
-
-	bool m_isGround;
 
 };
 

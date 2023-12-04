@@ -12,7 +12,9 @@ public:
 	virtual ~BossPatternModule();
 
 public:
+	virtual void EnterModule() override;
 	virtual void UpdateModule() override;
+	virtual void ExitModule() override;
 
 public:
 	void AddModule(BossPattern* _newPattern);

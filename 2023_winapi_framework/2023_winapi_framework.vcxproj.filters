@@ -92,6 +92,9 @@
     <Filter Include="Engine\04. Object\Boss\Pattern">
       <UniqueIdentifier>{d849cb10-3032-44c9-bc78-0eaea866042b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\IdleModule">
+      <UniqueIdentifier>{2b9bd81f-f24f-4a4d-8f93-d84d9ede5115}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -211,6 +214,12 @@
     <ClInclude Include="BossPattern.h">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClInclude>
+    <ClInclude Include="PlayerIdleModule.h">
+      <Filter>Engine\04. Object\Player\Module\IdleModule</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerAirModule.h">
+      <Filter>Engine\04. Object\Player\Module</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -324,6 +333,12 @@
     </ClCompile>
     <ClCompile Include="BossPattern.cpp">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerIdleModule.cpp">
+      <Filter>Engine\04. Object\Player\Module\IdleModule</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerAirModule.cpp">
+      <Filter>Engine\04. Object\Player\Module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

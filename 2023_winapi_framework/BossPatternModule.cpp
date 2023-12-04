@@ -15,6 +15,10 @@ BossPatternModule::~BossPatternModule()
 {
 }
 
+void BossPatternModule::EnterModule()
+{
+}
+
 void BossPatternModule::UpdateModule()
 {
 	if (m_currentPattern == nullptr) {
@@ -26,6 +30,10 @@ void BossPatternModule::UpdateModule()
 			SelectPattern();
 		}
 	}
+}
+
+void BossPatternModule::ExitModule()
+{
 }
 
 void BossPatternModule::AddModule(BossPattern* _newPattern)

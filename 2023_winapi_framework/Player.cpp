@@ -15,6 +15,7 @@
 #include "PlayerMovementModule.h"
 #include "PlayerAttackModule.h"
 #include "PlayerDashModule.h"
+#include "PlayerIdleModule.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -52,9 +53,11 @@ Player::Player()
 
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);
+	m_pModuleController->AddModule(L"IdleModule", new PlayerIdleModule(m_pModuleController));
 	m_pModuleController->AddModule(L"MovementModule", new PlayerMovementModule(m_pModuleController));
-	m_pModuleController->AddModule(L"AttackModule", new PlayerAttackModule(m_pModuleController));
-	m_pModuleController->AddModule(L"DashModule", new PlayerDashModule(m_pModuleController));
+	//m_pModuleController->AddModule(L"AttackModule", new PlayerAttackModule(m_pModuleController));
+	//m_pModuleController->AddModule(L"DashModule", new PlayerDashModule(m_pModuleController));
+	m_pModuleController->ChangeModule(L"IdleModule");
 }
 
 Player::~Player()
@@ -77,16 +80,14 @@ void Player::Render(HDC _dc)
 void Player::EnterCollision(Collider* _other)
 {
 	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
-		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
-			->SetGround(true);
+		m_isGround = true;
 	}
 }
 
 void Player::ExitCollision(Collider* _other)
 {
 	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
-		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
-			->SetGround(false);
+		m_isGround = false;
 	}
 }
 

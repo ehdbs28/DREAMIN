@@ -7,6 +7,7 @@
 #include "Rigidbody.h"
 #include "PlayerDashModule.h"
 #include "Player.h"
+#include "Animator.h"
 
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -43,21 +44,39 @@ void PlayerMovementModule::SetInputValue()
 	if (KEY_PRESS(KEY_TYPE::LEFT)) {
 		m_frontDir.x = -1;
 		m_inputDir.x = -1;
+		m_pController->GetOwner()->GetAnimator()->PlayAnim(L"Minsung_Walk_Left_Top", true);
 	}
 	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
 		m_frontDir.x = 1;
 		m_inputDir.x = 1;
+		m_pController->GetOwner()->GetAnimator()->PlayAnim(L"Minsung_Walk_Right_Top", true);
 	}
 	else {
 		m_inputDir.x = 0;
+		if (m_frontDir.x == -1)
+		{
+			m_pController->GetOwner()->GetAnimator()->PlayAnim(L"Minsung_Idle_Left_Top", true);
+		}
+		else if(m_frontDir.x == 1)
+		{
+			m_pController->GetOwner()->GetAnimator()->PlayAnim(L"Minsung_Idle_Right_Top", true);
+		}
 	}
 
 	if (KEY_DOWN(KEY_TYPE::X)) {
 		if (!m_isGround) {
 			return;
+			m_pController->GetOwner()->GetAnimator()->StopAnim(NULL);
 		}
-
 		m_verticalVelocity.y = m_fJumpPower;
+		if (m_frontDir.x == -1)
+		{
+			m_pController->GetOwner()->GetAnimator()->PlayAnim(L"Minsung_Jump_Left_Top", true);
+		}
+		else if (m_frontDir.x == 1)
+		{
+			m_pController->GetOwner()->GetAnimator()->PlayAnim(L"Minsung_Jump_Right_Top", true);
+		}
 	}
 }
 

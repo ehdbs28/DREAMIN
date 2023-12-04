@@ -33,9 +33,9 @@ Player::Player()
 	GetAnimator()->CreateAnim(L"Minsung_Idle_Left_Top", m_pTex, Vec2(0.f, 16.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Walk_Right_Top", m_pTex, Vec2(0.f, 32.f),
-		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.1f);
 	GetAnimator()->CreateAnim(L"Minsung_Walk_Left_Top", m_pTex, Vec2(0.f, 48.f),
-		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.1f);
 	GetAnimator()->CreateAnim(L"Minsung_Dash_Right_Top", m_pTex, Vec2(0.f, 64.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Dash_Left_Top", m_pTex, Vec2(0.f, 80.f),

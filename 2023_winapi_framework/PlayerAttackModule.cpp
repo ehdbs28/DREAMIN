@@ -7,6 +7,7 @@
 #include "Bullet.h"
 #include "SceneMgr.h"
 #include "Scene.h"
+#include "Animator.h"
 
 PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -36,6 +37,7 @@ void PlayerAttackModule::UpdateModule()
 void PlayerAttackModule::InputSetting()
 {
 	if (KEY_PRESS(KEY_TYPE::C)) {
+		m_pController->GetOwner()->GetAnimator()->PlayAnim(L"Minsung_Shoot_Right_Top", true);
 		Attack();
 	}
 

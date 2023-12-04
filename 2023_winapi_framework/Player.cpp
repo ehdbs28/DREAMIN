@@ -26,17 +26,47 @@ Player::Player()
 	GetCollider()->SetScale(Vec2(30.f,50.f));
 	
 	CreateAnimator();
-	GetAnimator()->CreateAnim(L"Minsung_Idle", m_pTex,Vec2(0.f, 0.f),
+	GetAnimator()->CreateAnim(L"Minsung_Idle_Right_Top", m_pTex,Vec2(0.f, 0.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
-	GetAnimator()->CreateAnim(L"Minsung_Walk", m_pTex, Vec2(0.f, 32.f),
+	GetAnimator()->CreateAnim(L"Minsung_Idle_Left_Top", m_pTex, Vec2(0.f, 16.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Walk_Right_Top", m_pTex, Vec2(0.f, 32.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.2f);
-	GetAnimator()->CreateAnim(L"Minsung_Dash", m_pTex, Vec2(0.f, 48.f),
+	GetAnimator()->CreateAnim(L"Minsung_Walk_Left_Top", m_pTex, Vec2(0.f, 48.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Dash_Right_Top", m_pTex, Vec2(0.f, 64.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
-	GetAnimator()->CreateAnim(L"Minsung_Jump", m_pTex, Vec2(0.f, 64.f),
+	GetAnimator()->CreateAnim(L"Minsung_Dash_Left_Top", m_pTex, Vec2(0.f, 80.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Jump_Right_Top", m_pTex, Vec2(0.f, 96.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
-	GetAnimator()->CreateAnim(L"Minsung_Shoot", m_pTex, Vec2(0.f, 80.f),
+	GetAnimator()->CreateAnim(L"Minsung_Jump_Left_Top", m_pTex, Vec2(0.f, 112.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
-	GetAnimator()->PlayAnim(L"Minsung_Idle",true);
+	GetAnimator()->CreateAnim(L"Minsung_Shoot_Right_Top", m_pTex, Vec2(0.f, 128.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Shoot_Left_Top", m_pTex, Vec2(0.f, 144.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Idle_Right_Bottom", m_pTex, Vec2(0.f, 160.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Idle_Left_Bottom", m_pTex, Vec2(0.f, 176.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Walk_Right_Bottom", m_pTex, Vec2(0.f, 192.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Walk_Left_Bottom", m_pTex, Vec2(0.f, 208.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 4, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Dash_Right_Bottom", m_pTex, Vec2(0.f, 224.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Dash_Left_Bottom", m_pTex, Vec2(0.f, 240.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Jump_Right_Bottom", m_pTex, Vec2(0.f, 256.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Jump_Left_Bottom", m_pTex, Vec2(0.f, 272.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Shoot_Right_Bottom", m_pTex, Vec2(0.f, 288.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+	GetAnimator()->CreateAnim(L"Minsung_Shoot_Left_Bottom", m_pTex, Vec2(0.f, 304.f),
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+	GetAnimator()->PlayAnim(L"Minsung_Idle_Right_Top",true);
 
 	//// 오프셋 건드리기
 	//Animation* pAnim = GetAnimator()->FindAnim(L"Jiwoo_Front");

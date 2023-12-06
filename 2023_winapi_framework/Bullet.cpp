@@ -12,7 +12,7 @@ Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 	, m_fSpeed(1000.f)
 	, m_pTex(nullptr)
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Bullet", L"Texture\\plane.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"Bullet", L"Texture\\Bullet.bmp");
 	CreateCollider();
 }
 
@@ -63,7 +63,7 @@ void Bullet::Render(HDC _dc)
 		}
 
 		fxDest = fx * cosTheta - fy * sinTheta;
-		fyDest = fy * sinTheta + fy * cosTheta;
+		fyDest = fx * sinTheta + fy * cosTheta;
 		tPoint[i].x = fxDest + vPos.x;
 		tPoint[i].y = fyDest + vPos.y;
 	}
@@ -71,7 +71,8 @@ void Bullet::Render(HDC _dc)
 	HDC tempDC = CreateCompatibleDC(_dc);
 	HBITMAP tempBitmap = CreateCompatibleBitmap(_dc, Width, Height);
 	SelectObject(tempDC, tempBitmap);
-	PatBlt(tempDC, 0, 0, Width, Height, TRANSPARENT);
+
+	PatBlt(tempDC, 0, 0, Width, Height, WHITENESS);
 
 	TransparentBlt(
 		tempDC,
@@ -88,7 +89,7 @@ void Bullet::Render(HDC _dc)
 		nullptr, 0, 0
 	);
 	
-	Component_Render(_dc);
+	//Component_Render(_dc);
 
 	DeleteDC(tempDC);
 	DeleteObject(tempBitmap);

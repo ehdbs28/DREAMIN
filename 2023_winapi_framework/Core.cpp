@@ -108,6 +108,10 @@ void Core::Render()
 	// 3. ¿Å±ä´Ù.
 	BitBlt(m_hDC, 0,0, m_ptResolution.x, m_ptResolution.y, 
 		m_hbackDC, 0,0, SRCCOPY);
+	//TransparentBlt(m_hDC, 0,0, m_ptResolution.x, m_ptResolution.y,
+	//		m_hbackDC, 0, 0, m_ptResolution.x, m_ptResolution.y, RGB(255,255,255));
+
+
 	EventMgr::GetInst()->Update();
 
 

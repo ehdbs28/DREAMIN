@@ -22,7 +22,7 @@ void Game_Scene::Init()
 	Player* player = new Player;
 	player->SetName(L"Player");
 	player->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 2.f));
-	player->SetScale(Vec2(50, 50));
+	player->SetScale(Vec2(80, 80));
 
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);
 	AddObject(underPlatform, OBJECT_GROUP::MAP);

@@ -20,6 +20,7 @@ public:
 
 	// 애니메이션 플레이 함수
 	void PlayAnim(const wstring& _strName, bool _bRepeat, int _repeatcnt = 1);
+	void StopAnim(const wstring& _strName);
 public:
 	Object* GetObj() const { return m_pOwner; }
 	const bool& GetRepeat() const { return m_IsRepeat; }

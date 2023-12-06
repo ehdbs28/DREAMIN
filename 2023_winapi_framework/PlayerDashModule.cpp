@@ -10,7 +10,8 @@
 
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
-	, m_dashDest(Vec2(0, 0))
+	, m_dashDir(Vec2(0.f, 0.f))
+	, m_dashSpeed(1000.f)
 {
 }
 
@@ -21,28 +22,28 @@ PlayerDashModule::~PlayerDashModule()
 void PlayerDashModule::EnterModule()
 {
 	BaseModule::EnterModule();
+
+	m_dashDir = Vec2(0.f, 0.f);
 	if (KEY_PRESS(KEY_TYPE::UP)) {
-		m_dashDest.y = (float)WINDOW_HEIGHT / 5.f + m_pController->GetOwner()->GetScale().y / 2.f;
+		m_dashDir.y = -1;
 	}
 	else if (KEY_PRESS(KEY_TYPE::DOWN)) {
-		m_dashDest.y = (float)WINDOW_HEIGHT - ((float)WINDOW_HEIGHT / 5.f + m_pController->GetOwner()->GetScale().y / 2.f);
+		m_dashDir.y = 1;
 	}
 	else if (KEY_PRESS(KEY_TYPE::LEFT)) {
-		m_dashDest.x = 0.f + m_pController->GetOwner()->GetScale().x / 2.f;
+		m_dashDir.x = -1;
 	}
 	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
-		m_dashDest.x = WINDOW_WIDTH - m_pController->GetOwner()->GetScale().x / 2.f;
+		m_dashDir.x = 1;
 	}
 
-	Player* player = (Player*)m_pController->GetOwner();
+	Rigidbody* rigidbody = m_pController->GetOwner()->GetRigidbody();
 
-	if (player->GetPos().y != m_dashDest.y) {
-		player->ChangeGravity();
-		player->SetPos(m_dashDest);
+	if (m_dashDir.y != 0 && rigidbody->GetGravityScale() != m_dashDir.y) {
+		rigidbody->SetGravityScale(m_dashDir.y);
 	}
-	else {
-		player->SetPos(m_dashDest);
-	}
+
+	rigidbody->AddForce(m_dashDir * m_dashSpeed);
 
 	m_pController->ChangeModule(L"IdleModule");
 }

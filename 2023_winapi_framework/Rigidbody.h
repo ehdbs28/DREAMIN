@@ -16,9 +16,11 @@ public:
 	void SetVelocity(Vec2 _velocity) { m_velocity = _velocity; }
 	void AddVelocity(Vec2 _velocity) { m_velocity += _velocity; }
 	void SetMaxVelocity(float _maxVelocity) { m_maxVelocity = _maxVelocity; }
+	void SetGravityScale(int _gravityScale) { m_gravityScale = _gravityScale; }
 
 public:
 	const Vec2& GetVelocity() const { return m_velocity; }
+	const int& GetGravityScale() const { return m_gravityScale; }
 
 private:
 	void ApplyVelocity();
@@ -37,6 +39,7 @@ private:
 	float m_maxVelocity;
 
 	float m_gravity;
+	int m_gravityScale;
 
 };
 

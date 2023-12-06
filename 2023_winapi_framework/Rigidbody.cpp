@@ -11,6 +11,7 @@ Rigidbody::Rigidbody()
 	, m_velocity(Vec2(0.f, 0.f))
 	, m_maxVelocity(10000.f)
 	, m_gravity(1400.f)
+	, m_gravityScale(1)
 {
 }
 
@@ -21,7 +22,7 @@ Rigidbody::~Rigidbody()
 void Rigidbody::FinalUpdate()
 {
 	if (!m_pOwner->IsGround()) {
-		m_force.y = m_gravity;
+		m_force.y = m_gravity * m_gravityScale;
 	}
 	
 	m_accel = m_force / m_fMass;

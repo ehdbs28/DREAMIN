@@ -19,7 +19,7 @@ PlayerJumpModule::~PlayerJumpModule()
 
 void PlayerJumpModule::EnterModule()
 {
-	m_pRigidbody->SetVelocity(Vec2(0.f, m_fJumpPower));
+	m_pRigidbody->SetVelocity(Vec2(0.f, m_fJumpPower * m_pRigidbody->GetGravityScale()));
 	BaseModule::EnterModule();
 }
 

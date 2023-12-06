@@ -19,11 +19,11 @@
 #include "PlayerJumpModule.h"
 #include "PlayerFallModule.h"
 #include "Boss.h"
+#include "Rigidbody.h"
 
 Player::Player()
 	: m_pTex(nullptr)
 	, m_pModuleController(nullptr)
-	, m_gravityDir(1)
 	, m_target(nullptr)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\PlayerMinsung.bmp");
@@ -118,19 +118,14 @@ void Player::Render(HDC _dc)
 
 void Player::EnterCollision(Collider* _other)
 {
-	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
+	if (_other->GetObj()->GetName() == (GetRigidbody()->GetGravityScale() == 1 ? L"UnderGround" : L"UpperGround")) {
 		m_isGround = true;
 	}
 }
 
 void Player::ExitCollision(Collider* _other)
 {
-	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
+	if (_other->GetObj()->GetName() == (GetRigidbody()->GetGravityScale() == 1 ? L"UnderGround" : L"UpperGround")) {
 		m_isGround = false;
 	}
-}
-
-void Player::ChangeGravity()
-{
-	m_gravityDir *= -1;
 }

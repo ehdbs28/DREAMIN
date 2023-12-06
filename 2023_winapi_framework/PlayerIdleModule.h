@@ -1,8 +1,8 @@
 #pragma once
-#include "BaseModule.h"
+#include "PlayerGroundModule.h"
 
 class PlayerIdleModule :
-    public BaseModule
+    public PlayerGroundModule
 {
 public:
 	PlayerIdleModule(ModuleController* _controller);

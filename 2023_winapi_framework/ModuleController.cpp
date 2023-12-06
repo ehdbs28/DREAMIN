@@ -17,7 +17,7 @@ ModuleController::~ModuleController()
 
 void ModuleController::Update()
 {
-	if (m_currentModule != nullptr) {
+	if (m_currentModule != nullptr && m_currentModule->GetActive()) {
 		m_currentModule->UpdateModule();
 	}
 }

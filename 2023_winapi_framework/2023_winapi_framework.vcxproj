@@ -194,7 +194,10 @@
     <ClInclude Include="PlayerAirModule.h" />
     <ClInclude Include="PlayerAttackModule.h" />
     <ClInclude Include="PlayerDashModule.h" />
+    <ClInclude Include="PlayerFallModule.h" />
+    <ClInclude Include="PlayerGroundModule.h" />
     <ClInclude Include="PlayerIdleModule.h" />
+    <ClInclude Include="PlayerJumpModule.h" />
     <ClInclude Include="PlayerMovementModule.h" />
     <ClInclude Include="Res.h" />
     <ClInclude Include="ResMgr.h" />
@@ -233,7 +236,10 @@
     <ClCompile Include="PlayerAirModule.cpp" />
     <ClCompile Include="PlayerAttackModule.cpp" />
     <ClCompile Include="PlayerDashModule.cpp" />
+    <ClCompile Include="PlayerFallModule.cpp" />
+    <ClCompile Include="PlayerGroundModule.cpp" />
     <ClCompile Include="PlayerIdleModule.cpp" />
+    <ClCompile Include="PlayerJumpModule.cpp" />
     <ClCompile Include="PlayerMovementModule.cpp" />
     <ClCompile Include="Res.cpp" />
     <ClCompile Include="ResMgr.cpp" />

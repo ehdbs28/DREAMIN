@@ -8,22 +8,12 @@ public:
 	virtual ~PlayerDashModule();
 
 public:
+	virtual void EnterModule() override;
 	virtual void UpdateModule() override;
-
-private:
-	void InputSetting();
-	void Dash();
-
-public:
-	const bool& IsDash() { return m_isDash; }
+	virtual void ExitModule() override;
 
 private:
 	Vec2 m_dashDest;
-
-	float m_dashDurationTimer;
-	float m_dashDuration;
-
-	bool m_isDash;
 
 };
 

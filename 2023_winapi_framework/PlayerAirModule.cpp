@@ -25,7 +25,17 @@ void PlayerAirModule::UpdateModule()
 	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
 		m_inputDir.x = 1;
 	}
+	else {
+		m_inputDir.x = 0;
+	}
+
+	if (KEY_DOWN(KEY_TYPE::Z)) {
+		m_pController->ChangeModule(L"DashModule");
+		return;
+	}
 
 	Rigidbody* rigid = m_pController->GetOwner()->GetRigidbody();
-	rigid->SetVelocity(m_inputDir * m_fMovementSpeed * fDT);
+	Vec2 velocity = rigid->GetVelocity();
+	velocity.x = (float)m_inputDir.x * m_fMovementSpeed;
+	rigid->SetVelocity(velocity);
 }

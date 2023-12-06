@@ -9,9 +9,8 @@ Rigidbody::Rigidbody()
 	, m_fMass(1.f)
 	, m_accel(Vec2(0.f, 0.f))
 	, m_velocity(Vec2(0.f, 0.f))
-	, m_maxVelocity(5.f)
-	, m_friction(0.01f)
-	, m_gravity(4.9f)
+	, m_maxVelocity(10000.f)
+	, m_gravity(1400.f)
 {
 }
 
@@ -22,24 +21,11 @@ Rigidbody::~Rigidbody()
 void Rigidbody::FinalUpdate()
 {
 	if (!m_pOwner->IsGround()) {
-		m_force.y += m_gravity * fDT;
+		m_force.y = m_gravity;
 	}
 	
 	m_accel = m_force / m_fMass;
 	m_velocity += m_accel * fDT;
-
-	if (m_velocity.x != 0.f || m_velocity.y != 0.f) {
-		Vec2 friction = -m_velocity;
-		Vec2 frictionDir = friction.Normalized();
-		friction = frictionDir * m_friction;
-
-		if (m_velocity.Length() <= friction.Length()) {
-			m_velocity = Vec2(0.f, 0.f);
-		}
-		else {
-			m_velocity += friction;
-		}
-	}
 
 	float velocity = m_velocity.Length();
 	if (m_maxVelocity < velocity) {
@@ -53,7 +39,7 @@ void Rigidbody::FinalUpdate()
 void Rigidbody::ApplyVelocity()
 {
 	Vec2 vPos = m_pOwner->GetPos();
-	vPos += m_velocity;
+	vPos += m_velocity * fDT;
 	vPos = ClampPosition(vPos);
 	m_pOwner->SetPos(vPos);
 }

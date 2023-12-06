@@ -22,6 +22,10 @@ PlayerAttackModule::~PlayerAttackModule()
 {
 }
 
+void PlayerAttackModule::EnterModule()
+{
+}
+
 void PlayerAttackModule::UpdateModule()
 {
 	InputSetting();
@@ -31,6 +35,10 @@ void PlayerAttackModule::UpdateModule()
 			m_isAttack = false;
 		}
 	}
+}
+
+void PlayerAttackModule::ExitModule()
+{
 }
 
 void PlayerAttackModule::InputSetting()

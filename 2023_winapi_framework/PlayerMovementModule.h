@@ -1,7 +1,7 @@
 #pragma once
-#include "BaseModule.h"
+#include "PlayerGroundModule.h"
 
-class PlayerMovementModule : public BaseModule
+class PlayerMovementModule : public PlayerGroundModule
 {
 public:
 	PlayerMovementModule(ModuleController* _controller);

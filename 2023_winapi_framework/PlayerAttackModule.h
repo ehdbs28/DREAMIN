@@ -10,7 +10,9 @@ public:
 	virtual ~PlayerAttackModule();
 
 public:
+	virtual void EnterModule() override;
 	virtual void UpdateModule() override;
+	virtual void ExitModule() override;
 
 private:
 	void InputSetting();

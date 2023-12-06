@@ -16,6 +16,8 @@
 #include "PlayerAttackModule.h"
 #include "PlayerDashModule.h"
 #include "PlayerIdleModule.h"
+#include "PlayerJumpModule.h"
+#include "PlayerFallModule.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -53,10 +55,14 @@ Player::Player()
 
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);
+	
 	m_pModuleController->AddModule(L"IdleModule", new PlayerIdleModule(m_pModuleController));
 	m_pModuleController->AddModule(L"MovementModule", new PlayerMovementModule(m_pModuleController));
-	//m_pModuleController->AddModule(L"AttackModule", new PlayerAttackModule(m_pModuleController));
-	//m_pModuleController->AddModule(L"DashModule", new PlayerDashModule(m_pModuleController));
+	m_pModuleController->AddModule(L"JumpModule", new PlayerJumpModule(m_pModuleController));
+	m_pModuleController->AddModule(L"FallModule", new PlayerFallModule(m_pModuleController));
+	m_pModuleController->AddModule(L"AttackModule", new PlayerAttackModule(m_pModuleController));
+	m_pModuleController->AddModule(L"DashModule", new PlayerDashModule(m_pModuleController));
+	
 	m_pModuleController->ChangeModule(L"IdleModule");
 }
 

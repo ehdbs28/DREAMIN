@@ -9,7 +9,7 @@
 #include "Player.h"
 
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
-	: BaseModule(_controller)
+	: PlayerGroundModule(_controller)
 	, m_fMovementSpeed(300.f)
 	, m_inputDir(Vec2(0, 0))
 {
@@ -21,18 +21,28 @@ PlayerMovementModule::~PlayerMovementModule()
 
 void PlayerMovementModule::EnterModule()
 {
+	BaseModule::EnterModule();
 }
 
 void PlayerMovementModule::UpdateModule()
 {
+	PlayerGroundModule::UpdateModule();
+
 	SetInputValue();
+	if (m_inputDir.x == 0) {
+		m_pController->ChangeModule(L"IdleModule");
+		return;
+	}
 
 	Rigidbody* pRigidbody = m_pController->GetOwner()->GetRigidbody();
-	pRigidbody->SetVelocity(m_inputDir * m_fMovementSpeed * fDT);
+	Vec2 velocity = pRigidbody->GetVelocity();
+	velocity.x = m_inputDir.x * m_fMovementSpeed;
+	pRigidbody->SetVelocity(velocity);
 }
 
 void PlayerMovementModule::ExitModule()
 {
+	BaseModule::ExitModule();
 }
 
 void PlayerMovementModule::SetInputValue()
@@ -44,13 +54,6 @@ void PlayerMovementModule::SetInputValue()
 		m_inputDir.x = 1;
 	}
 	else {
-		m_pController->ChangeModule(L"IdleModule");
-	}
-
-	if (KEY_DOWN(KEY_TYPE::X)) {
-		if (m_pController->GetOwner()->IsGround()) {
-			return;
-		}
-		m_pController->ChangeModule(L"JumpModule");
+		m_inputDir.x = 0;
 	}
 }

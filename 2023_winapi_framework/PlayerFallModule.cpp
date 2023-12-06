@@ -19,11 +19,11 @@ void PlayerFallModule::EnterModule()
 
 void PlayerFallModule::UpdateModule()
 {
-	PlayerAirModule::UpdateModule();
 	if (m_pController->GetOwner()->IsGround()) {
 		m_pController->ChangeModule(L"IdleModule");
 		return;
 	}
+	PlayerAirModule::UpdateModule();
 }
 
 void PlayerFallModule::ExitModule()

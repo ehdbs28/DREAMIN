@@ -34,6 +34,11 @@ void PlayerAirModule::UpdateModule()
 		return;
 	}
 
+	if (KEY_PRESS(KEY_TYPE::C)) {
+		m_pController->ChangeModule(L"AttackModule");
+		return;
+	}
+
 	Rigidbody* rigid = m_pController->GetOwner()->GetRigidbody();
 	Vec2 velocity = rigid->GetVelocity();
 	velocity.x = (float)m_inputDir.x * m_fMovementSpeed;

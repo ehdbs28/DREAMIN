@@ -23,12 +23,11 @@ void PlayerIdleModule::EnterModule()
 
 void PlayerIdleModule::UpdateModule()
 {
-	PlayerGroundModule::UpdateModule();
-
 	if (KEY_PRESS(KEY_TYPE::LEFT) || KEY_PRESS(KEY_TYPE::RIGHT)) {
 		m_pController->ChangeModule(L"MovementModule");
 		return;
 	}
+	PlayerGroundModule::UpdateModule();
 }
 
 void PlayerIdleModule::ExitModule()

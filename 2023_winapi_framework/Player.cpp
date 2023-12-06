@@ -18,11 +18,13 @@
 #include "PlayerIdleModule.h"
 #include "PlayerJumpModule.h"
 #include "PlayerFallModule.h"
+#include "Boss.h"
 
 Player::Player()
 	: m_pTex(nullptr)
 	, m_pModuleController(nullptr)
 	, m_gravityDir(1)
+	, m_target(nullptr)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\jiwoo.bmp");
 

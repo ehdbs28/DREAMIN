@@ -25,11 +25,11 @@ void PlayerJumpModule::EnterModule()
 
 void PlayerJumpModule::UpdateModule()
 {
-	PlayerAirModule::UpdateModule();
 	if (m_pRigidbody->GetVelocity().y >= 0.f) {
 		m_pController->ChangeModule(L"FallModule");
 		return;
 	}
+	PlayerAirModule::UpdateModule();
 }
 
 void PlayerJumpModule::ExitModule()

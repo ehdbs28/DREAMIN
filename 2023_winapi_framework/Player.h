@@ -3,6 +3,7 @@
 
 class Texture;
 class ModuleController;
+class Boss;
 
 class Player :
     public Object
@@ -21,6 +22,10 @@ public:
 
 public:
     const int& GetGravityDir() const { return m_gravityDir; }
+    const Boss* GetTarget() const { return m_target; }
+
+public:
+    void SetTarget(Boss* _target) { m_target = _target; }
 
 public:
     void ChangeGravity();
@@ -31,5 +36,6 @@ private:
 
     int m_gravityDir;
 
+    Boss* m_target;
 };
 

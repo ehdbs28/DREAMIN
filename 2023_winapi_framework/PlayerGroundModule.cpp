@@ -15,13 +15,18 @@ PlayerGroundModule::~PlayerGroundModule()
 
 void PlayerGroundModule::UpdateModule()
 {
-	if (KEY_DOWN(KEY_TYPE::X)) {
+	if (m_pController->GetOwner()->IsGround() && KEY_PRESS(KEY_TYPE::X)) {
 		m_pController->ChangeModule(L"JumpModule");
 		return;
 	}
 
 	if (KEY_DOWN(KEY_TYPE::Z)) {
 		m_pController->ChangeModule(L"DashModule");
+		return;
+	}
+
+	if (KEY_PRESS(KEY_TYPE::C)) {
+		m_pController->ChangeModule(L"AttackModule");
 		return;
 	}
 

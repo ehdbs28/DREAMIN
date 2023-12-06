@@ -26,8 +26,6 @@ void PlayerMovementModule::EnterModule()
 
 void PlayerMovementModule::UpdateModule()
 {
-	PlayerGroundModule::UpdateModule();
-
 	SetInputValue();
 	if (m_inputDir.x == 0) {
 		m_pController->ChangeModule(L"IdleModule");
@@ -38,6 +36,7 @@ void PlayerMovementModule::UpdateModule()
 	Vec2 velocity = pRigidbody->GetVelocity();
 	velocity.x = m_inputDir.x * m_fMovementSpeed;
 	pRigidbody->SetVelocity(velocity);
+	PlayerGroundModule::UpdateModule();
 }
 
 void PlayerMovementModule::ExitModule()

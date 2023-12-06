@@ -34,5 +34,7 @@ private:
 	float m_maxVelocity;
 	float m_friction;
 
+	float m_gravity;
+
 };
 

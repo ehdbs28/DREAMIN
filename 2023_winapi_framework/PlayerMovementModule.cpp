@@ -48,7 +48,7 @@ void PlayerMovementModule::SetInputValue()
 	}
 
 	if (KEY_DOWN(KEY_TYPE::X)) {
-		if (!((Player*)m_pController->GetOwner())->IsGround()) {
+		if (m_pController->GetOwner()->IsGround()) {
 			return;
 		}
 		m_pController->ChangeModule(L"JumpModule");

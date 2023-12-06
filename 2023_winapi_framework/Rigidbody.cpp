@@ -11,6 +11,7 @@ Rigidbody::Rigidbody()
 	, m_velocity(Vec2(0.f, 0.f))
 	, m_maxVelocity(5.f)
 	, m_friction(0.01f)
+	, m_gravity(4.9f)
 {
 }
 
@@ -20,6 +21,10 @@ Rigidbody::~Rigidbody()
 
 void Rigidbody::FinalUpdate()
 {
+	if (!m_pOwner->IsGround()) {
+		m_force.y += m_gravity * fDT;
+	}
+	
 	m_accel = m_force / m_fMass;
 	m_velocity += m_accel * fDT;
 

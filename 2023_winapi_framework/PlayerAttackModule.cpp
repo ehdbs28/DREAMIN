@@ -58,6 +58,7 @@ void PlayerAttackModule::Attack()
 	CreateBullet();
 }
 
+//토대로 보스 총알 패턴 제작
 void PlayerAttackModule::CreateBullet()
 {
 	Bullet* pBullet = new Bullet(OBJECT_GROUP::PLAYER);

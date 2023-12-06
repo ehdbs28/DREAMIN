@@ -211,6 +211,12 @@
     <ClInclude Include="BossPattern.h">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClInclude>
+    <ClInclude Include="LaserPattern.h">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletPattern.h">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -323,6 +329,12 @@
       <Filter>Engine\04. Object\Boss\Module</Filter>
     </ClCompile>
     <ClCompile Include="BossPattern.cpp">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserPattern.cpp">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletPattern.cpp">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClCompile>
   </ItemGroup>

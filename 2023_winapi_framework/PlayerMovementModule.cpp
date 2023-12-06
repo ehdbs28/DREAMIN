@@ -9,15 +9,9 @@
 #include "Player.h"
 
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
-	: BaseModule(_controller)
-	, m_fGravity(2.45f)
+	: PlayerGroundModule(_controller)
 	, m_fMovementSpeed(300.f)
-	, m_fJumpPower(-1000.f)
 	, m_inputDir(Vec2(0, 0))
-	, m_movementVelocity(Vec2(0, 0))
-	, m_verticalVelocity(Vec2(0, 0))
-	, m_frontDir(Vec2(1, 0))
-	, m_isGround(false)
 {
 }
 
@@ -25,51 +19,40 @@ PlayerMovementModule::~PlayerMovementModule()
 {
 }
 
+void PlayerMovementModule::EnterModule()
+{
+	BaseModule::EnterModule();
+}
+
 void PlayerMovementModule::UpdateModule()
 {
 	SetInputValue();
-	CalcMovement();
-
-	if (((PlayerDashModule*)m_pController->GetModule(L"DashModule"))->IsDash()) {
+	if (m_inputDir.x == 0) {
+		m_pController->ChangeModule(L"IdleModule");
 		return;
 	}
 
 	Rigidbody* pRigidbody = m_pController->GetOwner()->GetRigidbody();
-	pRigidbody->SetVelocity(m_movementVelocity * fDT);
+	Vec2 velocity = pRigidbody->GetVelocity();
+	velocity.x = m_inputDir.x * m_fMovementSpeed;
+	pRigidbody->SetVelocity(velocity);
+	PlayerGroundModule::UpdateModule();
+}
+
+void PlayerMovementModule::ExitModule()
+{
+	BaseModule::ExitModule();
 }
 
 void PlayerMovementModule::SetInputValue()
 {
 	if (KEY_PRESS(KEY_TYPE::LEFT)) {
-		m_frontDir.x = -1;
 		m_inputDir.x = -1;
 	}
 	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
-		m_frontDir.x = 1;
 		m_inputDir.x = 1;
 	}
 	else {
 		m_inputDir.x = 0;
-	}
-
-	if (KEY_DOWN(KEY_TYPE::X)) {
-		if (!m_isGround) {
-			return;
-		}
-
-		m_verticalVelocity.y = m_fJumpPower;
-	}
-}
-
-void PlayerMovementModule::CalcMovement()
-{
-	m_movementVelocity = m_inputDir * m_fMovementSpeed;
-	m_movementVelocity = m_movementVelocity + (m_verticalVelocity * ((Player*)m_pController->GetOwner())->GetGravityDir());
-
-	if (m_isGround && m_verticalVelocity.y > 0.0f) {
-		m_verticalVelocity.y = 0.1f;
-	}
-	else {
-		m_verticalVelocity.y += m_fGravity;
 	}
 }

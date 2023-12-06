@@ -17,12 +17,21 @@ ModuleController::~ModuleController()
 
 void ModuleController::Update()
 {
-	for (auto& pair : m_moduleMap) {
-		pair.second->UpdateModule();
+	if (m_currentModule != nullptr && m_currentModule->GetActive()) {
+		m_currentModule->UpdateModule();
 	}
 }
 
 void ModuleController::AddModule(wstring _key, BaseModule* _module)
 {
 	m_moduleMap.insert({ _key, _module });
+}
+
+void ModuleController::ChangeModule(wstring _key)
+{
+	if (m_currentModule != nullptr) {
+		m_currentModule->ExitModule();
+	}
+	m_currentModule = m_moduleMap[_key];
+	m_currentModule->EnterModule();
 }

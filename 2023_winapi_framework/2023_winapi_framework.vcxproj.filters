@@ -92,6 +92,15 @@
     <Filter Include="Engine\04. Object\Boss\Pattern">
       <UniqueIdentifier>{d849cb10-3032-44c9-bc78-0eaea866042b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\IdleModule">
+      <UniqueIdentifier>{2b9bd81f-f24f-4a4d-8f93-d84d9ede5115}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\JumpModule">
+      <UniqueIdentifier>{00c1969b-3086-4b6a-9fee-1767aa6e34a7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\FallModule">
+      <UniqueIdentifier>{d43ff71d-94f5-45b1-92a2-dbbe337fece6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -211,11 +220,20 @@
     <ClInclude Include="BossPattern.h">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClInclude>
-    <ClInclude Include="LaserPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    <ClInclude Include="PlayerIdleModule.h">
+      <Filter>Engine\04. Object\Player\Module\IdleModule</Filter>
     </ClInclude>
-    <ClInclude Include="BulletPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    <ClInclude Include="PlayerAirModule.h">
+      <Filter>Engine\04. Object\Player\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerFallModule.h">
+      <Filter>Engine\04. Object\Player\Module\FallModule</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerJumpModule.h">
+      <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
+    </ClInclude>
+    <ClInclude Include="PlayerGroundModule.h">
+      <Filter>Engine\04. Object\Player\Module</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -331,11 +349,20 @@
     <ClCompile Include="BossPattern.cpp">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClCompile>
-    <ClCompile Include="LaserPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    <ClCompile Include="PlayerIdleModule.cpp">
+      <Filter>Engine\04. Object\Player\Module\IdleModule</Filter>
     </ClCompile>
-    <ClCompile Include="BulletPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    <ClCompile Include="PlayerAirModule.cpp">
+      <Filter>Engine\04. Object\Player\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerFallModule.cpp">
+      <Filter>Engine\04. Object\Player\Module\FallModule</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerJumpModule.cpp">
+      <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
+    </ClCompile>
+    <ClCompile Include="PlayerGroundModule.cpp">
+      <Filter>Engine\04. Object\Player\Module</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

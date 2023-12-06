@@ -14,6 +14,7 @@ Object::Object()
 	, m_IsAlive(true)
 	, m_pAnimator(nullptr)
 	, m_pRigidbody(nullptr)
+	, m_isGround(false)
 {
 }
 

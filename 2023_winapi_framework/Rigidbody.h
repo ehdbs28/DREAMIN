@@ -17,6 +17,9 @@ public:
 	void AddVelocity(Vec2 _velocity) { m_velocity += _velocity; }
 	void SetMaxVelocity(float _maxVelocity) { m_maxVelocity = _maxVelocity; }
 
+public:
+	const Vec2& GetVelocity() const { return m_velocity; }
+
 private:
 	void ApplyVelocity();
 	Vec2 ClampPosition(Vec2 _vPos);
@@ -32,7 +35,8 @@ private:
 	Vec2 m_velocity;
 
 	float m_maxVelocity;
-	float m_friction;
+
+	float m_gravity;
 
 };
 

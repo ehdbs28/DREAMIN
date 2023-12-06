@@ -15,11 +15,16 @@
 #include "PlayerMovementModule.h"
 #include "PlayerAttackModule.h"
 #include "PlayerDashModule.h"
+#include "PlayerIdleModule.h"
+#include "PlayerJumpModule.h"
+#include "PlayerFallModule.h"
+#include "Boss.h"
 
 Player::Player()
 	: m_pTex(nullptr)
 	, m_pModuleController(nullptr)
 	, m_gravityDir(1)
+	, m_target(nullptr)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Player", L"Texture\\jiwoo.bmp");
 
@@ -52,9 +57,15 @@ Player::Player()
 
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);
+	
+	m_pModuleController->AddModule(L"IdleModule", new PlayerIdleModule(m_pModuleController));
 	m_pModuleController->AddModule(L"MovementModule", new PlayerMovementModule(m_pModuleController));
+	m_pModuleController->AddModule(L"JumpModule", new PlayerJumpModule(m_pModuleController));
+	m_pModuleController->AddModule(L"FallModule", new PlayerFallModule(m_pModuleController));
 	m_pModuleController->AddModule(L"AttackModule", new PlayerAttackModule(m_pModuleController));
 	m_pModuleController->AddModule(L"DashModule", new PlayerDashModule(m_pModuleController));
+	
+	m_pModuleController->ChangeModule(L"IdleModule");
 }
 
 Player::~Player()
@@ -77,16 +88,14 @@ void Player::Render(HDC _dc)
 void Player::EnterCollision(Collider* _other)
 {
 	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
-		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
-			->SetGround(true);
+		m_isGround = true;
 	}
 }
 
 void Player::ExitCollision(Collider* _other)
 {
 	if (_other->GetObj()->GetName() == (m_gravityDir == 1 ? L"UnderGround" : L"UpperGround")) {
-		((PlayerMovementModule*)m_pModuleController->GetModule(L"MovementModule"))
-			->SetGround(false);
+		m_isGround = false;
 	}
 }
 

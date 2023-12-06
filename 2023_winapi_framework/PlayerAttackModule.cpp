@@ -1,20 +1,20 @@
 #include "pch.h"
 #include "PlayerAttackModule.h"
-#include "KeyMgr.h"
 #include "TimeMgr.h"
 #include "ModuleController.h"
 #include "Object.h"
+#include "KeyMgr.h"
 #include "Bullet.h"
+#include "Player.h"
 #include "SceneMgr.h"
 #include "Scene.h"
+#include "Boss.h"
 
 PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
-	, m_pTarget(nullptr)
 	, m_fAttackDelayTimer(0.f)
 	, m_fAttackDelay(0.1f)
 	, m_fDamage(10.f)
-	, m_isAttack(false)
 {
 }
 
@@ -22,50 +22,40 @@ PlayerAttackModule::~PlayerAttackModule()
 {
 }
 
+void PlayerAttackModule::EnterModule()
+{
+	Shot();
+	m_fAttackDelayTimer = 0.f;
+	BaseModule::EnterModule();
+}
+
 void PlayerAttackModule::UpdateModule()
 {
-	InputSetting();
-	if (m_isAttack) {
-		m_fAttackDelayTimer += fDT;
-		if (m_fAttackDelayTimer >= m_fAttackDelay) {
-			m_isAttack = false;
-		}
-	}
-}
-
-void PlayerAttackModule::InputSetting()
-{
-	if (KEY_PRESS(KEY_TYPE::C)) {
-		Attack();
-	}
-
-	Vec2 mousePos = KeyMgr::GetInst()->GetMousePos();
-	Vec2 vPos = m_pController->GetOwner()->GetPos();
-	Vec2 mouseDir = (mousePos - vPos).Normalize();
-
-	m_attackDir = mouseDir;
-	m_attackPoint = vPos + mouseDir * 30;
-}
-
-void PlayerAttackModule::Attack()
-{
-	if (m_isAttack) {
+	m_fAttackDelayTimer += fDT;
+	if (m_fAttackDelayTimer >= m_fAttackDelay) {
+		m_pController->ChangeModule(L"IdleModule");
 		return;
 	}
-
-	m_isAttack = true;
-	m_fAttackDelayTimer = 0.f;
-	CreateBullet();
 }
 
-//토대로 보스 총알 패턴 제작
-void PlayerAttackModule::CreateBullet()
+void PlayerAttackModule::ExitModule()
 {
+	BaseModule::ExitModule();
+}
+
+void PlayerAttackModule::Shot()
+{
+	//Vec2 targetPos = ((Player*)m_pController->GetOwner())->GetTarget()->GetPos();
+	Vec2 targetPos = KeyMgr::GetInst()->GetMousePos();
+	Vec2 vPos = m_pController->GetOwner()->GetPos();
+	Vec2 targetDir = (targetPos - vPos).Normalize();
+	Vec2 attackPoint = vPos + targetDir * 30;
+
 	Bullet* pBullet = new Bullet(OBJECT_GROUP::PLAYER);
 	pBullet->SetName(L"PlayerBullet");
-	pBullet->SetPos(m_attackPoint);
+	pBullet->SetPos(attackPoint);
 	pBullet->SetScale(Vec2(25.f, 25.f));
-	pBullet->SetDir(m_attackDir);
+	pBullet->SetDir(targetDir);
 
 	SceneMgr::GetInst()->GetCurScene()->AddObject(pBullet, OBJECT_GROUP::BULLET);
 }

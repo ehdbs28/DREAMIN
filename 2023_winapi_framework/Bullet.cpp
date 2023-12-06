@@ -5,6 +5,7 @@
 #include "Texture.h"
 #include "EventMgr.h"
 #include "Collider.h"
+#include "Core.h"
 
 Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 	: m_ownerObjectGroup(_ownerObjectGroup)
@@ -68,28 +69,27 @@ void Bullet::Render(HDC _dc)
 		tPoint[i].y = fyDest + vPos.y;
 	}
 
+	POINT resolusion = Core::GetInst()->GetResolution();
 	HDC tempDC = CreateCompatibleDC(_dc);
-	HBITMAP tempBitmap = CreateCompatibleBitmap(_dc, Width, Height);
+	HBITMAP tempBitmap = CreateCompatibleBitmap(_dc, resolusion.x, resolusion.y);
 	SelectObject(tempDC, tempBitmap);
 
-	PatBlt(tempDC, 0, 0, Width, Height, WHITENESS);
-
-	TransparentBlt(
-		tempDC,
-		0, 0, Width, Height,
-		m_pTex->GetDC(),
-		0, 0, Width,Height,
-		RGB(255,0,255)
-	);
-
-	PlgBlt(_dc,
+	BitBlt(tempDC, 0, 0, resolusion.x, resolusion.y, _dc, 0, 0, SRCCOPY);
+	PlgBlt(tempDC,
 		tPoint,
-		tempDC,
+		m_pTex->GetDC(),
 		0, 0, Width, Height,
 		nullptr, 0, 0
 	);
+	TransparentBlt(
+		_dc,
+		0, 0, resolusion.x, resolusion.y,
+		tempDC,
+		0, 0, resolusion.x, resolusion.y,
+		RGB(255, 0, 255)
+	);
 	
-	//Component_Render(_dc);
+	Component_Render(_dc);
 
 	DeleteDC(tempDC);
 	DeleteObject(tempBitmap);

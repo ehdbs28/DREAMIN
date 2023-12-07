@@ -21,20 +21,14 @@ public:
     void ExitCollision(Collider* _other) override;
 
 public:
-    const int& GetGravityDir() const { return m_gravityDir; }
     const Boss* GetTarget() const { return m_target; }
 
 public:
     void SetTarget(Boss* _target) { m_target = _target; }
 
-public:
-    void ChangeGravity();
-
 private:
     Texture* m_pTex;
     ModuleController* m_pModuleController;
-
-    int m_gravityDir;
 
     Boss* m_target;
 };

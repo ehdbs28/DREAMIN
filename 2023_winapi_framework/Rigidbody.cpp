@@ -11,6 +11,7 @@ Rigidbody::Rigidbody()
 	, m_velocity(Vec2(0.f, 0.f))
 	, m_maxVelocity(10000.f)
 	, m_gravity(1400.f)
+	, m_gravityScale(1)
 {
 }
 
@@ -21,7 +22,7 @@ Rigidbody::~Rigidbody()
 void Rigidbody::FinalUpdate()
 {
 	if (!m_pOwner->IsGround()) {
-		m_force.y = m_gravity;
+		m_force.y = m_gravity * m_gravityScale;
 	}
 	
 	m_accel = m_force / m_fMass;
@@ -52,5 +53,13 @@ Vec2 Rigidbody::ClampPosition(Vec2 _vPos)
 	else if (_vPos.x > WINDOW_WIDTH - m_pOwner->GetScale().x / 2.f) {
 		_vPos.x = WINDOW_WIDTH - m_pOwner->GetScale().x / 2.f;
 	}
+
+	if (_vPos.y < (float)WINDOW_HEIGHT / 5.f) {
+		_vPos.y = (float)WINDOW_HEIGHT / 5.f;
+	}
+	else if (_vPos.y > (float)WINDOW_HEIGHT - ((float)WINDOW_HEIGHT / 5.f + m_pOwner->GetScale().y / 2.f - 1.f)) {
+		_vPos.y = (float)WINDOW_HEIGHT - ((float)WINDOW_HEIGHT / 5.f + m_pOwner->GetScale().y / 2.f - 1.f);
+	}
+
 	return _vPos;
 }

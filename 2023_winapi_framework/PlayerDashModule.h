@@ -13,7 +13,11 @@ public:
 	virtual void ExitModule() override;
 
 private:
-	Vec2 m_dashDest;
+	Vec2 m_dashDir;
+	float m_dashSpeed;
+
+	float m_dashDuration;
+	float m_dashDurationTimer;
 
 };
 

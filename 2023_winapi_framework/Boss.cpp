@@ -28,6 +28,7 @@ Boss::Boss()
 
 	std::vector<Object*> objs = SceneMgr::GetInst()->GetCurScene()->GetGroupObject(OBJECT_GROUP::PLAYER);
 	m_pTarget = (Player*)objs.front();
+	m_pTarget->SetTarget(this);
 }
 
 Boss::~Boss()

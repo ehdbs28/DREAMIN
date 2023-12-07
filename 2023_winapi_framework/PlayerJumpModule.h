@@ -17,7 +17,6 @@ public:
 
 private:
     float m_fJumpPower;
-    Rigidbody* m_pRigidbody;
 
 };
 

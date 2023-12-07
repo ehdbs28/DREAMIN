@@ -8,9 +8,7 @@
 PlayerJumpModule::PlayerJumpModule(ModuleController* _controller)
 	: PlayerAirModule(_controller)
 	, m_fJumpPower(-540.f)
-	, m_pRigidbody(nullptr)
 {
-	m_pRigidbody = m_pController->GetOwner()->GetRigidbody();
 }
 
 PlayerJumpModule::~PlayerJumpModule()

@@ -16,8 +16,7 @@ PlayerIdleModule::~PlayerIdleModule()
 
 void PlayerIdleModule::EnterModule()
 {
-	Rigidbody* pRigid = m_pController->GetOwner()->GetRigidbody();
-	pRigid->SetVelocity(Vec2(0.f, 0.f));
+	m_pRigidbody->SetVelocity(Vec2(0.f, 0.f));
 	BaseModule::EnterModule();
 }
 

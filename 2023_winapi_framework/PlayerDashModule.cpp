@@ -41,13 +41,11 @@ void PlayerDashModule::EnterModule()
 		m_dashDir.x = 1;
 	}
 
-	Rigidbody* rigidbody = m_pController->GetOwner()->GetRigidbody();
-
-	if (m_dashDir.y != 0 && rigidbody->GetGravityScale() != m_dashDir.y) {
-		rigidbody->SetGravityScale(m_dashDir.y);
+	if (m_dashDir.y != 0 && m_pRigidbody->GetGravityScale() != m_dashDir.y) {
+		m_pRigidbody->SetGravityScale(m_dashDir.y);
 	}
 
-	rigidbody->SetVelocity(m_dashDir * m_dashSpeed);
+	m_pRigidbody->SetVelocity(m_dashDir * m_dashSpeed);
 }
 
 void PlayerDashModule::UpdateModule()

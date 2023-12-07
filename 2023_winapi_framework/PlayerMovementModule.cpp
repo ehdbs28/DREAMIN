@@ -23,6 +23,15 @@ PlayerMovementModule::~PlayerMovementModule()
 void PlayerMovementModule::EnterModule()
 {
 	BaseModule::EnterModule();	
+
+	if (m_inputDir.x == -1)
+	{
+		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Top", true);
+	}
+	else if (m_inputDir.x == 1)
+	{
+		m_pAnimator->PlayAnim(L"Minsung_Walk_Right_Top", true);
+	}
 }
 
 void PlayerMovementModule::UpdateModule()
@@ -33,26 +42,16 @@ void PlayerMovementModule::UpdateModule()
 		return;
 	}
 
-	Animator* animator = m_pController->GetOwner()->GetAnimator();
-	if (m_inputDir.x == -1)
-	{
-		animator->PlayAnim(L"Minsung_Walk_Left_Top", false);
-	}
-	else if (m_inputDir.x == 1)
-	{
-		animator->PlayAnim(L"Minsung_Walk_Right_Top", false);
-	}
-
-	Rigidbody* pRigidbody = m_pController->GetOwner()->GetRigidbody();
-	Vec2 velocity = pRigidbody->GetVelocity();
+	Vec2 velocity = m_pRigidbody->GetVelocity();
 	velocity.x = m_inputDir.x * m_fMovementSpeed;
-	pRigidbody->SetVelocity(velocity);
+	m_pRigidbody->SetVelocity(velocity);
 	PlayerGroundModule::UpdateModule();
 }
 
 void PlayerMovementModule::ExitModule()
 {
 	BaseModule::ExitModule();
+	m_pAnimator->StopAnim();
 }
 
 void PlayerMovementModule::SetInputValue()

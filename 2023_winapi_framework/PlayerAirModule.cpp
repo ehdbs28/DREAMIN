@@ -39,8 +39,7 @@ void PlayerAirModule::UpdateModule()
 		return;
 	}
 
-	Rigidbody* rigid = m_pController->GetOwner()->GetRigidbody();
-	Vec2 velocity = rigid->GetVelocity();
+	Vec2 velocity = m_pRigidbody->GetVelocity();
 	velocity.x = (float)m_inputDir.x * m_fMovementSpeed;
-	rigid->SetVelocity(velocity);
+	m_pRigidbody->SetVelocity(velocity);
 }

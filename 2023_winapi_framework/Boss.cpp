@@ -10,6 +10,7 @@
 #include "Player.h"
 #include "Object.h"
 #include "Rigidbody.h"
+#include "Collider.h"
 
 Boss::Boss()
 	: m_pTex(nullptr)
@@ -18,6 +19,9 @@ Boss::Boss()
 {
 	CreateRigidbody();
 	GetRigidbody()->SetGravityScale(0.f);
+
+	CreateCollider();
+	GetCollider()->SetScale(Vec2(100.f, 100.f));
 
 	m_pModuleController = new ModuleController;
 	m_pModuleController->SetOwner(this);

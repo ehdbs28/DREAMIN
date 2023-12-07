@@ -46,8 +46,8 @@ void PlayerAttackModule::ExitModule()
 
 void PlayerAttackModule::Shot()
 {
-	//Vec2 targetPos = ((Player*)m_pController->GetOwner())->GetTarget()->GetPos();
-	Vec2 targetPos = KeyMgr::GetInst()->GetMousePos();
+	Vec2 targetPos = ((Player*)m_pController->GetOwner())->GetTarget()->GetPos();
+	//Vec2 targetPos = KeyMgr::GetInst()->GetMousePos();
 	Vec2 vPos = m_pController->GetOwner()->GetPos();
 	Vec2 targetDir = (targetPos - vPos).Normalize();
 	Vec2 attackPoint = vPos + targetDir * 30;

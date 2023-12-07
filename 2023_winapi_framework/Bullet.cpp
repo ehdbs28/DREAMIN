@@ -97,14 +97,10 @@ void Bullet::Render(HDC _dc)
 
 void Bullet::EnterCollision(Collider* _pOther)
 {
-	if (_pOther->GetObj()->GetName() == L"UnderGround" ||
-		_pOther->GetObj()->GetName() == L"UpperGround") {
-		EventMgr::GetInst()->DeleteObject(this);
-	}
-
 	if (m_ownerObjectGroup == OBJECT_GROUP::PLAYER) {
 		if (_pOther->GetObj()->GetName().rfind(L"Boss", 0) == 0) {
 			// damage logic
+			int a;
 		}
 	}
 	else if (m_ownerObjectGroup == OBJECT_GROUP::MONSTER) {
@@ -112,4 +108,6 @@ void Bullet::EnterCollision(Collider* _pOther)
 			// damage logic
 		}
 	}
+
+	EventMgr::GetInst()->DeleteObject(this);
 }

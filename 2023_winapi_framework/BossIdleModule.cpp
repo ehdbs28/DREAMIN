@@ -28,7 +28,7 @@ void BossIdleModule::UpdateModule()
 {
 	m_cooldownTimer += fDT;
 	if (m_cooldownTimer >= m_cooldown) {
-		m_pController->ChangeModule(L"PatternModule");
+		//m_pController->ChangeModule(L"PatternModule");
 	}
 }
 

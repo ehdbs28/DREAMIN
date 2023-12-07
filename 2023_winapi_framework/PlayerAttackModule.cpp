@@ -25,6 +25,7 @@ PlayerAttackModule::~PlayerAttackModule()
 void PlayerAttackModule::EnterModule()
 {
 	Shot();
+	
 	m_fAttackDelayTimer = 0.f;
 	BaseModule::EnterModule();
 }

@@ -7,6 +7,7 @@
 #include "Rigidbody.h"
 #include "PlayerDashModule.h"
 #include "Player.h"
+#include "Animator.h"
 
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	: PlayerGroundModule(_controller)
@@ -21,7 +22,7 @@ PlayerMovementModule::~PlayerMovementModule()
 
 void PlayerMovementModule::EnterModule()
 {
-	BaseModule::EnterModule();
+	BaseModule::EnterModule();	
 }
 
 void PlayerMovementModule::UpdateModule()
@@ -30,6 +31,16 @@ void PlayerMovementModule::UpdateModule()
 	if (m_inputDir.x == 0) {
 		m_pController->ChangeModule(L"IdleModule");
 		return;
+	}
+
+	Animator* animator = m_pController->GetOwner()->GetAnimator();
+	if (m_inputDir.x == -1)
+	{
+		animator->PlayAnim(L"Minsung_Walk_Left_Top", false);
+	}
+	else if (m_inputDir.x == 1)
+	{
+		animator->PlayAnim(L"Minsung_Walk_Right_Top", false);
 	}
 
 	Rigidbody* pRigidbody = m_pController->GetOwner()->GetRigidbody();

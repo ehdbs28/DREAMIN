@@ -1,6 +1,8 @@
 #pragma once
 
 class ModuleController;
+class Rigidbody;
+class Animator;
 
 class BaseModule
 {
@@ -18,6 +20,9 @@ public:
 
 protected:
 	ModuleController*		m_pController;
+	Rigidbody*				m_pRigidbody;
+	Animator*				m_pAnimator;
+
 	bool m_active;
 
 };

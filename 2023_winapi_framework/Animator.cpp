@@ -63,7 +63,7 @@ void Animator::PlayAnim(const wstring& _strName, bool _bRepeat, int _repeatcnt)
 	m_repeatcnt = _repeatcnt;
 }
 
-void Animator::StopAnim(const wstring& _strName)
+void Animator::StopAnim()
 {
-	m_pCurAnim = NULL;
+	m_pCurAnim = nullptr;
 }

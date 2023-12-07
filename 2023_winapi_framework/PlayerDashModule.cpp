@@ -7,6 +7,7 @@
 #include "Rigidbody.h"
 #include "Player.h"
 #include "PlayerMovementModule.h"
+#include "Animator.h"
 
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -23,6 +24,7 @@ PlayerDashModule::~PlayerDashModule()
 
 void PlayerDashModule::EnterModule()
 {
+	
 	BaseModule::EnterModule();
 
 	m_dashDir = Vec2(0.f, 0.f);

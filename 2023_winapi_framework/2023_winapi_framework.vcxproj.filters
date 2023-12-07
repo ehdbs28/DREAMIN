@@ -101,6 +101,12 @@
     <Filter Include="Engine\04. Object\Player\Module\FallModule">
       <UniqueIdentifier>{d43ff71d-94f5-45b1-92a2-dbbe337fece6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\AirModule">
+      <UniqueIdentifier>{30861136-fcbb-4b4f-9b62-d6dc767e3fbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Player\Module\GroundModule">
+      <UniqueIdentifier>{9d8080e9-962a-46dd-9ecc-90eda07e7c4a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -223,17 +229,19 @@
     <ClInclude Include="PlayerIdleModule.h">
       <Filter>Engine\04. Object\Player\Module\IdleModule</Filter>
     </ClInclude>
-    <ClInclude Include="PlayerAirModule.h">
-      <Filter>Engine\04. Object\Player\Module</Filter>
-    </ClInclude>
     <ClInclude Include="PlayerFallModule.h">
       <Filter>Engine\04. Object\Player\Module\FallModule</Filter>
     </ClInclude>
     <ClInclude Include="PlayerJumpModule.h">
       <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
     </ClInclude>
+    <ClInclude Include="BulletPattern.h" />
+    <ClInclude Include="LaserPattern.h" />
+    <ClInclude Include="PlayerAirModule.h">
+      <Filter>Engine\04. Object\Player\Module\AirModule</Filter>
+    </ClInclude>
     <ClInclude Include="PlayerGroundModule.h">
-      <Filter>Engine\04. Object\Player\Module</Filter>
+      <Filter>Engine\04. Object\Player\Module\GroundModule</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -352,17 +360,19 @@
     <ClCompile Include="PlayerIdleModule.cpp">
       <Filter>Engine\04. Object\Player\Module\IdleModule</Filter>
     </ClCompile>
-    <ClCompile Include="PlayerAirModule.cpp">
-      <Filter>Engine\04. Object\Player\Module</Filter>
-    </ClCompile>
     <ClCompile Include="PlayerFallModule.cpp">
       <Filter>Engine\04. Object\Player\Module\FallModule</Filter>
     </ClCompile>
     <ClCompile Include="PlayerJumpModule.cpp">
       <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
     </ClCompile>
+    <ClCompile Include="BulletPattern.cpp" />
+    <ClCompile Include="LaserPattern.cpp" />
+    <ClCompile Include="PlayerAirModule.cpp">
+      <Filter>Engine\04. Object\Player\Module\AirModule</Filter>
+    </ClCompile>
     <ClCompile Include="PlayerGroundModule.cpp">
-      <Filter>Engine\04. Object\Player\Module</Filter>
+      <Filter>Engine\04. Object\Player\Module\GroundModule</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

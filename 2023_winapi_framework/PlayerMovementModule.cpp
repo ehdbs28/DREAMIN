@@ -24,14 +24,6 @@ void PlayerMovementModule::EnterModule()
 {
 	BaseModule::EnterModule();	
 
-	if (m_inputDir.x == -1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Top", true);
-	}
-	else if (m_inputDir.x == 1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Walk_Right_Top", true);
-	}
 }
 
 void PlayerMovementModule::UpdateModule()
@@ -41,6 +33,24 @@ void PlayerMovementModule::UpdateModule()
 		m_pController->ChangeModule(L"IdleModule");
 		return;
 	}
+
+	int nowGravity = m_pRigidbody->GetGravityScale();
+	if (nowGravity == 1)
+	{
+		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Top", false);
+	}
+	else if (nowGravity == -1)
+	{
+		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Bottom", false);
+	}
+	/*if (m_inputDir.x == -1)
+	{
+		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Top", false);
+	}
+	else if (m_inputDir.x == 1)
+	{
+		m_pAnimator->PlayAnim(L"Minsung_Walk_Right_Top", false);
+	}*/
 
 	Vec2 velocity = m_pRigidbody->GetVelocity();
 	velocity.x = m_inputDir.x * m_fMovementSpeed;

@@ -18,5 +18,7 @@ public:
 private:
     float m_fJumpPower;
 
+    Vec2 m_inputDir;
+
 };
 

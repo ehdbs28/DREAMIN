@@ -4,6 +4,8 @@
 #include "ModuleController.h"
 #include "Object.h"
 #include "TimeMgr.h"
+#include "Animator.h"
+
 
 PlayerJumpModule::PlayerJumpModule(ModuleController* _controller)
 	: PlayerAirModule(_controller)
@@ -18,6 +20,9 @@ PlayerJumpModule::~PlayerJumpModule()
 void PlayerJumpModule::EnterModule()
 {
 	m_pRigidbody->SetVelocity(Vec2(0.f, m_fJumpPower * m_pRigidbody->GetGravityScale()));
+	int gravity = m_pRigidbody->GetGravityScale();
+	// 1이면 바닥에 있는거고 -1이면 천장에 있는거
+	m_pAnimator->PlayAnim(L"Minsung_Jump_Right_Top", false);
 	BaseModule::EnterModule();
 }
 

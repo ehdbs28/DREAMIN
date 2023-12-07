@@ -2,6 +2,8 @@
 #include "PlayerFallModule.h"
 #include "ModuleController.h"
 #include "Object.h"
+#include "Animator.h"
+
 
 PlayerFallModule::PlayerFallModule(ModuleController* _controller)
 	: PlayerAirModule(_controller)

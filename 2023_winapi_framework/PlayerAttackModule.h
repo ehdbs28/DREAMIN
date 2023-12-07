@@ -22,5 +22,6 @@ private:
 	float m_fAttackDelay;
 
 	float m_fDamage;
+	Vec2 m_inputDir;
 };
 

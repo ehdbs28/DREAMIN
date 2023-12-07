@@ -11,7 +11,9 @@
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
 	, m_dashDir(Vec2(0.f, 0.f))
-	, m_dashSpeed(1000.f)
+	, m_dashSpeed(5000.f)
+	, m_dashDuration(0.2f)
+	, m_dashDurationTimer(0.f)
 {
 }
 
@@ -24,6 +26,8 @@ void PlayerDashModule::EnterModule()
 	BaseModule::EnterModule();
 
 	m_dashDir = Vec2(0.f, 0.f);
+	m_dashDurationTimer = 0.f;
+
 	if (KEY_PRESS(KEY_TYPE::UP)) {
 		m_dashDir.y = -1;
 	}
@@ -43,13 +47,16 @@ void PlayerDashModule::EnterModule()
 		rigidbody->SetGravityScale(m_dashDir.y);
 	}
 
-	rigidbody->AddForce(m_dashDir * m_dashSpeed);
-
-	m_pController->ChangeModule(L"IdleModule");
+	rigidbody->SetVelocity(m_dashDir * m_dashSpeed);
 }
 
 void PlayerDashModule::UpdateModule()
 {
+	m_dashDurationTimer += fDT;
+	if (m_dashDurationTimer >= m_dashDuration) {
+		m_pController->ChangeModule(L"IdleModule");
+		return;
+	}
 }
 
 void PlayerDashModule::ExitModule()

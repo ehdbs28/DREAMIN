@@ -16,5 +16,8 @@ private:
 	Vec2 m_dashDir;
 	float m_dashSpeed;
 
+	float m_dashDuration;
+	float m_dashDurationTimer;
+
 };
 

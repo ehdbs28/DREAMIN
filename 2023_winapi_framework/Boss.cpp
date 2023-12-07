@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include "Player.h"
 #include "Object.h"
+#include "Rigidbody.h"
 
 Boss::Boss()
 	: m_pTex(nullptr)
@@ -15,7 +16,11 @@ Boss::Boss()
 	, m_pTarget(nullptr)
 {
 	CreateRigidbody();
+	GetRigidbody()->SetGravityScale(0.f);
+
 	m_pModuleController = new ModuleController;
+	m_pModuleController->SetOwner(this);
+
 	m_pModuleController->AddModule(L"PatternModule", new BossPatternModule(m_pModuleController));
 
 	std::vector<Object*> objs = SceneMgr::GetInst()->GetCurScene()->GetGroupObject(OBJECT_GROUP::PLAYER);

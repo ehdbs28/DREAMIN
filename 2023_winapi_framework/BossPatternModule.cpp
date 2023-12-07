@@ -13,10 +13,15 @@ BossPatternModule::BossPatternModule(ModuleController* _controller)
 
 BossPatternModule::~BossPatternModule()
 {
+	for (int i = 0; i < m_vecPattern.size(); i++) {
+		delete m_vecPattern[i];
+	}
+	m_vecPattern.clear();
 }
 
 void BossPatternModule::EnterModule()
 {
+	BaseModule::EnterModule();
 }
 
 void BossPatternModule::UpdateModule()
@@ -34,9 +39,10 @@ void BossPatternModule::UpdateModule()
 
 void BossPatternModule::ExitModule()
 {
+	BaseModule::ExitModule();
 }
 
-void BossPatternModule::AddModule(BossPattern* _newPattern)
+void BossPatternModule::AddPattern(BossPattern* _newPattern)
 {
 	m_vecPattern.push_back(_newPattern);
 }

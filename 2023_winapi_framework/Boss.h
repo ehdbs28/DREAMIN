@@ -10,7 +10,7 @@ class Boss
 {
 public:
 	Boss();
-	~Boss();
+	virtual ~Boss();
 
 public:
 	virtual void Update() override;

@@ -21,19 +21,15 @@ BossPatternModule::~BossPatternModule()
 
 void BossPatternModule::EnterModule()
 {
+	SelectPattern();
 	BaseModule::EnterModule();
 }
 
 void BossPatternModule::UpdateModule()
 {
-	if (m_currentPattern == nullptr) {
-		SelectPattern();
-	}
-	else {
-		m_currentPattern->ExcutePattern();
-		if (!m_currentPattern->IsExcute()) {
-			SelectPattern();
-		}
+	m_currentPattern->ExcutePattern();
+	if (!m_currentPattern->IsExcute()) {
+		m_pController->ChangeModule(L"IdleModule");
 	}
 }
 

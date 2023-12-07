@@ -18,8 +18,5 @@ protected:
 	ModuleController* m_pModuleController;
 	bool m_isExecute;
 
-	float m_patternDuration;
-	float m_patternDurationTimer;
-
 };
 

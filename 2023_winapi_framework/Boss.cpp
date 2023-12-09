@@ -69,5 +69,5 @@ void Boss::DeadHandle()
 	particle->SetPos(GetPos());
 	particle->SetScale(Vec2(155, 155));
 	SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
-	std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Clear();
+	std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->SetClear();
 }

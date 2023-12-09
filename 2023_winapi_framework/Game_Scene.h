@@ -1,9 +1,6 @@
 #pragma once
 #include "Scene.h"
 
-class Player;
-class Boss;
-
 class Game_Scene :
     public Scene
 {
@@ -18,11 +15,21 @@ public:
     virtual void Release() override;
 
 public:
+    void SetFail() { m_isFailed = true; }
+    void SetClear() { m_isCleared = true; }
+
+public:
     void Restart();
-    void Clear();
+    void NextStage();
 
 private:
     int m_stageNum;
+
+    float m_executeTimer;
+    float m_exexuteDelay;
+
+    bool m_isFailed;
+    bool m_isCleared;
 
 };
 

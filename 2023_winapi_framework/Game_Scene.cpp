@@ -9,9 +9,15 @@
 #include "Player.h"
 #include "Boss.h"
 #include "SceneMgr.h"
+#include "KeyMgr.h"
+#include "TimeMgr.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
+	, m_executeTimer(0.f)
+	, m_exexuteDelay(0.5f)
+	, m_isCleared(false)
+	, m_isFailed(false)
 {
 }
 
@@ -21,6 +27,10 @@ Game_Scene::~Game_Scene()
 
 void Game_Scene::Init()
 {
+	m_isCleared = false;
+	m_isFailed = false;
+	m_executeTimer = 0.f;
+
 	float platformHeight = (float)WINDOW_HEIGHT / 5.f;
 	float platformPoint = platformHeight / 2.f;
 
@@ -70,11 +80,50 @@ void Game_Scene::Init()
 void Game_Scene::Update()
 {
 	Scene::Update();
+
+	if (m_isFailed) {
+		if (m_executeTimer < m_exexuteDelay) {
+			m_executeTimer += fDT;
+		}
+		else {
+			m_executeTimer = m_exexuteDelay;
+		}
+
+		if (KEY_PRESS(KEY_TYPE::R)) {
+			Restart();
+		}
+	}
 }
 
 void Game_Scene::Render(HDC _dc)
 {
 	Scene::Render(_dc);
+
+	if (!m_isFailed) {
+		return;
+	}
+
+	HDC tempDC = CreateCompatibleDC(_dc);
+	HBITMAP tempBitmap = CreateCompatibleBitmap(_dc, WINDOW_WIDTH, WINDOW_HEIGHT);
+	SelectObject(tempDC, tempBitmap);
+	PatBlt(tempDC, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT, BLACKNESS);
+
+	float percent = m_executeTimer / m_exexuteDelay;
+
+	BLENDFUNCTION bf;
+	bf.BlendOp = 0;
+	bf.BlendFlags = 0;
+	bf.SourceConstantAlpha = 200 * percent;
+	bf.AlphaFormat = AC_SRC_OVER;
+
+	GdiAlphaBlend(
+		_dc, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT,
+		tempDC, 0, 0, WINDOW_WIDTH, WINDOW_HEIGHT,
+		bf
+	);
+
+	DeleteObject(tempBitmap);
+	DeleteDC(tempDC);
 }
 
 void Game_Scene::Release()
@@ -88,9 +137,11 @@ void Game_Scene::Restart()
 	SceneMgr::GetInst()->LoadScene(nextStage);
 }
 
-void Game_Scene::Clear()
+void Game_Scene::NextStage()
 {
+	m_isCleared = true;
 	if (m_stageNum > MAX_STAGE) {
+		//
 		Release();
 	}
 	else {

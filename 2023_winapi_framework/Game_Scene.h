@@ -17,15 +17,12 @@ public:
     virtual void Render(HDC _dc) override;
     virtual void Release() override;
 
-private:
+public:
     void Restart();
     void Clear();
 
 private:
     int m_stageNum;
-
-    Boss* m_pBoss;
-    Player* m_pPlayer;
 
 };
 

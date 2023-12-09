@@ -20,6 +20,8 @@
 #include "PlayerFallModule.h"
 #include "Boss.h"
 #include "Rigidbody.h"
+#include "DamageCaster.h"
+#include "Game_Scene.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -33,6 +35,8 @@ Player::Player()
 	GetCollider()->SetScale(Vec2(30.f,50.f));
 	
 	CreateAnimator();
+#pragma region Add Animation Clip
+
 	GetAnimator()->CreateAnim(L"Minsung_Idle_Right_Top", m_pTex,Vec2(0.f, 0.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Idle_Left_Top", m_pTex, Vec2(0.f, 16.f),
@@ -73,7 +77,8 @@ Player::Player()
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.05f);
 	GetAnimator()->CreateAnim(L"Minsung_Shoot_Left_Bottom", m_pTex, Vec2(0.f, 304.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.05f);
-	GetAnimator()->PlayAnim(L"Minsung_Idle_Right_Top",true);
+
+#pragma endregion
 
 	//// 오프셋 건드리기
 	//Animation* pAnim = GetAnimator()->FindAnim(L"Jiwoo_Front");
@@ -85,6 +90,10 @@ Player::Player()
 	//	pAnim->SetFrameOffset(i, Vec2(0.f, 20.f));
 
 	CreateRigidbody();
+	CreateDamageCaster();
+	GetDamageCaster()->OnDamageOverCallback = []() {
+		std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Restart();
+	};
 
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);

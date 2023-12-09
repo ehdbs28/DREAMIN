@@ -38,26 +38,27 @@ void Game_Scene::Init()
 	backGround->SetPos(Vec2(0, -WINDOW_HEIGHT));
 	backGround->Setting(m_stageNum);
 
-	m_pPlayer = new Player;
-	m_pPlayer->SetName(L"Player");
-	m_pPlayer->SetPos(Vec2(100.f, (float)WINDOW_HEIGHT / 2.f));
-	m_pPlayer->SetScale(Vec2(80, 80));
+	Player* player = new Player;
+	player->SetName(L"Player");
+	player->SetPos(Vec2(100.f, (float)WINDOW_HEIGHT / 2.f));
+	player->SetScale(Vec2(80, 80));
 
 	AddObject(backGround, OBJECT_GROUP::BACKGROUND);
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);
 	AddObject(underPlatform, OBJECT_GROUP::MAP);
-	AddObject(m_pPlayer , OBJECT_GROUP::PLAYER);
+	AddObject(player, OBJECT_GROUP::PLAYER);
 
+	Boss* boss = nullptr;
 	if (m_stageNum == 1) {
-		m_pBoss = new FirstBoss;
+		boss = new FirstBoss;
 	}
 	else if (m_stageNum == 2) {
-		m_pBoss = new SecondBoss;
+		boss = new SecondBoss;
 	}
-	m_pBoss->SetName(L"Boss" + std::to_wstring(m_stageNum));
-	m_pBoss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f));
-	m_pBoss->SetScale(Vec2(120, 120));
-	AddObject(m_pBoss, OBJECT_GROUP::MONSTER);
+	boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
+	boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f));
+	boss->SetScale(Vec2(120, 120));
+	AddObject(boss, OBJECT_GROUP::MONSTER);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::PLAYER, OBJECT_GROUP::MAP);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::MAP);

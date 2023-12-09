@@ -1,7 +1,9 @@
 #pragma once
+
 class Collider;
 class Animator;
 class Rigidbody;
+class DamageCaster;
 
 class Object
 {
@@ -19,7 +21,7 @@ public:
 	virtual void ExitCollision(Collider* _pOther);
 	virtual void StayCollision(Collider* _pOther);
 	void Component_Render(HDC _dc);
-public:
+public: 
 	void SetPos(Vec2 _vPos) { m_vPos = _vPos; }
 	void SetScale(Vec2 _vScale) { m_vScale = _vScale; }
 	void SetAngle(float _angle) { m_fAngle = _angle; }
@@ -29,28 +31,31 @@ public:
 	Collider* GetCollider() { return m_pCollider; }
 	Animator* GetAnimator() { return m_pAnimator; }
 	Rigidbody* GetRigidbody() { return m_pRigidbody; }
+	DamageCaster* GetDamageCaster() { return m_pDamageCaster; }
 	const wstring& GetName() const { return m_strName; }
 	void SetName(wstring _name) { m_strName = _name; }
-	bool GetIsDead() const { return !m_IsAlive; }
+	void SetDead() { m_isDead = true; }
+	const bool& GetIsDead() const { return m_isDead; }
 	const bool& IsGround() const { return m_isGround; }
 	const int& GetFrontDir() const { return m_frontDir; }
 	void SetFront(int _front) { m_frontDir = _front; }
 private:
-	void SetDead() { m_IsAlive = false; }
 	friend class EventMgr;
 public:
 	void CreateCollider();
 	void CreateAnimator();
 	void CreateRigidbody();
+	void CreateDamageCaster();
 private:
 	Vec2 m_vPos; // 위치
 	Vec2 m_vScale; // 크기
 	float m_fAngle;
 	Collider* m_pCollider;
 	wstring m_strName; // 이름.
-	bool m_IsAlive;
 	Animator* m_pAnimator;
 	Rigidbody* m_pRigidbody;
+	DamageCaster* m_pDamageCaster;
+	bool m_isDead;
 	int m_frontDir;
 
 protected:

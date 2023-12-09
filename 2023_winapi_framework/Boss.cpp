@@ -11,6 +11,8 @@
 #include "Object.h"
 #include "Rigidbody.h"
 #include "Collider.h"
+#include "Game_Scene.h"
+#include "DamageCaster.h"
 
 Boss::Boss()
 	: m_pTex(nullptr)
@@ -22,6 +24,12 @@ Boss::Boss()
 
 	CreateCollider();
 	GetCollider()->SetScale(Vec2(100.f, 100.f));
+
+	CreateDamageCaster();
+	GetDamageCaster()->OnDamageOverCallback = []() {
+		std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Clear();
+	};
+		
 
 	m_pModuleController = new ModuleController;
 	m_pModuleController->SetOwner(this);

@@ -5,17 +5,19 @@
 #include "Collider.h"
 #include "Animator.h"
 #include "Rigidbody.h"
+#include "DamageCaster.h"
 
 Object::Object()
 	: m_pCollider(nullptr)
 	, m_vPos{}
 	, m_vScale{}
 	, m_fAngle(0.f)
-	, m_IsAlive(true)
 	, m_pAnimator(nullptr)
 	, m_pRigidbody(nullptr)
+	, m_pDamageCaster(nullptr)
 	, m_isGround(false)
 	, m_frontDir(1)
+	, m_isDead(false)
 {
 }
 
@@ -25,7 +27,8 @@ Object::~Object()
 		delete m_pCollider;
 	if (nullptr != m_pAnimator)
 		delete m_pAnimator;
-
+	if (nullptr != m_pDamageCaster)
+		delete m_pDamageCaster;
 }
 
 void Object::CreateCollider()
@@ -44,6 +47,12 @@ void Object::CreateRigidbody()
 {
 	m_pRigidbody = new Rigidbody;
 	m_pRigidbody->m_pOwner = this;
+}
+
+void Object::CreateDamageCaster()
+{
+	m_pDamageCaster = new DamageCaster;
+	m_pDamageCaster->m_pOwner = this;
 }
 
 void Object::FinalUpdate()

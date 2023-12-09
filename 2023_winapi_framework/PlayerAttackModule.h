@@ -21,6 +21,7 @@ private:
 	float m_fAttackDelayTimer;
 	float m_fAttackDelay;
 
-	float m_fDamage;
+	int m_damage;
+
 };
 

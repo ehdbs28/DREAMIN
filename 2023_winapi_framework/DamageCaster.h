@@ -9,7 +9,7 @@ public:
 	~DamageCaster();
 
 public:
-	void OnDamage(float _damage);
+	void OnDamage(int _damage);
 
 public:
 	const int& GetHealth() const { return m_currentHealth; }

@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "EventMgr.h"
 #include "Object.h"
+
 void EventMgr::Update()
 {
 	for (size_t i = 0; i < m_vecDead.size(); ++i)
@@ -21,7 +22,10 @@ void EventMgr::DeleteObject(Object* _pObj)
 	tEvent eve = {};
 	eve.eEve = EVENT_TYPE::DELETE_OBJECT;
 	eve.Obj = _pObj;
-	m_vecEvent.push_back(eve);
+
+	if (std::find(m_vecEvent.begin(), m_vecEvent.end(), eve) == m_vecEvent.end()) {
+		m_vecEvent.push_back(eve);
+	}
 }
 
 void EventMgr::Excute(const tEvent& _eve)

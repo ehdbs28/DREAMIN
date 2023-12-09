@@ -5,7 +5,13 @@ struct tEvent
 	EVENT_TYPE eEve; // 이벤트 타입
 	Object* Obj;
 	OBJECT_GROUP ObjType;
+
+public:
+	friend bool operator == (const tEvent& _a, const tEvent& _b) {
+		return _a.eEve == _b.eEve && _a.Obj == _b.Obj;
+	}
 };
+
 class EventMgr
 {
 	SINGLE(EventMgr);

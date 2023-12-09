@@ -15,7 +15,7 @@ DamageCaster::~DamageCaster()
 	OnDamageOverCallback = nullptr;
 }
 
-void DamageCaster::OnDamage(float _damage)
+void DamageCaster::OnDamage(int _damage)
 {
 	m_currentHealth -= _damage;
 	if (m_currentHealth <= 0.f) {

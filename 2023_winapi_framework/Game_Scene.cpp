@@ -8,6 +8,7 @@
 #include "BackGround.h"
 #include "Player.h"
 #include "Boss.h"
+#include "SceneMgr.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
@@ -44,9 +45,9 @@ void Game_Scene::Init()
 	player->SetScale(Vec2(80, 80));
 
 	AddObject(backGround, OBJECT_GROUP::BACKGROUND);
+	AddObject(player, OBJECT_GROUP::PLAYER);
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);
 	AddObject(underPlatform, OBJECT_GROUP::MAP);
-	AddObject(player, OBJECT_GROUP::PLAYER);
 
 	Boss* boss = nullptr;
 	if (m_stageNum == 1) {
@@ -87,4 +88,5 @@ void Game_Scene::Restart()
 
 void Game_Scene::Clear()
 {
+	SceneMgr::GetInst()->LoadScene(L"Stage2");
 }

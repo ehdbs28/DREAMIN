@@ -1,6 +1,8 @@
 #include "pch.h"
 #include "Scene.h"
 #include "Object.h"
+#include "EventMgr.h"
+
 Scene::Scene()
 {
 }
@@ -53,7 +55,8 @@ void Scene::Release()
 	{
 		for (size_t j = 0; j < m_vecObj[i].size(); ++j)
 		{
-			delete m_vecObj[i][j];
+			//delete m_vecObj[i][j];
+			EventMgr::GetInst()->DeleteObject(m_vecObj[i][j]);
 		}
 		m_vecObj[i].clear();
 	}

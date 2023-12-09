@@ -16,7 +16,7 @@ PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
 	, m_fAttackDelayTimer(0.f)
 	, m_fAttackDelay(0.1f)
-	, m_fDamage(10.f)
+	, m_damage(10.f)
 {
 	SetAnimationKey(L"Minsung_Shoot");
 }
@@ -62,7 +62,7 @@ void PlayerAttackModule::Shot()
 	pBullet->SetName(L"PlayerBullet");
 	pBullet->SetPos(attackPoint);
 	pBullet->SetScale(Vec2(90.f, 90.f));
-	pBullet->SetDamage(m_fDamage);
+	pBullet->SetDamage(m_damage);
 	pBullet->SetDir(targetDir);
 
 	SceneMgr::GetInst()->GetCurScene()->AddObject(pBullet, OBJECT_GROUP::BULLET);

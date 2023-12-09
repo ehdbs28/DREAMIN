@@ -58,6 +58,7 @@ void Core::GameLoop()
 	}*/
 	Update();
 	Render();
+	EventMgr::GetInst()->Update();
 }
 
 
@@ -67,25 +68,8 @@ void Core::Update()
 	// === Manager Update === 
 	TimeMgr::GetInst()->Update();
 	KeyMgr::GetInst()->Update();
-	SceneMgr::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
-//	Vec2 vPos = m_obj.GetPos();
-//
-////	if (GetAsyncKeyState(VK_LEFT) & 0x8000)
-////	if(KeyMgr::GetInst()->GetKey(KEY_TYPE::LEFT) == KEY_STATE::UP)
-//	if(KEY_UP(KEY_TYPE::LEFT))
-//	{
-////		m_obj.m_ptPos.x -= 1;
-//		vPos.x -= 100.f;// *fDT;
-//	}
-//
-////	if (GetAsyncKeyState(VK_RIGHT) & 0x8000)
-//	if(KEY_DOWN(KEY_TYPE::RIGHT))
-//	{
-////		m_obj.m_ptPos.x += 1;
-//		vPos.x += 100.f * fDT;
-//	}
-//	m_obj.SetPos(vPos);
+	SceneMgr::GetInst()->Update();
 }
 
 void Core::Render()
@@ -96,8 +80,6 @@ void Core::Render()
 
 	BitBlt(m_hDC, 0,0, m_ptResolution.x, m_ptResolution.y, 
 		m_hbackDC, 0,0, SRCCOPY);
-
-	EventMgr::GetInst()->Update();
 }
 
 void Core::CreateGDI()

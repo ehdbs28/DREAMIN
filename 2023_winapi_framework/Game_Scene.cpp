@@ -88,5 +88,11 @@ void Game_Scene::Restart()
 
 void Game_Scene::Clear()
 {
-	SceneMgr::GetInst()->LoadScene(L"Stage2");
+	if (m_stageNum > MAX_STAGE) {
+		Release();
+	}
+	else {
+		wstring nextStage = L"Stage" + std::to_wstring(m_stageNum + 1);
+		SceneMgr::GetInst()->LoadScene(nextStage);
+	}
 }

@@ -29,7 +29,7 @@ void Game_Scene::Init()
 	BackGround* backGround = new BackGround;
 	backGround->SetName(L"BackGround");
 	backGround->SetPos(Vec2(0, -WINDOW_HEIGHT));
-	backGround->Setting(2);
+	backGround->Setting(1);
 
 	AddObject(backGround, OBJECT_GROUP::BACKGROUND);
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);

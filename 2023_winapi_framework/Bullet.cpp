@@ -15,6 +15,7 @@ Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Bullet", L"Texture\\Bullet.bmp");
 	CreateCollider();
+	GetCollider()->SetScale(Vec2(20.f, 50.f));
 }
 
 Bullet::~Bullet()

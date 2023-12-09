@@ -24,7 +24,7 @@ Boss::Boss()
 	GetRigidbody()->SetGravityScale(0.f);
 
 	CreateCollider();
-	GetCollider()->SetScale(Vec2(100.f, 100.f));
+	GetCollider()->SetScale(Vec2(120.f, 120.f));
 
 	CreateDamageCaster();
 	GetDamageCaster()->SetMaxHealth(100);

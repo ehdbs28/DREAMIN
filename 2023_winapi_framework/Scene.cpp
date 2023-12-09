@@ -2,6 +2,7 @@
 #include "Scene.h"
 #include "Object.h"
 #include "EventMgr.h"
+#include "CollisionMgr.h"
 
 Scene::Scene()
 {
@@ -51,6 +52,7 @@ void Scene::Render(HDC _dc)
 
 void Scene::Release()
 {
+	CollisionMgr::GetInst()->CheckReset();
 	for (UINT i = 0; i < (UINT)OBJECT_GROUP::END; ++i)
 	{
 		for (size_t j = 0; j < m_vecObj[i].size(); ++j)

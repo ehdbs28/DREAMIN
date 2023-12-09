@@ -17,9 +17,6 @@ public:
 public:
 	void SetMaxHealth(int _maxHealth) { m_maxHealth = m_currentHealth = _maxHealth; }
 
-public:
-	void(*OnDamageOverCallback)();
-
 private:
 	Object* m_pOwner;
 	friend class Object;

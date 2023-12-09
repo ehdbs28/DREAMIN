@@ -24,6 +24,9 @@ public:
     void SetDamage(int _damage) { m_damage = _damage; }
 
 private:
+    void Destroy();
+
+private:
     Texture* m_pTex;
 
     OBJECT_GROUP m_ownerObjectGroup;

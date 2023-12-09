@@ -29,6 +29,7 @@ public:
 
 public:
     void OnDamage(float _damage);
+    void DeadHandle() override;
 
 private:
     Texture* m_pTex;

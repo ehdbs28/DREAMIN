@@ -41,7 +41,7 @@ void Game_Scene::Init()
 
 	Player* player = new Player;
 	player->SetName(L"Player");
-	player->SetPos(Vec2(100.f, (float)WINDOW_HEIGHT / 2.f));
+	player->SetPos(Vec2(100.f, (float)WINDOW_HEIGHT - platformPoint));
 	player->SetScale(Vec2(80, 80));
 
 	AddObject(backGround, OBJECT_GROUP::BACKGROUND);
@@ -84,6 +84,8 @@ void Game_Scene::Release()
 
 void Game_Scene::Restart()
 {
+	wstring nextStage = L"Stage" + std::to_wstring(m_stageNum);
+	SceneMgr::GetInst()->LoadScene(nextStage);
 }
 
 void Game_Scene::Clear()

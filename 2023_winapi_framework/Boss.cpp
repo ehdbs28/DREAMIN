@@ -13,6 +13,7 @@
 #include "Collider.h"
 #include "Game_Scene.h"
 #include "DamageCaster.h"
+#include "Particle.h"
 
 Boss::Boss()
 	: m_pTex(nullptr)
@@ -27,9 +28,6 @@ Boss::Boss()
 
 	CreateDamageCaster();
 	GetDamageCaster()->SetMaxHealth(100);
-	GetDamageCaster()->OnDamageOverCallback = []() {
-		std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Clear();
-	};
 
 	m_pModuleController = new ModuleController;
 	m_pModuleController->SetOwner(this);
@@ -63,4 +61,13 @@ void Boss::Render(HDC _dc)
 void Boss::OnDamage(float _damage)
 {
 	GetDamageCaster()->OnDamage(_damage);
+}
+
+void Boss::DeadHandle()
+{
+	Particle* particle = new Particle(PARTICLE_TYPE::BOSS_DEAD, 0.06f, false);
+	particle->SetPos(GetPos());
+	particle->SetScale(Vec2(155, 155));
+	SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
+	std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Clear();
 }

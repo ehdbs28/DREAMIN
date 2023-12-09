@@ -28,7 +28,15 @@ enum class OBJECT_GROUP
 	MONSTER,
 	PLAYER,
 	MAP,
+	PARTICLE,
 	END = 30
+};
+
+enum class PARTICLE_TYPE {
+	BOSS_DEAD,
+	PLAYER_DEAD,
+	PLAYER_SHOOT,
+	BULLET_DESTROY
 };
 
 enum class PEN_TYPE

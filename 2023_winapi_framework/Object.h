@@ -46,6 +46,10 @@ public:
 	void CreateAnimator();
 	void CreateRigidbody();
 	void CreateDamageCaster();
+
+public:
+	virtual void DeadHandle();
+
 private:
 	Vec2 m_vPos; // 위치
 	Vec2 m_vScale; // 크기

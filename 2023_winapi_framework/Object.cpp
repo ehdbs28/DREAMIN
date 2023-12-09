@@ -55,6 +55,10 @@ void Object::CreateDamageCaster()
 	m_pDamageCaster->m_pOwner = this;
 }
 
+void Object::DeadHandle()
+{
+}
+
 void Object::FinalUpdate()
 {
 	if (m_pCollider)

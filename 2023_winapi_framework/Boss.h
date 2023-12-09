@@ -22,6 +22,9 @@ public:
 public:
 	void OnDamage(float _damage);
 
+private:
+	void DeadHandle() override;
+
 protected:
 	Player* m_pTarget;
 

@@ -8,6 +8,9 @@
 #include "Core.h"
 #include "Boss.h"
 #include "Player.h"
+#include "Particle.h"
+#include "SceneMgr.h"
+#include "Scene.h"
 
 Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 	: m_ownerObjectGroup(_ownerObjectGroup)
@@ -31,7 +34,7 @@ void Bullet::Update()
 
 	if (vPos.x < 0 || vPos.x > WINDOW_WIDTH ||
 		vPos.y < 0 || vPos.y > WINDOW_HEIGHT) {
-		EventMgr::GetInst()->DeleteObject(this);
+		Destroy();
 	}
 
 	vPos.x += m_fSpeed * fDT * m_dir.x;
@@ -104,16 +107,25 @@ void Bullet::EnterCollision(Collider* _pOther)
 	if (m_ownerObjectGroup == OBJECT_GROUP::PLAYER) {
 		if (_pOther->GetObj()->GetName().rfind(L"Boss", 0) == 0) {
 			((Boss*)_pOther->GetObj())->OnDamage(m_damage);
-			EventMgr::GetInst()->DeleteObject(this);
+			Destroy();
 		}
 	}
 	else if (m_ownerObjectGroup == OBJECT_GROUP::MONSTER) {
 		if (_pOther->GetObj()->GetName() == L"Player") {
 			((Player*)_pOther->GetObj())->OnDamage(m_damage);
-			EventMgr::GetInst()->DeleteObject(this);
+			Destroy();
 		}
 	}
 	else {
-		EventMgr::GetInst()->DeleteObject(this);
+		Destroy();
 	}
+}
+
+void Bullet::Destroy()
+{
+	Particle* particle = new Particle(PARTICLE_TYPE::BULLET_DESTROY, 0.05f, false);
+	particle->SetPos(GetPos());
+	particle->SetScale(Vec2(60, 60));
+	SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
+	EventMgr::GetInst()->DeleteObject(this);
 }

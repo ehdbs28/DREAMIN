@@ -22,6 +22,9 @@
 #include "Rigidbody.h"
 #include "DamageCaster.h"
 #include "Game_Scene.h"
+#include "Particle.h"
+#include "SceneMgr.h"
+#include "Scene.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -92,10 +95,7 @@ Player::Player()
 	CreateRigidbody();
 
 	CreateDamageCaster();
-	GetDamageCaster()->SetMaxHealth(10);
-	GetDamageCaster()->OnDamageOverCallback = []() {
-		std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Restart();
-	};
+	GetDamageCaster()->SetMaxHealth(1);
 
 	m_pModuleController = new ModuleController();
 	m_pModuleController->SetOwner(this);
@@ -118,6 +118,10 @@ Player::~Player()
 
 void Player::Update()
 {
+	if (KEY_PRESS(KEY_TYPE::D)) {
+		GetDamageCaster()->OnDamage(10);
+	}
+
 	m_pModuleController->Update();
 	GetAnimator()->Update();
 }
@@ -151,4 +155,13 @@ void Player::SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravi
 void Player::OnDamage(float _damage)
 {
 	GetDamageCaster()->OnDamage(_damage);
+}
+
+void Player::DeadHandle()
+{
+	Particle* particle = new Particle(PARTICLE_TYPE::PLAYER_DEAD, 0.06f, false);
+	particle->SetPos(GetPos());
+	particle->SetScale(Vec2(125, 125));
+	SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
+	std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Restart();
 }

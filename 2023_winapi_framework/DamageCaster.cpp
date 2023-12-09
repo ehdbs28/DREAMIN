@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "DamageCaster.h"
 #include "EventMgr.h"
+#include "Object.h"
 
 DamageCaster::DamageCaster()
-	: OnDamageOverCallback(nullptr)
-	, m_pOwner(nullptr)
+	: m_pOwner(nullptr)
 	, m_maxHealth(0)
 	, m_currentHealth(0)
 {
@@ -12,16 +12,13 @@ DamageCaster::DamageCaster()
 
 DamageCaster::~DamageCaster()
 {
-	OnDamageOverCallback = nullptr;
 }
 
 void DamageCaster::OnDamage(int _damage)
 {
 	m_currentHealth -= _damage;
 	if (m_currentHealth <= 0.f) {
-		if (OnDamageOverCallback != nullptr) {
-			OnDamageOverCallback();
-		}
+		m_pOwner->DeadHandle();
 		EventMgr::GetInst()->DeleteObject(m_pOwner);
 	}
 }

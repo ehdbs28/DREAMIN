@@ -62,6 +62,7 @@ void PlayerAttackModule::Shot()
 	pBullet->SetName(L"PlayerBullet");
 	pBullet->SetPos(attackPoint);
 	pBullet->SetScale(Vec2(90.f, 90.f));
+	pBullet->SetDamage(m_fDamage);
 	pBullet->SetDir(targetDir);
 
 	SceneMgr::GetInst()->GetCurScene()->AddObject(pBullet, OBJECT_GROUP::BULLET);

@@ -9,7 +9,7 @@ void SceneMgr::Init()
 	RegisterScene(L"Stage2", std::make_shared<Game_Scene>(2));
 
 	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Stage2");
+	LoadScene(L"Stage1");
 }
 
 void SceneMgr::Update()

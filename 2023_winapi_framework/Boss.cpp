@@ -26,10 +26,10 @@ Boss::Boss()
 	GetCollider()->SetScale(Vec2(100.f, 100.f));
 
 	CreateDamageCaster();
+	GetDamageCaster()->SetMaxHealth(100);
 	GetDamageCaster()->OnDamageOverCallback = []() {
 		std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Clear();
 	};
-		
 
 	m_pModuleController = new ModuleController;
 	m_pModuleController->SetOwner(this);
@@ -58,4 +58,9 @@ void Boss::Update()
 void Boss::Render(HDC _dc)
 {
 	Component_Render(_dc);
+}
+
+void Boss::OnDamage(float _damage)
+{
+	GetDamageCaster()->OnDamage(_damage);
 }

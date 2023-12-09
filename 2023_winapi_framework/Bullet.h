@@ -21,6 +21,7 @@ public:
         m_dir = _dir.Normalize();
         SetAngle(atan2f(m_dir.y, m_dir.x) * (180.f / M_PI));
     }
+    void SetDamage(float _damage) { m_fDamage = _damage; }
 
 private:
     Texture* m_pTex;
@@ -30,6 +31,7 @@ private:
     Vec2 m_dir;
 
     float m_fSpeed;
+    float m_fDamage;
 
 };
 

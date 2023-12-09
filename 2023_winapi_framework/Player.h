@@ -22,12 +22,13 @@ public:
 
 public:
     void SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravityUnder);
+    void SetTarget(Boss* _target) { m_target = _target; }
 
 public:
     const Boss* GetTarget() const { return m_target; }
 
 public:
-    void SetTarget(Boss* _target) { m_target = _target; }
+    void OnDamage(float _damage);
 
 private:
     Texture* m_pTex;

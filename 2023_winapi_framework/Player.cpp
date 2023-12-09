@@ -90,7 +90,9 @@ Player::Player()
 	//	pAnim->SetFrameOffset(i, Vec2(0.f, 20.f));
 
 	CreateRigidbody();
+
 	CreateDamageCaster();
+	GetDamageCaster()->SetMaxHealth(10);
 	GetDamageCaster()->OnDamageOverCallback = []() {
 		std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->Restart();
 	};
@@ -144,4 +146,9 @@ void Player::SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravi
 	_key += (_isRight ? L"_Right" : L"_Left");
 	_key += (_gravityUnder ? L"_Top" : L"_Bottom");
 	GetAnimator()->PlayAnim(_key, _repeat);
+}
+
+void Player::OnDamage(float _damage)
+{
+	GetDamageCaster()->OnDamage(_damage);
 }

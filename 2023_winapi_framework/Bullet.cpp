@@ -6,12 +6,15 @@
 #include "EventMgr.h"
 #include "Collider.h"
 #include "Core.h"
+#include "Boss.h"
+#include "Player.h"
 
 Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 	: m_ownerObjectGroup(_ownerObjectGroup)
 	, m_dir(Vec2(0.f, 0.f))
 	, m_fSpeed(1000.f)
 	, m_pTex(nullptr)
+	, m_fDamage(0.f)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Bullet", L"Texture\\Bullet.bmp");
 	CreateCollider();
@@ -100,14 +103,14 @@ void Bullet::EnterCollision(Collider* _pOther)
 {
 	if (m_ownerObjectGroup == OBJECT_GROUP::PLAYER) {
 		if (_pOther->GetObj()->GetName().rfind(L"Boss", 0) == 0) {
-			// damage logic
+			((Boss*)_pOther->GetObj())->OnDamage(m_fDamage);
 			_pOther->ExitCollision(GetCollider());
 			EventMgr::GetInst()->DeleteObject(this);
 		}
 	}
 	else if (m_ownerObjectGroup == OBJECT_GROUP::MONSTER) {
 		if (_pOther->GetObj()->GetName() == L"Player") {
-			// damage logic
+			((Player*)_pOther->GetObj())->OnDamage(m_fDamage);
 			_pOther->ExitCollision(GetCollider());
 			EventMgr::GetInst()->DeleteObject(this);
 		}

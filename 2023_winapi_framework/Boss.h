@@ -19,6 +19,9 @@ public:
 public:
 	const Player* GetTarget() const { return m_pTarget; }
 
+public:
+	void OnDamage(float _damage);
+
 protected:
 	Player* m_pTarget;
 

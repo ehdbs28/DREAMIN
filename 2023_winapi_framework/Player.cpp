@@ -138,6 +138,15 @@ void Player::EnterCollision(Collider* _other)
 	}
 }
 
+void Player::StayCollision(Collider* _other)
+{
+	if (_other->GetObj()->GetName() == L"Portal") {
+		if (KEY_PRESS(KEY_TYPE::UP)) {
+			std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->NextStage();
+		}
+	}
+}
+
 void Player::ExitCollision(Collider* _other)
 {
 	if (_other->GetObj()->GetName() == (GetRigidbody()->GetGravityScale() == 1 ? L"UnderGround" : L"UpperGround")) {

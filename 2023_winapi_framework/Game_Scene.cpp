@@ -11,6 +11,7 @@
 #include "SceneMgr.h"
 #include "KeyMgr.h"
 #include "TimeMgr.h"
+#include "NextStagePortal.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
@@ -71,8 +72,8 @@ void Game_Scene::Init()
 	boss->SetScale(Vec2(120, 120));
 	AddObject(boss, OBJECT_GROUP::MONSTER);
 
-	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::PLAYER, OBJECT_GROUP::MAP);
-	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::MAP);
+	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::PLAYER);
+	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::BULLET);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::PLAYER);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::MONSTER);
 }
@@ -129,6 +130,22 @@ void Game_Scene::Render(HDC _dc)
 void Game_Scene::Release()
 {
 	Scene::Release();
+}
+
+void Game_Scene::SetFail()
+{
+	m_isFailed = true;
+}
+
+void Game_Scene::SetClear()
+{
+	m_isCleared = true;
+
+	NextStagePortal* portal = new NextStagePortal;
+	portal->SetName(L"Portal");
+	portal->SetPos(Vec2(WINDOW_WIDTH / 2, WINDOW_HEIGHT - WINDOW_HEIGHT / 5 - 55));
+	portal->SetScale(Vec2(110, 110));
+	AddObject(portal, OBJECT_GROUP::MAP);
 }
 
 void Game_Scene::Restart()

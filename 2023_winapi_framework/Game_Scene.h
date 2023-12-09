@@ -15,8 +15,8 @@ public:
     virtual void Release() override;
 
 public:
-    void SetFail() { m_isFailed = true; }
-    void SetClear() { m_isCleared = true; }
+    void SetFail();
+    void SetClear();
 
 public:
     void Restart();

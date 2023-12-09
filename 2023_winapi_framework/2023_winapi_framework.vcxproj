@@ -196,6 +196,7 @@
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="LaserPattern.h" />
     <ClInclude Include="ModuleController.h" />
+    <ClInclude Include="NextStagePortal.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Particle.h" />
     <ClInclude Include="PathMgr.h" />
@@ -246,6 +247,7 @@
     <ClCompile Include="LaserPattern.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
+    <ClCompile Include="NextStagePortal.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Particle.cpp" />
     <ClCompile Include="PathMgr.cpp" />

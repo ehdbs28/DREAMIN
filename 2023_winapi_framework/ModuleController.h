@@ -21,6 +21,7 @@ public:
 
 public:
 	Object* GetOwner() const { return m_pOwner; }
+	BaseModule* GetModule(wstring _key) const { return m_moduleMap.at(_key); }
 
 private:
 	Object* m_pOwner;

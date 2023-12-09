@@ -60,16 +60,16 @@ void PlayerAttackModule::ExitModule()
 
 void PlayerAttackModule::Shot()
 {
-	//Vec2 targetPos = ((Player*)m_pController->GetOwner())->GetTarget()->GetPos();
-	Vec2 targetPos = KeyMgr::GetInst()->GetMousePos();
+	Vec2 targetPos = ((Player*)m_pController->GetOwner())->GetTarget()->GetPos();
+	//Vec2 targetPos = KeyMgr::GetInst()->GetMousePos();
 	Vec2 vPos = m_pController->GetOwner()->GetPos();
 	Vec2 targetDir = (targetPos - vPos).Normalize();
-	Vec2 attackPoint = vPos + targetDir * 30;
+	Vec2 attackPoint = vPos + targetDir * 10;
 
 	Bullet* pBullet = new Bullet(OBJECT_GROUP::PLAYER);
 	pBullet->SetName(L"PlayerBullet");
 	pBullet->SetPos(attackPoint);
-	pBullet->SetScale(Vec2(30.f, 30.f));
+	pBullet->SetScale(Vec2(90.f, 90.f));
 	pBullet->SetDir(targetDir);
 
 	if (KEY_PRESS(KEY_TYPE::LEFT))

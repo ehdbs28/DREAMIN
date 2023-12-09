@@ -243,6 +243,24 @@
     <ClInclude Include="PlayerGroundModule.h">
       <Filter>Engine\04. Object\Player\Module\GroundModule</Filter>
     </ClInclude>
+    <ClInclude Include="FirstBoss.h">
+      <Filter>Engine\04. Object\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="BulletPattern.h">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="LaserPattern.h">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="BossIdleModule.h">
+      <Filter>Engine\04. Object\Boss\Module</Filter>
+    </ClInclude>
+    <ClInclude Include="DamageCaster.h">
+      <Filter>Engine\07. Component</Filter>
+    </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Engine\04. Object\MapObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -373,6 +391,24 @@
     </ClCompile>
     <ClCompile Include="PlayerGroundModule.cpp">
       <Filter>Engine\04. Object\Player\Module\GroundModule</Filter>
+    </ClCompile>
+    <ClCompile Include="FirstBoss.cpp">
+      <Filter>Engine\04. Object\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="BulletPattern.cpp">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserPattern.cpp">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="BossIdleModule.cpp">
+      <Filter>Engine\04. Object\Boss\Module</Filter>
+    </ClCompile>
+    <ClCompile Include="DamageCaster.cpp">
+      <Filter>Engine\07. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Engine\04. Object\MapObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

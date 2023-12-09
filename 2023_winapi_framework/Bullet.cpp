@@ -15,6 +15,7 @@ Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Bullet", L"Texture\\Bullet.bmp");
 	CreateCollider();
+	GetCollider()->SetScale(Vec2(20.f, 50.f));
 }
 
 Bullet::~Bullet()
@@ -97,8 +98,21 @@ void Bullet::Render(HDC _dc)
 
 void Bullet::EnterCollision(Collider* _pOther)
 {
-	if (_pOther->GetObj()->GetName() == L"UnderGround" ||
-		_pOther->GetObj()->GetName() == L"UpperGround") {
+	if (m_ownerObjectGroup == OBJECT_GROUP::PLAYER) {
+		if (_pOther->GetObj()->GetName().rfind(L"Boss", 0) == 0) {
+			// damage logic
+			_pOther->ExitCollision(GetCollider());
+			EventMgr::GetInst()->DeleteObject(this);
+		}
+	}
+	else if (m_ownerObjectGroup == OBJECT_GROUP::MONSTER) {
+		if (_pOther->GetObj()->GetName() == L"Player") {
+			// damage logic
+			_pOther->ExitCollision(GetCollider());
+			EventMgr::GetInst()->DeleteObject(this);
+		}
+	}
+	else {
 		EventMgr::GetInst()->DeleteObject(this);
 	}
 }

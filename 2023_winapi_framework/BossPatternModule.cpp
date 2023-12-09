@@ -13,30 +13,32 @@ BossPatternModule::BossPatternModule(ModuleController* _controller)
 
 BossPatternModule::~BossPatternModule()
 {
+	for (int i = 0; i < m_vecPattern.size(); i++) {
+		delete m_vecPattern[i];
+	}
+	m_vecPattern.clear();
 }
 
 void BossPatternModule::EnterModule()
 {
+	SelectPattern();
+	BaseModule::EnterModule();
 }
 
 void BossPatternModule::UpdateModule()
 {
-	if (m_currentPattern == nullptr) {
-		SelectPattern();
-	}
-	else {
-		m_currentPattern->ExcutePattern();
-		if (!m_currentPattern->IsExcute()) {
-			SelectPattern();
-		}
+	m_currentPattern->ExcutePattern();
+	if (!m_currentPattern->IsExcute()) {
+		m_pController->ChangeModule(L"IdleModule");
 	}
 }
 
 void BossPatternModule::ExitModule()
 {
+	BaseModule::ExitModule();
 }
 
-void BossPatternModule::AddModule(BossPattern* _newPattern)
+void BossPatternModule::AddPattern(BossPattern* _newPattern)
 {
 	m_vecPattern.push_back(_newPattern);
 }

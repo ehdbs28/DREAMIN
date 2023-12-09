@@ -101,14 +101,18 @@ void Bullet::EnterCollision(Collider* _pOther)
 	if (m_ownerObjectGroup == OBJECT_GROUP::PLAYER) {
 		if (_pOther->GetObj()->GetName().rfind(L"Boss", 0) == 0) {
 			// damage logic
-			int a;
+			_pOther->ExitCollision(GetCollider());
+			EventMgr::GetInst()->DeleteObject(this);
 		}
 	}
 	else if (m_ownerObjectGroup == OBJECT_GROUP::MONSTER) {
 		if (_pOther->GetObj()->GetName() == L"Player") {
 			// damage logic
+			_pOther->ExitCollision(GetCollider());
+			EventMgr::GetInst()->DeleteObject(this);
 		}
 	}
-
-	EventMgr::GetInst()->DeleteObject(this);
+	else {
+		EventMgr::GetInst()->DeleteObject(this);
+	}
 }

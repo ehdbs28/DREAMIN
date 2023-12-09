@@ -4,6 +4,7 @@
 #include "Player.h"
 #include "CollisionMgr.h"
 #include "FirstBoss.h"
+#include "BackGround.h"
 
 void Game_Scene::Init()
 {
@@ -25,6 +26,12 @@ void Game_Scene::Init()
 	player->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 2.f));
 	player->SetScale(Vec2(80, 80));
 
+	BackGround* backGround = new BackGround;
+	backGround->SetName(L"BackGround");
+	backGround->SetPos(Vec2(0, -WINDOW_HEIGHT));
+	backGround->Setting(2);
+
+	AddObject(backGround, OBJECT_GROUP::BACKGROUND);
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);
 	AddObject(underPlatform, OBJECT_GROUP::MAP);
 	AddObject(player, OBJECT_GROUP::PLAYER);

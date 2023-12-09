@@ -250,6 +250,9 @@
     <ClInclude Include="DamageCaster.h">
       <Filter>Engine\07. Component</Filter>
     </ClInclude>
+    <ClInclude Include="BackGround.h">
+      <Filter>Engine\04. Object\MapObject</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -393,6 +396,9 @@
     </ClCompile>
     <ClCompile Include="DamageCaster.cpp">
       <Filter>Engine\07. Component</Filter>
+    </ClCompile>
+    <ClCompile Include="BackGround.cpp">
+      <Filter>Engine\04. Object\MapObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

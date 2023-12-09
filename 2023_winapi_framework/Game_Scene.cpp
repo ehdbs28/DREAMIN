@@ -4,7 +4,19 @@
 #include "Player.h"
 #include "CollisionMgr.h"
 #include "FirstBoss.h"
+#include "SecondBoss.h"
 #include "BackGround.h"
+#include "Player.h"
+#include "Boss.h"
+
+Game_Scene::Game_Scene(int _stageNum)
+	: m_stageNum(_stageNum)
+{
+}
+
+Game_Scene::~Game_Scene()
+{
+}
 
 void Game_Scene::Init()
 {
@@ -21,27 +33,31 @@ void Game_Scene::Init()
 	underPlatform->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT - platformPoint));
 	underPlatform->SetScale(Vec2((float)WINDOW_WIDTH, platformHeight));
 
-	Player* player = new Player;
-	player->SetName(L"Player");
-	player->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 2.f));
-	player->SetScale(Vec2(80, 80));
-
 	BackGround* backGround = new BackGround;
 	backGround->SetName(L"BackGround");
 	backGround->SetPos(Vec2(0, -WINDOW_HEIGHT));
-	backGround->Setting(1);
+	backGround->Setting(m_stageNum);
+
+	m_pPlayer = new Player;
+	m_pPlayer->SetName(L"Player");
+	m_pPlayer->SetPos(Vec2(100.f, (float)WINDOW_HEIGHT / 2.f));
+	m_pPlayer->SetScale(Vec2(80, 80));
 
 	AddObject(backGround, OBJECT_GROUP::BACKGROUND);
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);
 	AddObject(underPlatform, OBJECT_GROUP::MAP);
-	AddObject(player, OBJECT_GROUP::PLAYER);
+	AddObject(m_pPlayer , OBJECT_GROUP::PLAYER);
 
-	// test code
-	FirstBoss* boss1 = new FirstBoss;
-	boss1->SetName(L"Boss1");
-	boss1->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f));
-	boss1->SetScale(Vec2(120, 120));
-	AddObject(boss1, OBJECT_GROUP::MONSTER);
+	if (m_stageNum == 1) {
+		m_pBoss = new FirstBoss;
+	}
+	else if (m_stageNum == 2) {
+		m_pBoss = new SecondBoss;
+	}
+	m_pBoss->SetName(L"Boss" + std::to_wstring(m_stageNum));
+	m_pBoss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f));
+	m_pBoss->SetScale(Vec2(120, 120));
+	AddObject(m_pBoss, OBJECT_GROUP::MONSTER);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::PLAYER, OBJECT_GROUP::MAP);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::MAP);
@@ -62,4 +78,12 @@ void Game_Scene::Render(HDC _dc)
 void Game_Scene::Release()
 {
 	Scene::Release();
+}
+
+void Game_Scene::Restart()
+{
+}
+
+void Game_Scene::Clear()
+{
 }

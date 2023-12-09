@@ -9,7 +9,6 @@
 PlayerAirModule::PlayerAirModule(ModuleController* _controller)
 	: BaseModule(_controller)
 	, m_fMovementSpeed(300.f)
-	, m_inputDir(Vec2(0.f, 0.f))
 {
 }
 
@@ -19,14 +18,19 @@ PlayerAirModule::~PlayerAirModule()
 
 void PlayerAirModule::UpdateModule()
 {
+	BaseModule::UpdateModule();
+
+	int front = m_pController->GetOwner()->GetFrontDir();
+
 	if (KEY_PRESS(KEY_TYPE::LEFT)) {
-		m_inputDir.x = -1;
+		front = -1;
+		
 	}
 	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
-		m_inputDir.x = 1;
+		front = 1;
 	}
 	else {
-		m_inputDir.x = 0;
+		front = 0;
 	}
 
 	if (KEY_DOWN(KEY_TYPE::Z)) {
@@ -39,7 +43,12 @@ void PlayerAirModule::UpdateModule()
 		return;
 	}
 
+	if (front == 0) {
+		return;
+	}
+
 	Vec2 velocity = m_pRigidbody->GetVelocity();
-	velocity.x = (float)m_inputDir.x * m_fMovementSpeed;
+	velocity.x = front * m_fMovementSpeed;
 	m_pRigidbody->SetVelocity(velocity);
+	m_pController->GetOwner()->SetFront(front);
 }

@@ -15,6 +15,7 @@ Object::Object()
 	, m_pAnimator(nullptr)
 	, m_pRigidbody(nullptr)
 	, m_isGround(false)
+	, m_frontDir(1)
 {
 }
 

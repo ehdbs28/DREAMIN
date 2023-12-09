@@ -15,6 +15,7 @@ PlayerGroundModule::~PlayerGroundModule()
 
 void PlayerGroundModule::UpdateModule()
 {
+	BaseModule::UpdateModule();
 	if (m_pController->GetOwner()->IsGround() && KEY_PRESS(KEY_TYPE::X)) {
 		m_pController->ChangeModule(L"JumpModule");
 		return;

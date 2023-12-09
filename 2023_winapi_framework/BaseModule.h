@@ -12,8 +12,11 @@ public:
 
 public:
 	virtual void EnterModule();
-	virtual void UpdateModule() abstract;
+	virtual void UpdateModule();
 	virtual void ExitModule();
+
+public:
+	void SetAnimationKey(wstring _key);
 
 public:
 	const bool& GetActive() const { return m_active; }
@@ -22,6 +25,8 @@ protected:
 	ModuleController*		m_pController;
 	Rigidbody*				m_pRigidbody;
 	Animator*				m_pAnimator;
+	
+	wstring					m_animationKey;
 
 	bool m_active;
 

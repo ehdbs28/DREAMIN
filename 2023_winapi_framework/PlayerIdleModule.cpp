@@ -5,11 +5,12 @@
 #include "Object.h"
 #include "ModuleController.h"
 #include "Animator.h"
-
+#include "Player.h"
 
 PlayerIdleModule::PlayerIdleModule(ModuleController* _controller)
 	: PlayerGroundModule(_controller)
 {
+	SetAnimationKey(L"Minsung_Idle");
 }
 
 PlayerIdleModule::~PlayerIdleModule()
@@ -24,15 +25,6 @@ void PlayerIdleModule::EnterModule()
 
 void PlayerIdleModule::UpdateModule()
 {
-	int nowGravity = m_pRigidbody->GetGravityScale();
-	if (nowGravity == 1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Idle_Left_Top", false);
-	}
-	else if (nowGravity == -1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Idle_Left_Bottom", false);
-	}
 	if (KEY_PRESS(KEY_TYPE::LEFT) || KEY_PRESS(KEY_TYPE::RIGHT)) {
 		m_pController->ChangeModule(L"MovementModule");
 		return;

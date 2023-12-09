@@ -129,3 +129,10 @@ void Player::ExitCollision(Collider* _other)
 		m_isGround = false;
 	}
 }
+
+void Player::SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravityUnder)
+{
+	_key += (_isRight ? L"_Right" : L"_Left");
+	_key += (_gravityUnder ? L"_Top" : L"_Bottom");
+	GetAnimator()->PlayAnim(_key, _repeat);
+}

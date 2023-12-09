@@ -16,6 +16,7 @@ PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	, m_dashDuration(0.2f)
 	, m_dashDurationTimer(0.f)
 {
+	SetAnimationKey(L"Minsung_Dash");
 }
 
 PlayerDashModule::~PlayerDashModule()
@@ -24,9 +25,12 @@ PlayerDashModule::~PlayerDashModule()
 
 void PlayerDashModule::EnterModule()
 {
-	
 	BaseModule::EnterModule();
+	Dash();
+}
 
+void PlayerDashModule::Dash()
+{
 	m_dashDir = Vec2(0.f, 0.f);
 	m_dashDurationTimer = 0.f;
 
@@ -43,6 +47,10 @@ void PlayerDashModule::EnterModule()
 		m_dashDir.x = 1;
 	}
 
+	if (m_dashDir.x != 0) {
+		m_pController->GetOwner()->SetFront(m_dashDir.x);
+	}
+
 	if (m_dashDir.y != 0 && m_pRigidbody->GetGravityScale() != m_dashDir.y) {
 		m_pRigidbody->SetGravityScale(m_dashDir.y);
 	}
@@ -52,6 +60,7 @@ void PlayerDashModule::EnterModule()
 
 void PlayerDashModule::UpdateModule()
 {
+	BaseModule::UpdateModule();
 	m_dashDurationTimer += fDT;
 	if (m_dashDurationTimer >= m_dashDuration) {
 		m_pController->ChangeModule(L"IdleModule");

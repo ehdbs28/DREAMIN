@@ -12,8 +12,8 @@
 PlayerMovementModule::PlayerMovementModule(ModuleController* _controller)
 	: PlayerGroundModule(_controller)
 	, m_fMovementSpeed(300.f)
-	, m_inputDir(Vec2(0, 0))
 {
+	SetAnimationKey(L"Minsung_Walk");
 }
 
 PlayerMovementModule::~PlayerMovementModule()
@@ -23,56 +23,31 @@ PlayerMovementModule::~PlayerMovementModule()
 void PlayerMovementModule::EnterModule()
 {
 	BaseModule::EnterModule();	
-
 }
 
 void PlayerMovementModule::UpdateModule()
 {
-	SetInputValue();
-	if (m_inputDir.x == 0) {
+	int front = m_pController->GetOwner()->GetFrontDir();
+	
+	if (KEY_PRESS(KEY_TYPE::LEFT)) {
+		front = -1;
+	}
+	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
+		front = 1;
+	}
+	else {
 		m_pController->ChangeModule(L"IdleModule");
 		return;
 	}
 
-	int nowGravity = m_pRigidbody->GetGravityScale();
-	if (nowGravity == 1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Top", false);
-	}
-	else if (nowGravity == -1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Bottom", false);
-	}
-	/*if (m_inputDir.x == -1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Walk_Left_Top", false);
-	}
-	else if (m_inputDir.x == 1)
-	{
-		m_pAnimator->PlayAnim(L"Minsung_Walk_Right_Top", false);
-	}*/
-
 	Vec2 velocity = m_pRigidbody->GetVelocity();
-	velocity.x = m_inputDir.x * m_fMovementSpeed;
+	velocity.x = front * m_fMovementSpeed;
 	m_pRigidbody->SetVelocity(velocity);
+	m_pController->GetOwner()->SetFront(front);
 	PlayerGroundModule::UpdateModule();
 }
 
 void PlayerMovementModule::ExitModule()
 {
 	BaseModule::ExitModule();
-	m_pAnimator->StopAnim();
-}
-
-void PlayerMovementModule::SetInputValue()
-{
-	if (KEY_PRESS(KEY_TYPE::LEFT)) {
-		m_inputDir.x = -1;
-	}
-	else if (KEY_PRESS(KEY_TYPE::RIGHT)) {
-		m_inputDir.x = 1;
-	}
-	else {
-		m_inputDir.x = 0;
-	}
 }

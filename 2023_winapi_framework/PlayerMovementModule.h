@@ -13,11 +13,7 @@ public:
 	virtual void ExitModule() override;
 
 private:
-	void SetInputValue();
-
-private:
 	float m_fMovementSpeed;
-	Vec2 m_inputDir;
 
 };
 

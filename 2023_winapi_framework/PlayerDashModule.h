@@ -13,6 +13,9 @@ public:
 	virtual void ExitModule() override;
 
 private:
+	void Dash();
+
+private:
 	Vec2 m_dashDir;
 	float m_dashSpeed;
 

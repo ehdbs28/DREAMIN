@@ -12,7 +12,6 @@ public:
 
 private:
     float m_fMovementSpeed;
-    Vec2 m_inputDir;
 
 };
 

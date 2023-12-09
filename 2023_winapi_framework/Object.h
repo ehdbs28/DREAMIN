@@ -33,6 +33,8 @@ public:
 	void SetName(wstring _name) { m_strName = _name; }
 	bool GetIsDead() const { return !m_IsAlive; }
 	const bool& IsGround() const { return m_isGround; }
+	const int& GetFrontDir() const { return m_frontDir; }
+	void SetFront(int _front) { m_frontDir = _front; }
 private:
 	void SetDead() { m_IsAlive = false; }
 	friend class EventMgr;
@@ -49,6 +51,7 @@ private:
 	bool m_IsAlive;
 	Animator* m_pAnimator;
 	Rigidbody* m_pRigidbody;
+	int m_frontDir;
 
 protected:
 	bool m_isGround;

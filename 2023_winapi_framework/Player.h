@@ -21,6 +21,9 @@ public:
     void ExitCollision(Collider* _other) override;
 
 public:
+    void SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravityUnder);
+
+public:
     const Boss* GetTarget() const { return m_target; }
 
 public:

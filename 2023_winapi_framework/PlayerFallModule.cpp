@@ -3,11 +3,13 @@
 #include "ModuleController.h"
 #include "Object.h"
 #include "Animator.h"
-
+#include "Rigidbody.h"
+#include "Player.h"
 
 PlayerFallModule::PlayerFallModule(ModuleController* _controller)
 	: PlayerAirModule(_controller)
 {
+	SetAnimationKey(L"Minsung_Jump");
 }
 
 PlayerFallModule::~PlayerFallModule()

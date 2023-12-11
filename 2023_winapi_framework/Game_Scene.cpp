@@ -48,7 +48,7 @@ void Game_Scene::Init()
 	BackGround* backGround = new BackGround;
 	backGround->SetName(L"BackGround");
 	backGround->SetPos(Vec2(0, -WINDOW_HEIGHT));
-	backGround->Setting(m_stageNum);
+	backGround->Setting(L"StageBackGround" + std::to_wstring(m_stageNum));
 
 	Player* player = new Player;
 	player->SetName(L"Player");

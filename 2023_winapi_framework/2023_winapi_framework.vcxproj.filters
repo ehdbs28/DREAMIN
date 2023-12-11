@@ -325,7 +325,12 @@
     <ClInclude Include="HowToPlayScreen.h">
       <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
     </ClInclude>
-    <ClInclude Include="CreditsScreen.h" />
+    <ClInclude Include="TitleScene.h">
+      <Filter>Engine\05. Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditsScreen.h">
+      <Filter>Engine\09.UI\Screen\CreditsScreen</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -500,6 +505,11 @@
     <ClCompile Include="HowToPlayScreen.cpp">
       <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
     </ClCompile>
-    <ClCompile Include="CreditsScreen.cpp" />
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Engine\05. Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditsScreen.cpp">
+      <Filter>Engine\09.UI\Screen\CreditsScreen</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>

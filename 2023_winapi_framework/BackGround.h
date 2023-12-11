@@ -11,9 +11,12 @@ public:
     ~BackGround();
 
 public:
-    void Setting(int _stage);
+    void Setting(wstring _name);
     void Update() override;
     void Render(HDC _dc) override;
+
+public:
+    void SetParallaxSpeed(float _speed) { m_parallaxSpeed = _speed; }
 
 private:
     Texture* m_pTex;

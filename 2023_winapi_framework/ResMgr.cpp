@@ -66,6 +66,8 @@ void ResMgr::Init()
     // 채널수, 사운드 모드
     if (m_pSystem != nullptr)
         m_pSystem->init((int)SOUND_CHANNEL::END, FMOD_INIT_NORMAL, nullptr);
+
+    AddFont(L"New둥근모 Pro");
 }
 
 void ResMgr::LoadSound(const wstring& _strKey, const wstring& _strReleativePath, bool _IsLoop)

@@ -140,6 +140,9 @@
     <Filter Include="Engine\09.UI\UIObject\ImageUI">
       <UniqueIdentifier>{05878bfe-2031-4f53-9075-2e5a6ae66fdf}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.UI\Screen\HowToPlayScreen">
+      <UniqueIdentifier>{0a1341cd-bd19-4f65-a845-63ec204062f8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -274,12 +277,6 @@
     <ClInclude Include="FirstBoss.h">
       <Filter>Engine\04. Object\Boss</Filter>
     </ClInclude>
-    <ClInclude Include="BulletPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="LaserPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
     <ClInclude Include="BossIdleModule.h">
       <Filter>Engine\04. Object\Boss\Module</Filter>
     </ClInclude>
@@ -321,6 +318,9 @@
     </ClInclude>
     <ClInclude Include="ImageUI.h">
       <Filter>Engine\09.UI\UIObject\ImageUI</Filter>
+    </ClInclude>
+    <ClInclude Include="HowToPlayScreen.h">
+      <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -451,12 +451,6 @@
     <ClCompile Include="FirstBoss.cpp">
       <Filter>Engine\04. Object\Boss</Filter>
     </ClCompile>
-    <ClCompile Include="BulletPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="LaserPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
     <ClCompile Include="BossIdleModule.cpp">
       <Filter>Engine\04. Object\Boss\Module</Filter>
     </ClCompile>
@@ -498,6 +492,9 @@
     </ClCompile>
     <ClCompile Include="ImageUI.cpp">
       <Filter>Engine\09.UI\UIObject\ImageUI</Filter>
+    </ClCompile>
+    <ClCompile Include="HowToPlayScreen.cpp">
+      <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

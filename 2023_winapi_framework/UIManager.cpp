@@ -1,6 +1,16 @@
 #include "pch.h"
 #include "UIManager.h"
 #include "UIPanel.h"
+#include "TitleScreen.h"
+#include "HowToPlayScreen.h"
+
+void UIManager::Init()
+{
+	UIManager::GetInst()->AddPanel(L"TitleScreen", std::make_shared<TitleScreen>());
+	UIManager::GetInst()->AddPanel(L"HowToPlay", std::make_shared<HowToPlayScreen>());
+
+	UIManager::GetInst()->LoadPanel(L"TitleScreen");
+}
 
 void UIManager::Update()
 {

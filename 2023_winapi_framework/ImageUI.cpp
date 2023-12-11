@@ -10,6 +10,7 @@ ImageUI::ImageUI()
 
 ImageUI::~ImageUI()
 {
+	m_pTex = nullptr;
 }
 
 void ImageUI::Update()
@@ -18,6 +19,10 @@ void ImageUI::Update()
 
 void ImageUI::Render(HDC _dc)
 {
+	if (m_pTex == nullptr) {
+		return;
+	}
+
 	Vec2 vPos = GetPos();
 	Vec2 vScale = GetScale();
 

@@ -9,7 +9,6 @@
 #include "EventMgr.h"
 #include <ctime>
 #include "UIManager.h"
-#include "TitleScreen.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
@@ -42,11 +41,8 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	TimeMgr::GetInst()->Init();
 	KeyMgr::GetInst()->Init();
 	ResMgr::GetInst()->Init();
-	ResMgr::GetInst()->AddFont(L"NewµÕ±Ù¸ð Pro");
-	UIManager::GetInst()->AddPanel(L"TitleScreen", std::make_shared<TitleScreen>());
+	UIManager::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
-
-	UIManager::GetInst()->LoadPanel(L"TitleScreen");
 
 	return true;
 }

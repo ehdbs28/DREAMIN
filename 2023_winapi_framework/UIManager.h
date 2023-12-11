@@ -7,6 +7,7 @@ class UIManager
 	SINGLE(UIManager)
 
 public:
+	void Init();
 	void Update();
 	void Render(HDC _dc);
 

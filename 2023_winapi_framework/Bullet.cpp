@@ -116,9 +116,6 @@ void Bullet::EnterCollision(Collider* _pOther)
 			Destroy();
 		}
 	}
-	else {
-		Destroy();
-	}
 }
 
 void Bullet::Destroy()

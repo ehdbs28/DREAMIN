@@ -42,6 +42,10 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	ResMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
 
+	ResMgr::GetInst()->LoadSound(L"LobbyBGM", L"Sound\\LobbyBGM.mp3", true);
+	ResMgr::GetInst()->LoadSound(L"GameBGM", L"Sound\\GameBGM.mp3", true);
+
+
 	return true;
 }
 

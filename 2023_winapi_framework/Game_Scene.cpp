@@ -12,6 +12,7 @@
 #include "KeyMgr.h"
 #include "TimeMgr.h"
 #include "NextStagePortal.h"
+#include "ResMgr.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
@@ -76,6 +77,10 @@ void Game_Scene::Init()
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::BULLET);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::PLAYER);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::MONSTER);
+
+	ResMgr::GetInst()->Play(L"GameBGM");
+	ResMgr::GetInst()->Volume(SOUND_CHANNEL::BGM, 1.0f);
+
 }
 
 void Game_Scene::Update()

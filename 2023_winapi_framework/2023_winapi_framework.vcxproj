@@ -192,6 +192,7 @@
     <ClInclude Include="FirstBoss.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
+    <ClInclude Include="ImageUI.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="ModuleController.h" />
     <ClInclude Include="NextStagePortal.h" />
@@ -223,6 +224,8 @@
     <ClInclude Include="TimeMgr.h" />
     <ClInclude Include="TitleScreen.h" />
     <ClInclude Include="UIManager.h" />
+    <ClInclude Include="UIMenu.h" />
+    <ClInclude Include="UIMenuSystem.h" />
     <ClInclude Include="UIObject.h" />
     <ClInclude Include="UIPanel.h" />
     <ClInclude Include="Vec2.h" />
@@ -245,6 +248,7 @@
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="FirstBoss.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
+    <ClCompile Include="ImageUI.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
@@ -274,6 +278,8 @@
     <ClCompile Include="TimeMgr.cpp" />
     <ClCompile Include="TitleScreen.cpp" />
     <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="UIMenu.cpp" />
+    <ClCompile Include="UIMenuSystem.cpp" />
     <ClCompile Include="UIObject.cpp" />
     <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Vec2.cpp" />

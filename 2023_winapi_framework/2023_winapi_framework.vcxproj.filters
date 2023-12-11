@@ -131,6 +131,15 @@
     <Filter Include="Engine\09.UI\Screen\TitleScreen">
       <UniqueIdentifier>{cfb38fbe-bf86-4730-ab08-523a8e129fe0}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.UI\UIObject\Utils">
+      <UniqueIdentifier>{5c4b91a6-2cd9-4bae-8374-abf753ebafd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\Utils\MenuSystem">
+      <UniqueIdentifier>{bc5a3fa8-7e55-440c-abc3-96c36612f4ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\ImageUI">
+      <UniqueIdentifier>{05878bfe-2031-4f53-9075-2e5a6ae66fdf}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -304,6 +313,15 @@
     <ClInclude Include="UIPanel.h">
       <Filter>Engine\09.UI</Filter>
     </ClInclude>
+    <ClInclude Include="UIMenu.h">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMenuSystem.h">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageUI.h">
+      <Filter>Engine\09.UI\UIObject\ImageUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -471,6 +489,15 @@
     </ClCompile>
     <ClCompile Include="UIPanel.cpp">
       <Filter>Engine\09.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMenu.cpp">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMenuSystem.cpp">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageUI.cpp">
+      <Filter>Engine\09.UI\UIObject\ImageUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

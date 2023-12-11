@@ -1,5 +1,6 @@
 #pragma once
 #include "UIPanel.h"
+
 class TitleScreen :
     public UIPanel
 {
@@ -9,6 +10,7 @@ public:
 
 public:
     virtual void Init() override;
+    virtual void Update() override;
 
 };
 

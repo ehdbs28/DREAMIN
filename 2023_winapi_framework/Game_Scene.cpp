@@ -78,9 +78,14 @@ void Game_Scene::Init()
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::PLAYER);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::MONSTER);
 
-	ResMgr::GetInst()->Play(L"GameBGM");
-	ResMgr::GetInst()->Volume(SOUND_CHANNEL::BGM, 1.0f);
+	//ResMgr::GetInst()->LoadSound(L"LobbyBGM", L"Sound\\LobbyBGM.mp3", true);
+	ResMgr::GetInst()->LoadSound(L"GameBGM", L"Sound\\GameBGM.mp3", true);
+	ResMgr::GetInst()->LoadSound(L"GunSound", L"Sound\\GunSound.wav", false);
 
+	//ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
+	//ResMgr::GetInst()->Volume(SOUND_CHANNEL::BGM, 1.0f);
+
+	ResMgr::GetInst()->Play(L"GameBGM");
 }
 
 void Game_Scene::Update()

@@ -12,6 +12,7 @@
 #include "Animator.h"
 #include "Rigidbody.h"
 #include "Particle.h"
+#include "ResMgr.h"
 
 PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -29,12 +30,15 @@ PlayerAttackModule::~PlayerAttackModule()
 void PlayerAttackModule::EnterModule()
 {
 	BaseModule::EnterModule();
+	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
 	Shot();
+	ResMgr::GetInst()->Play(L"GunSound");
 }
 
 void PlayerAttackModule::UpdateModule()
 {
 	BaseModule::UpdateModule();
+
 	m_fAttackDelayTimer += fDT;
 	if (m_fAttackDelayTimer >= m_fAttackDelay) {
 		m_pController->ChangeModule(L"IdleModule");

@@ -220,8 +220,11 @@
     <ClInclude Include="SecondBoss.h" />
     <ClInclude Include="SelectGDI.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextUI.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeMgr.h" />
+    <ClInclude Include="UIObject.h" />
+    <ClInclude Include="UIPanel.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <ItemGroup>
@@ -268,8 +271,11 @@
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="SecondBoss.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
+    <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
+    <ClCompile Include="UIObject.cpp" />
+    <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>

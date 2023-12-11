@@ -1,6 +1,9 @@
 #pragma once
 #include "fmod.hpp"
 #pragma comment(lib, "fmod_vc")
+
+class SelectGDI;
+
 enum class SOUND_CHANNEL
 {
 	BGM, EFFECT, END
@@ -31,7 +34,9 @@ public:
 	void Stop(SOUND_CHANNEL _eChannel);
 	void Volume(SOUND_CHANNEL _eChannel, float _fVol);
 	void Pause(SOUND_CHANNEL _eChannel, bool _Ispause);
+	void SetFont(const wstring& _strFontName);
 private:
+	SelectGDI* m_fontGDI;
 	tSoundInfo* FindSound(const wstring& _strKey);
 };
 

@@ -2,6 +2,9 @@
 #include "ResMgr.h"
 #include "PathMgr.h"
 #include "Texture.h"
+#include "SelectGDI.h"
+#include "Core.h"
+
 Texture* ResMgr::TexLoad(const wstring& _strKey, const wstring& _strRelativePath)
 {
     // 잘 찾았으면 그거 던져주기
@@ -52,6 +55,10 @@ void ResMgr::Release()
     }
     m_mapSod.clear();
 
+    if (m_fontGDI != nullptr) {
+        delete m_fontGDI;
+    }
+
     // 다 쓰고 난 후 시스템 닫고 반환
     m_pSystem->close();
     m_pSystem->release();
@@ -60,6 +67,7 @@ void ResMgr::Release()
 void ResMgr::Init()
 {
     FMOD::System_Create(&m_pSystem); // 시스템 생성 함수
+    m_fontGDI = nullptr;
     // 채널수, 사운드 모드
     if (m_pSystem != nullptr)
         m_pSystem->init((int)SOUND_CHANNEL::END, FMOD_INIT_NORMAL, nullptr);
@@ -119,6 +127,24 @@ void ResMgr::Pause(SOUND_CHANNEL _eChannel, bool _Ispause)
     // bool값이 true면 일시정지. 단, 이 함수를 쓰려면 Createsound할때 
     // FMOD_MODE가 FMOD_LOOP_NORMAL 이어야 함.
     m_pChannel[(UINT)_eChannel]->setPaused(_Ispause);
+}
+
+void ResMgr::SetFont(const wstring& _strFontName)
+{
+    if (m_fontGDI != nullptr) {
+        delete m_fontGDI;
+    }
+
+    wstring strFilePath = PathMgr::GetInst()->GetResPath();
+    strFilePath += L"Font\\" + _strFontName + L".ttf";
+
+    AddFontResourceW(strFilePath.c_str());
+    HFONT hFont = CreateFontW(50, 0, 0, 0, 0, 0, 0, 0, HANGEUL_CHARSET, 0, 0, 0,
+        VARIABLE_PITCH, _strFontName.c_str());
+
+    m_fontGDI = new SelectGDI(Core::GetInst()->GetMainDC(), hFont);
+
+    DeleteObject(hFont);
 }
 
 tSoundInfo* ResMgr::FindSound(const wstring& _strKey)

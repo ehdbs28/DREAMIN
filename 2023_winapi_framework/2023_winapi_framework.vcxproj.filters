@@ -107,6 +107,21 @@
     <Filter Include="Engine\04. Object\Player\Module\GroundModule">
       <UniqueIdentifier>{9d8080e9-962a-46dd-9ecc-90eda07e7c4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\TitleScene">
+      <UniqueIdentifier>{f15f1fe2-8ab4-49cd-b524-4ed86d52bd64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI">
+      <UniqueIdentifier>{b9d2e450-6caa-4da0-9384-a209c97d7046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Particle">
+      <UniqueIdentifier>{979f4951-c4be-4bdc-b6bf-d29373311424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject">
+      <UniqueIdentifier>{db4132b9-b9f9-465d-be4d-2db1a669b5cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\TextUI">
+      <UniqueIdentifier>{b64a8630-cce9-41da-a7de-685b42824078}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -152,9 +167,6 @@
       <Filter>Engine\03. Manager\SceneManager</Filter>
     </ClInclude>
     <ClInclude Include="Game_Scene.h">
-      <Filter>Engine\05. Scene\MainScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Start_Scene.h">
       <Filter>Engine\05. Scene\MainScene</Filter>
     </ClInclude>
     <ClInclude Include="Res.h">
@@ -261,6 +273,24 @@
     <ClInclude Include="BackGround.h">
       <Filter>Engine\04. Object\MapObject</Filter>
     </ClInclude>
+    <ClInclude Include="UIPanel.h">
+      <Filter>Engine\09.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Engine\04. Object\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="NextStagePortal.h">
+      <Filter>Engine\04. Object\MapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondBoss.h">
+      <Filter>Engine\04. Object\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="UIObject.h">
+      <Filter>Engine\09.UI\UIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TextUI.h">
+      <Filter>Engine\09.UI\UIObject\TextUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -301,9 +331,6 @@
       <Filter>Engine\03. Manager\SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="Game_Scene.cpp">
-      <Filter>Engine\05. Scene\MainScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Start_Scene.cpp">
       <Filter>Engine\05. Scene\MainScene</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -409,6 +436,24 @@
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>Engine\04. Object\MapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPanel.cpp">
+      <Filter>Engine\09.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Engine\04. Object\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="NextStagePortal.cpp">
+      <Filter>Engine\04. Object\MapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondBoss.cpp">
+      <Filter>Engine\04. Object\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="UIObject.cpp">
+      <Filter>Engine\09.UI\UIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TextUI.cpp">
+      <Filter>Engine\09.UI\UIObject\TextUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

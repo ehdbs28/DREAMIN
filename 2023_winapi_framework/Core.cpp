@@ -42,6 +42,8 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	ResMgr::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
 
+	ResMgr::GetInst()->SetFont(L"NeoµÕ±Ù¸ð Pro");
+
 	return true;
 }
 
@@ -64,7 +66,6 @@ void Core::GameLoop()
 
 void Core::Update()
 {
-
 	// === Manager Update === 
 	TimeMgr::GetInst()->Update();
 	KeyMgr::GetInst()->Update();
@@ -80,6 +81,8 @@ void Core::Render()
 
 	BitBlt(m_hDC, 0,0, m_ptResolution.x, m_ptResolution.y, 
 		m_hbackDC, 0,0, SRCCOPY);
+
+	TextOut(m_hDC, 100, 100, L"TEST", 4);
 }
 
 void Core::CreateGDI()

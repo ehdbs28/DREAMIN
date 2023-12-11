@@ -3,11 +3,13 @@
 #include "UIPanel.h"
 #include "TitleScreen.h"
 #include "HowToPlayScreen.h"
+#include "CreditsScreen.h"
 
 void UIManager::Init()
 {
 	UIManager::GetInst()->AddPanel(L"TitleScreen", std::make_shared<TitleScreen>());
 	UIManager::GetInst()->AddPanel(L"HowToPlay", std::make_shared<HowToPlayScreen>());
+	UIManager::GetInst()->AddPanel(L"Credits", std::make_shared<CreditsScreen>());
 
 	UIManager::GetInst()->LoadPanel(L"TitleScreen");
 }

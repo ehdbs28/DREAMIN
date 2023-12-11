@@ -143,6 +143,9 @@
     <Filter Include="Engine\09.UI\Screen\HowToPlayScreen">
       <UniqueIdentifier>{0a1341cd-bd19-4f65-a845-63ec204062f8}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.UI\Screen\CreditsScreen">
+      <UniqueIdentifier>{f4ef25ad-edf1-4a0e-b62f-76dcdcc5cd99}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -322,6 +325,7 @@
     <ClInclude Include="HowToPlayScreen.h">
       <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
     </ClInclude>
+    <ClInclude Include="CreditsScreen.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -496,5 +500,6 @@
     <ClCompile Include="HowToPlayScreen.cpp">
       <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
     </ClCompile>
+    <ClCompile Include="CreditsScreen.cpp" />
   </ItemGroup>
 </Project>

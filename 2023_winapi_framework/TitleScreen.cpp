@@ -51,6 +51,7 @@ void TitleScreen::HowToPlayHandle()
 
 void TitleScreen::CreditsHandle()
 {
+	UIManager::GetInst()->LoadPanel(L"Credits");
 }
 
 void TitleScreen::QuitHandle()

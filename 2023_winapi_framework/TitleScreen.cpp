@@ -36,6 +36,13 @@ void TitleScreen::Init()
 	menuSystem->AddMenu(new UIMenu, L"Credits", std::bind(&TitleScreen::CreditsHandle, this));
 	menuSystem->AddMenu(new UIMenu, L"Quit", std::bind(&TitleScreen::QuitHandle, this));
 
+	TextUI* versionText = new TextUI;
+	versionText->SetText(L"v 1.0");
+	versionText->SetPos(Vec2(WINDOW_WIDTH - 210, WINDOW_HEIGHT - 110));
+	versionText->SetSize(35);
+	versionText->SetColor(RGB(198, 208, 123));
+
+	AddObject(versionText);
 	AddObject(titleBox);
 	AddObject(titleText);
 	AddObject(menuSystem);

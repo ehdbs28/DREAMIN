@@ -51,8 +51,18 @@ void PlayerAttackModule::Shot()
 {
 	m_fAttackDelayTimer = 0.f;
 
-	Vec2 targetPos = ((Player*)m_pController->GetOwner())->GetTarget()->GetPos();
-	//Vec2 targetPos = KeyMgr::GetInst()->GetMousePos();
+	Player* pPlayer = (Player*)m_pController->GetOwner();
+	const Boss* pTarget = pPlayer->GetTarget();
+	Vec2 targetPos;
+
+	if (pTarget == nullptr) {
+		Vec2 vPos = pPlayer->GetPos();
+		targetPos = vPos + Vec2(pPlayer->GetFrontDir(), 0);
+	}
+	else {
+		targetPos = pTarget->GetPos();
+	}
+
 	Vec2 vPos = m_pController->GetOwner()->GetPos();
 	Vec2 targetDir = (targetPos - vPos).Normalize();
 	Vec2 attackPoint = vPos + targetDir * 10.f;

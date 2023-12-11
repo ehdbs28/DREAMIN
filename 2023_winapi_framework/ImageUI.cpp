@@ -33,7 +33,7 @@ void ImageUI::Render(HDC _dc)
 	);
 }
 
-void ImageUI::SetTexture(wstring& _key)
+void ImageUI::SetTexture(wstring _key)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(_key, L"Texture\\UI\\" + _key + L".bmp");
 }

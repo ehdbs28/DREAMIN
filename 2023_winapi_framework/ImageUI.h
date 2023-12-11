@@ -15,7 +15,7 @@ public:
 	virtual void Render(HDC _dc) override;
 
 public:
-	void SetTexture(wstring& _key);
+	void SetTexture(wstring _key);
 
 private:
 	Texture* m_pTex;

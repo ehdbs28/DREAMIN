@@ -7,6 +7,7 @@
 #include "UIMenuSystem.h"
 #include "UIMenu.h"
 #include "ImageUI.h"
+#include "Core.h"
 
 TitleScreen::TitleScreen()
 {
@@ -56,4 +57,6 @@ void TitleScreen::CreditsHandle()
 
 void TitleScreen::QuitHandle()
 {
+	HWND hWnd = Core::GetInst()->GetHwnd();
+	SendMessage(hWnd, WM_CLOSE, 0, 0);
 }

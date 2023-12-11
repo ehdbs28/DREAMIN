@@ -43,7 +43,7 @@ void UIMenuSystem::Render(HDC _dc)
 	}
 }
 
-void UIMenuSystem::AddMenu(UIMenu* _menu, wstring _name, void(*_enterEvent)())
+void UIMenuSystem::AddMenu(UIMenu* _menu, wstring _name, std::function<void()> _enterEvent)
 {
 	Vec2 vPos = GetPos();
 	_menu->Init(vPos + Vec2(0, m_vecMenus.size() * m_padding), _name, _enterEvent);

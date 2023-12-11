@@ -1,6 +1,5 @@
 #pragma once
 #include "UIObject.h"
-#include <functional>
 
 class ImageUI;
 class TextUI;
@@ -13,7 +12,7 @@ public:
 	~UIMenu();
 
 public:
-	void Init(Vec2 _vPos, wstring& _name, void(*_enterEvent)());
+	void Init(Vec2 _vPos, wstring& _name, std::function<void()> _enterEvent);
 	virtual void Update() override;
 	virtual void Render(HDC _dc) override;
 
@@ -24,7 +23,7 @@ public:
 	void SetSelected(bool _selected);
 
 private:
-	void (*onEnterEvent)();
+	std::function<void()> onEnterEvent;
 	bool m_isSelected;
 
 	ImageUI* m_pImage;

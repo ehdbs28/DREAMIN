@@ -18,7 +18,7 @@ UIMenu::~UIMenu()
 	delete m_pText;
 }
 
-void UIMenu::Init(Vec2 _vPos, wstring& _name, void(*_enterEvent)())
+void UIMenu::Init(Vec2 _vPos, wstring& _name, std::function<void()> _enterEvent)
 {
 	m_pImage = new ImageUI();
 	m_pImage->SetPos(_vPos);

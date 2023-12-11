@@ -23,10 +23,10 @@ void TitleScreen::Init()
 
 	UIMenuSystem* menuSystem = new UIMenuSystem;
 	menuSystem->SetPos(Vec2(100, 300));
-	menuSystem->AddMenu(new UIMenu, L"Start", nullptr);
-	menuSystem->AddMenu(new UIMenu, L"How To Play", nullptr);
-	menuSystem->AddMenu(new UIMenu, L"Credits", nullptr);
-	menuSystem->AddMenu(new UIMenu, L"Quit", nullptr);
+	menuSystem->AddMenu(new UIMenu, L"Start", std::bind(&TitleScreen::StartHandle, this));
+	menuSystem->AddMenu(new UIMenu, L"How To Play", std::bind(&TitleScreen::HowToPlayHandle, this));
+	menuSystem->AddMenu(new UIMenu, L"Credits", std::bind(&TitleScreen::CreditsHandle, this));
+	menuSystem->AddMenu(new UIMenu, L"Quit", std::bind(&TitleScreen::QuitHandle, this));
 
 	AddObject(titleText);
 	AddObject(menuSystem);
@@ -35,4 +35,20 @@ void TitleScreen::Init()
 void TitleScreen::Update()
 {
 	UIPanel::Update();
+}
+
+void TitleScreen::StartHandle()
+{
+}
+
+void TitleScreen::HowToPlayHandle()
+{
+}
+
+void TitleScreen::CreditsHandle()
+{
+}
+
+void TitleScreen::QuitHandle()
+{
 }

@@ -16,7 +16,7 @@ public:
     virtual void Render(HDC _dc) override;
 
 public:
-    void AddMenu(UIMenu* _menu, wstring _name, void(*_enterEvent)());
+    void AddMenu(UIMenu* _menu, wstring _name, std::function<void()> _enterEvent);
 
 public:
     void MenuUpHandle();

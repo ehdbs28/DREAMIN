@@ -8,6 +8,7 @@ void SceneMgr::Init()
 	m_pCurScene = nullptr;
 	// ¾À µî·Ï
 	RegisterScene(L"Title", std::make_shared<TitleScene>());
+	RegisterScene(L"Tut", std::make_shared<Game_Scene>(0));
 	RegisterScene(L"Stage1", std::make_shared<Game_Scene>(1));
 	RegisterScene(L"Stage2", std::make_shared<Game_Scene>(2));
 

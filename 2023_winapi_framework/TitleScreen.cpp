@@ -8,6 +8,7 @@
 #include "UIMenu.h"
 #include "ImageUI.h"
 #include "Core.h"
+#include "SceneMgr.h"
 
 TitleScreen::TitleScreen()
 {
@@ -50,6 +51,8 @@ void TitleScreen::Init()
 
 void TitleScreen::StartHandle()
 {
+	SceneMgr::GetInst()->LoadScene(L"Tut");
+	UIManager::GetInst()->LoadPanel(L"Tut");
 }
 
 void TitleScreen::HowToPlayHandle()

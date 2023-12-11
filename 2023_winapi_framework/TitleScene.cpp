@@ -15,7 +15,7 @@ void TitleScene::Init()
 	BackGround* backGround = new BackGround;
 	backGround->SetName(L"BackGruond");
 	backGround->SetPos(Vec2(0, -WINDOW_HEIGHT));
-	backGround->Setting(L"TitleBackGround");
+	backGround->Setting(L"StageBackGround0");
 	backGround->SetParallaxSpeed(30.f);
 
 	AddObject(backGround, OBJECT_GROUP::BACKGROUND);

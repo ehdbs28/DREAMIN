@@ -60,17 +60,19 @@ void Game_Scene::Init()
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);
 	AddObject(underPlatform, OBJECT_GROUP::MAP);
 
-	Boss* boss = nullptr;
-	if (m_stageNum == 1) {
-		boss = new FirstBoss;
+	if (m_stageNum != 0) {
+		Boss* boss = nullptr;
+		if (m_stageNum == 1) {
+			boss = new FirstBoss;
+		}
+		else if (m_stageNum == 2) {
+			boss = new SecondBoss;
+		}
+		boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
+		boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f + 20.f));
+		boss->SetScale(Vec2(150, 150));
+		AddObject(boss, OBJECT_GROUP::MONSTER);
 	}
-	else if (m_stageNum == 2) {
-		boss = new SecondBoss;
-	}
-	boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
-	boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f + 20.f));
-	boss->SetScale(Vec2(150, 150));
-	AddObject(boss, OBJECT_GROUP::MONSTER);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::PLAYER);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::BULLET);

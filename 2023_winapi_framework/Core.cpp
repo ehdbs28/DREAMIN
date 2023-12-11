@@ -8,6 +8,8 @@
 #include "CollisionMgr.h"
 #include "EventMgr.h"
 #include <ctime>
+#include "UIManager.h"
+#include "TitleScreen.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
@@ -40,9 +42,11 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	TimeMgr::GetInst()->Init();
 	KeyMgr::GetInst()->Init();
 	ResMgr::GetInst()->Init();
+	ResMgr::GetInst()->AddFont(L"NewµÕ±Ù¸ð Pro");
+	UIManager::GetInst()->AddPanel(L"TitleScreen", std::make_shared<TitleScreen>());
 	SceneMgr::GetInst()->Init();
 
-	ResMgr::GetInst()->SetFont(L"NeoµÕ±Ù¸ð Pro");
+	UIManager::GetInst()->LoadPanel(L"TitleScreen");
 
 	return true;
 }
@@ -69,6 +73,7 @@ void Core::Update()
 	// === Manager Update === 
 	TimeMgr::GetInst()->Update();
 	KeyMgr::GetInst()->Update();
+	UIManager::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
 	SceneMgr::GetInst()->Update();
 }
@@ -78,11 +83,10 @@ void Core::Render()
 	PatBlt(m_hbackDC, 0, 0, m_ptResolution.x, m_ptResolution.y, BLACKNESS);
 
 	SceneMgr::GetInst()->Render(m_hbackDC);
+	UIManager::GetInst()->Render(m_hbackDC);
 
 	BitBlt(m_hDC, 0,0, m_ptResolution.x, m_ptResolution.y, 
 		m_hbackDC, 0,0, SRCCOPY);
-
-	TextOut(m_hDC, 100, 100, L"TEST", 4);
 }
 
 void Core::CreateGDI()

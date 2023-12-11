@@ -122,6 +122,15 @@
     <Filter Include="Engine\09.UI\UIObject\TextUI">
       <UniqueIdentifier>{b64a8630-cce9-41da-a7de-685b42824078}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\03. Manager\UIManager">
+      <UniqueIdentifier>{993b3d31-a972-4380-a5f5-5bf8e9cbe9f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen">
+      <UniqueIdentifier>{ee30dc92-b168-4d7b-a906-6e934c27e7bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\TitleScreen">
+      <UniqueIdentifier>{cfb38fbe-bf86-4730-ab08-523a8e129fe0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -247,8 +256,6 @@
     <ClInclude Include="PlayerJumpModule.h">
       <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
     </ClInclude>
-    <ClInclude Include="BulletPattern.h" />
-    <ClInclude Include="LaserPattern.h" />
     <ClInclude Include="PlayerAirModule.h">
       <Filter>Engine\04. Object\Player\Module\AirModule</Filter>
     </ClInclude>
@@ -273,9 +280,6 @@
     <ClInclude Include="BackGround.h">
       <Filter>Engine\04. Object\MapObject</Filter>
     </ClInclude>
-    <ClInclude Include="UIPanel.h">
-      <Filter>Engine\09.UI</Filter>
-    </ClInclude>
     <ClInclude Include="Particle.h">
       <Filter>Engine\04. Object\Particle</Filter>
     </ClInclude>
@@ -290,6 +294,15 @@
     </ClInclude>
     <ClInclude Include="TextUI.h">
       <Filter>Engine\09.UI\UIObject\TextUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScreen.h">
+      <Filter>Engine\09.UI\Screen\TitleScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Engine\03. Manager\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="UIPanel.h">
+      <Filter>Engine\09.UI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -411,8 +424,6 @@
     <ClCompile Include="PlayerJumpModule.cpp">
       <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
     </ClCompile>
-    <ClCompile Include="BulletPattern.cpp" />
-    <ClCompile Include="LaserPattern.cpp" />
     <ClCompile Include="PlayerAirModule.cpp">
       <Filter>Engine\04. Object\Player\Module\AirModule</Filter>
     </ClCompile>
@@ -437,9 +448,6 @@
     <ClCompile Include="BackGround.cpp">
       <Filter>Engine\04. Object\MapObject</Filter>
     </ClCompile>
-    <ClCompile Include="UIPanel.cpp">
-      <Filter>Engine\09.UI</Filter>
-    </ClCompile>
     <ClCompile Include="Particle.cpp">
       <Filter>Engine\04. Object\Particle</Filter>
     </ClCompile>
@@ -454,6 +462,15 @@
     </ClCompile>
     <ClCompile Include="TextUI.cpp">
       <Filter>Engine\09.UI\UIObject\TextUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScreen.cpp">
+      <Filter>Engine\09.UI\Screen\TitleScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Engine\03. Manager\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPanel.cpp">
+      <Filter>Engine\09.UI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

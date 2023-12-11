@@ -28,7 +28,27 @@ void UIPanel::Render(HDC _dc)
 	}
 }
 
+void UIPanel::Release()
+{
+	RemoveObjectAll();
+}
+
 void UIPanel::AddObject(UIObject* _uiObj)
 {
 	m_vecUIObjs.push_back(_uiObj);
+}
+
+void UIPanel::RemoveObject(UIObject* _uiObj)
+{
+	auto iter = std::find(m_vecUIObjs.begin(), m_vecUIObjs.end(), _uiObj);
+	delete *iter;
+	m_vecUIObjs.erase(iter);
+}
+
+void UIPanel::RemoveObjectAll()
+{
+	for (auto& obj : m_vecUIObjs) {
+		delete obj;
+	}
+	m_vecUIObjs.clear();
 }

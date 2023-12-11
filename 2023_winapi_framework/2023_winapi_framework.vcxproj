@@ -182,7 +182,6 @@
     <ClInclude Include="BossPattern.h" />
     <ClInclude Include="BossPatternModule.h" />
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="BulletPattern.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Core.h" />
@@ -194,7 +193,6 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="KeyMgr.h" />
-    <ClInclude Include="LaserPattern.h" />
     <ClInclude Include="ModuleController.h" />
     <ClInclude Include="NextStagePortal.h" />
     <ClInclude Include="Object.h" />
@@ -223,6 +221,8 @@
     <ClInclude Include="TextUI.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeMgr.h" />
+    <ClInclude Include="TitleScreen.h" />
+    <ClInclude Include="UIManager.h" />
     <ClInclude Include="UIObject.h" />
     <ClInclude Include="UIPanel.h" />
     <ClInclude Include="Vec2.h" />
@@ -238,7 +238,6 @@
     <ClCompile Include="BossPattern.cpp" />
     <ClCompile Include="BossPatternModule.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletPattern.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Core.cpp" />
@@ -247,7 +246,6 @@
     <ClCompile Include="FirstBoss.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
-    <ClCompile Include="LaserPattern.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
     <ClCompile Include="NextStagePortal.cpp" />
@@ -274,6 +272,8 @@
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="UIManager.cpp" />
     <ClCompile Include="UIObject.cpp" />
     <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Vec2.cpp" />

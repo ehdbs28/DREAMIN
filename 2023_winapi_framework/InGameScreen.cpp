@@ -5,6 +5,7 @@
 
 InGameScreen::InGameScreen()
 	: m_bossHpSlider(nullptr)
+	, m_descText(nullptr)
 {
 }
 
@@ -20,14 +21,40 @@ void InGameScreen::Init()
 	m_bossHpSlider->SetScale(Vec2(550, 25));
 	m_bossHpSlider->SetPos(Vec2(10, 85));
 
-	TextUI* bossNameText = new TextUI;
-	bossNameText->SetPos(Vec2(WINDOW_WIDTH - 125, WINDOW_HEIGHT - 115));
-	bossNameText->SetSize(50);
-	bossNameText->SetText(L"#001");
-	bossNameText->SetColor(RGB(230, 230, 230));
+	m_descText = nullptr;
 
 	AddObject(m_bossHpSlider);
-	AddObject(bossNameText);
+}
+
+void InGameScreen::SetStatus(bool _dead)
+{
+	if (m_descText != nullptr) {
+		RemoveObject(m_descText);
+	}
+
+	if (_dead) {
+		m_descText = new TextUI;
+		m_descText->SetText(L"Oops.... You Die.... So Sad....         RESTART: R");
+		m_descText->SetPos(Vec2(WINDOW_WIDTH / 2 - 360, WINDOW_HEIGHT - 105));
+		m_descText->SetSize(35);
+	}
+	else {
+		m_descText = new TextUI;
+		m_descText->SetPos(Vec2(WINDOW_WIDTH - 125, WINDOW_HEIGHT - 115));
+		m_descText->SetSize(50);
+		m_descText->SetText(L"#00" + std::to_wstring(m_stageNum));
+	}
+	m_descText->SetColor(m_stageNum == 1 ? RGB(198, 208, 123) : RGB(91, 110, 225));
+
+	AddObject(m_descText);
+}
+
+void InGameScreen::SetStage(int _stage)
+{
+	m_stageNum = _stage;
+	m_bossHpSlider->SetInnerImage(L"SliderInner" + std::to_wstring(_stage));
+	m_descText->SetText(L"#00" + std::to_wstring(m_stageNum));
+	m_descText->SetColor(m_stageNum == 1 ? RGB(198, 208, 123) : RGB(91, 110, 225));
 }
 
 void InGameScreen::SetBossHpPercent(float _percent)

@@ -27,19 +27,19 @@ void TutScreen::Init()
 	m_dashText = new TextUI;
 	m_dashText->SetText(L"• Z:DASH");
 	m_dashText->SetPos(Vec2(50, WINDOW_HEIGHT - 100));
-	m_dashText->SetSize(25);
+	m_dashText->SetSize(30);
 	m_dashText->SetColor(RGB(141, 146, 101));
 
 	m_jumpText = new TextUI;
 	m_jumpText->SetText(L"• X:JUMP");
 	m_jumpText->SetPos(Vec2(200, WINDOW_HEIGHT - 100));
-	m_jumpText->SetSize(25);
+	m_jumpText->SetSize(30);
 	m_jumpText->SetColor(RGB(141, 146, 101));
 
 	m_shotText = new TextUI;
 	m_shotText->SetText(L"• C:SHOT");
 	m_shotText->SetPos(Vec2(350, WINDOW_HEIGHT - 100));
-	m_shotText->SetSize(25);
+	m_shotText->SetSize(30);
 	m_shotText->SetColor(RGB(141, 146, 101));
 
 	AddObject(m_dashText);

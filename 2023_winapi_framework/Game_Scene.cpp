@@ -13,6 +13,7 @@
 #include "TimeMgr.h"
 #include "NextStagePortal.h"
 #include "UIManager.h"
+#include "InGameScreen.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
@@ -159,6 +160,7 @@ void Game_Scene::Restart()
 {
 	wstring nextStage = L"Stage" + std::to_wstring(m_stageNum);
 	SceneMgr::GetInst()->LoadScene(nextStage);
+	std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetStatus(false);
 }
 
 void Game_Scene::NextStage()
@@ -172,5 +174,7 @@ void Game_Scene::NextStage()
 		wstring nextStage = L"Stage" + std::to_wstring(m_stageNum + 1);
 		SceneMgr::GetInst()->LoadScene(nextStage);
 		UIManager::GetInst()->LoadPanel(L"InGame");
+		std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetStatus(false);
+		std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetStage(m_stageNum + 1);
 	}
 }

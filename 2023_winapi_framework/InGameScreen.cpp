@@ -6,6 +6,7 @@
 InGameScreen::InGameScreen()
 	: m_bossHpSlider(nullptr)
 	, m_descText(nullptr)
+	, m_stageNum(0)
 {
 }
 

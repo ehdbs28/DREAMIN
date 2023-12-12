@@ -31,8 +31,8 @@ void PlayerAttackModule::EnterModule()
 {
 	BaseModule::EnterModule();
 	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
-	Shot();
 	ResMgr::GetInst()->Play(L"GunSound");
+	Shot();
 }
 
 void PlayerAttackModule::UpdateModule()

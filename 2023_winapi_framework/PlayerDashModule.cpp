@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "PlayerMovementModule.h"
 #include "Animator.h"
+#include "ResMgr.h"
 
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -26,6 +27,8 @@ PlayerDashModule::~PlayerDashModule()
 void PlayerDashModule::EnterModule()
 {
 	BaseModule::EnterModule();
+	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
+	ResMgr::GetInst()->Play(L"DashSound");
 	Dash();
 }
 

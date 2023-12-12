@@ -6,6 +6,7 @@
 #include "TimeMgr.h"
 #include "Animator.h"
 #include "Player.h"
+#include "ResMgr.h"
 
 PlayerJumpModule::PlayerJumpModule(ModuleController* _controller)
 	: PlayerAirModule(_controller)
@@ -22,6 +23,8 @@ void PlayerJumpModule::EnterModule()
 {
 	BaseModule::EnterModule();
 	m_pRigidbody->SetVelocity(Vec2(0.f, m_fJumpPower * m_pRigidbody->GetGravityScale()));
+	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
+	ResMgr::GetInst()->Play(L"JumpSound");
 }
 
 void PlayerJumpModule::UpdateModule()

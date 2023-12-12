@@ -47,6 +47,7 @@ void TitleScreen::Init()
 	AddObject(titleBox);
 	AddObject(titleText);
 	AddObject(menuSystem);
+	AddObject(slider);
 }
 
 void TitleScreen::StartHandle()

@@ -152,6 +152,9 @@
     <Filter Include="Engine\09.UI\Screen\TutScreen">
       <UniqueIdentifier>{80089f4b-3d12-47b5-9115-1b4f4cb59c7a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.UI\UIObject\Utils\SliderUI">
+      <UniqueIdentifier>{0d36690a-62af-4822-bf97-79d75fc265e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -343,6 +346,9 @@
     <ClInclude Include="TutScreen.h">
       <Filter>Engine\09.UI\Screen\TutScreen</Filter>
     </ClInclude>
+    <ClInclude Include="SliderUI.h">
+      <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -528,6 +534,9 @@
     </ClCompile>
     <ClCompile Include="TutScreen.cpp">
       <Filter>Engine\09.UI\Screen\TutScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="SliderUI.cpp">
+      <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

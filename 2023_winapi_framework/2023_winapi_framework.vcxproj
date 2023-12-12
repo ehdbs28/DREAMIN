@@ -221,6 +221,7 @@
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="SecondBoss.h" />
     <ClInclude Include="SelectGDI.h" />
+    <ClInclude Include="SliderUI.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextUI.h" />
     <ClInclude Include="Texture.h" />
@@ -281,6 +282,7 @@
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="SecondBoss.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
+    <ClCompile Include="SliderUI.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeMgr.cpp" />

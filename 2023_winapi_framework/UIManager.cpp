@@ -5,17 +5,17 @@
 #include "HowToPlayScreen.h"
 #include "CreditsScreen.h"
 #include "TutScreen.h"
-#include "InGameClass.h"
+#include "InGameScreen.h"
 
 void UIManager::Init()
 {
-	AddPanel(L"TitleScreen", std::make_shared<TitleScreen>());
+	AddPanel(L"Title", std::make_shared<TitleScreen>());
 	AddPanel(L"HowToPlay", std::make_shared<HowToPlayScreen>());
 	AddPanel(L"Credits", std::make_shared<CreditsScreen>());
 	AddPanel(L"Tut", std::make_shared<TutScreen>());
-	AddPanel(L"InGame", std::make_shared<InGameClass>());
+	AddPanel(L"InGame", std::make_shared<InGameScreen>());
 
-	LoadPanel(L"TitleScreen");
+	LoadPanel(L"Title");
 }
 
 void UIManager::Update()

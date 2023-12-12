@@ -195,7 +195,7 @@
     <ClInclude Include="Game_Scene.h" />
     <ClInclude Include="HowToPlayScreen.h" />
     <ClInclude Include="ImageUI.h" />
-    <ClInclude Include="InGameClass.h" />
+    <ClInclude Include="InGameScreen.h" />
     <ClInclude Include="KeyMgr.h" />
     <ClInclude Include="ModuleController.h" />
     <ClInclude Include="NextStagePortal.h" />
@@ -256,7 +256,7 @@
     <ClCompile Include="Game_Scene.cpp" />
     <ClCompile Include="HowToPlayScreen.cpp" />
     <ClCompile Include="ImageUI.cpp" />
-    <ClCompile Include="InGameClass.cpp" />
+    <ClCompile Include="InGameScreen.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />

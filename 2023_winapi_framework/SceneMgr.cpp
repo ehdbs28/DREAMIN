@@ -17,12 +17,20 @@ void SceneMgr::Init()
 
 void SceneMgr::Update()
 {
+	if (m_pCurScene == nullptr) {
+		return;
+	}
+
 	m_pCurScene->Update();
 	m_pCurScene->FinalUpdate();
 }
 
 void SceneMgr::Render(HDC _dc)
 {
+	if (m_pCurScene == nullptr) {
+		return;
+	}
+
 	m_pCurScene->Render(_dc);
 }
 

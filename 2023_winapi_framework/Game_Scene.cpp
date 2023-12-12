@@ -12,6 +12,7 @@
 #include "KeyMgr.h"
 #include "TimeMgr.h"
 #include "NextStagePortal.h"
+#include "UIManager.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
@@ -163,12 +164,13 @@ void Game_Scene::Restart()
 void Game_Scene::NextStage()
 {
 	m_isCleared = true;
-	if (m_stageNum > MAX_STAGE) {
-		//
-		Release();
+	if (m_stageNum >= MAX_STAGE) {
+		SceneMgr::GetInst()->LoadScene(L"Title");
+		UIManager::GetInst()->LoadPanel(L"Title");
 	}
 	else {
 		wstring nextStage = L"Stage" + std::to_wstring(m_stageNum + 1);
 		SceneMgr::GetInst()->LoadScene(nextStage);
+		UIManager::GetInst()->LoadPanel(L"InGame");
 	}
 }

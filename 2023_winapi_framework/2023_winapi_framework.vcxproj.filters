@@ -146,6 +146,12 @@
     <Filter Include="Engine\09.UI\Screen\CreditsScreen">
       <UniqueIdentifier>{f4ef25ad-edf1-4a0e-b62f-76dcdcc5cd99}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.UI\Screen\InGameScreen">
+      <UniqueIdentifier>{182d7607-78f1-4205-8ffb-dc652a5652ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\TutScreen">
+      <UniqueIdentifier>{80089f4b-3d12-47b5-9115-1b4f4cb59c7a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -331,6 +337,12 @@
     <ClInclude Include="CreditsScreen.h">
       <Filter>Engine\09.UI\Screen\CreditsScreen</Filter>
     </ClInclude>
+    <ClInclude Include="InGameScreen.h">
+      <Filter>Engine\09.UI\Screen\InGameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="TutScreen.h">
+      <Filter>Engine\09.UI\Screen\TutScreen</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -510,6 +522,12 @@
     </ClCompile>
     <ClCompile Include="CreditsScreen.cpp">
       <Filter>Engine\09.UI\Screen\CreditsScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameScreen.cpp">
+      <Filter>Engine\09.UI\Screen\InGameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="TutScreen.cpp">
+      <Filter>Engine\09.UI\Screen\TutScreen</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

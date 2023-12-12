@@ -24,6 +24,10 @@ TutScreen::~TutScreen()
 
 void TutScreen::Init()
 {
+	m_dashClear = false;
+	m_jumpClear = false;
+	m_shotClear = false;
+
 	m_dashText = new TextUI;
 	m_dashText->SetText(L"• Z:DASH");
 	m_dashText->SetPos(Vec2(50, WINDOW_HEIGHT - 100));

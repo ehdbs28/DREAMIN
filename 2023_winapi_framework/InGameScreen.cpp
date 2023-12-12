@@ -39,6 +39,7 @@ void InGameScreen::SetStatus(bool _dead)
 		m_descText->SetSize(35);
 	}
 	else {
+		m_bossHpSlider->SetPercent(1.f);
 		m_descText = new TextUI;
 		m_descText->SetPos(Vec2(WINDOW_WIDTH - 125, WINDOW_HEIGHT - 115));
 		m_descText->SetSize(50);

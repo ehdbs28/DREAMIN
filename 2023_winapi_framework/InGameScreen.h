@@ -13,6 +13,9 @@ public:
 public:
     virtual void Init() override;
 
+public:
+    void SetBossHpPercent(float _percent);
+
 private:
     SliderUI* m_bossHpSlider;
 

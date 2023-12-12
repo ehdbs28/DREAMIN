@@ -29,3 +29,8 @@ void InGameScreen::Init()
 	AddObject(m_bossHpSlider);
 	AddObject(bossNameText);
 }
+
+void InGameScreen::SetBossHpPercent(float _percent)
+{
+	m_bossHpSlider->SetPercent(_percent);
+}

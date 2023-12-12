@@ -1,6 +1,8 @@
 #pragma once
 #include "UIPanel.h"
 
+class SliderUI;
+
 class InGameScreen :
     public UIPanel
 {
@@ -10,6 +12,9 @@ public:
 
 public:
     virtual void Init() override;
+
+private:
+    SliderUI* m_bossHpSlider;
 
 };
 

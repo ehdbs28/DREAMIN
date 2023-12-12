@@ -32,14 +32,14 @@ void SliderUI::SetPos(Vec2 _vPos)
 {
 	UIObject::SetPos(_vPos);
 	m_backImage->SetPos(_vPos);
-	m_innerImage->SetPos(_vPos + Vec2(10, 10));
+	m_innerImage->SetPos(_vPos + Vec2(3.5f, 3.5f));
 }
 
 void SliderUI::SetScale(Vec2 _vScale)
 {
 	UIObject::SetScale(_vScale);
 	m_backImage->SetScale(_vScale);
-	m_innerImage->SetScale(_vScale - Vec2(20, 20));
+	m_innerImage->SetScale(_vScale - Vec2(7, 7));
 }
 
 void SliderUI::SetPercent(float _percent)

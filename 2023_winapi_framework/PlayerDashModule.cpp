@@ -8,6 +8,8 @@
 #include "Player.h"
 #include "PlayerMovementModule.h"
 #include "Animator.h"
+#include "UIManager.h"
+#include "TutScreen.h"
 
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -26,6 +28,10 @@ PlayerDashModule::~PlayerDashModule()
 void PlayerDashModule::EnterModule()
 {
 	BaseModule::EnterModule();
+	auto tutScreen = std::dynamic_pointer_cast<TutScreen>(UIManager::GetInst()->GetTopPanel());
+	if (tutScreen != nullptr) {
+		tutScreen->DashTutClear();
+	}
 	Dash();
 }
 

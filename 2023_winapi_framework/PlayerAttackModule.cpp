@@ -12,6 +12,9 @@
 #include "Animator.h"
 #include "Rigidbody.h"
 #include "Particle.h"
+#include "UIManager.h"
+#include "UIPanel.h"
+#include "TutScreen.h"
 
 PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -29,6 +32,10 @@ PlayerAttackModule::~PlayerAttackModule()
 void PlayerAttackModule::EnterModule()
 {
 	BaseModule::EnterModule();
+	auto tutScreen = std::dynamic_pointer_cast<TutScreen>(UIManager::GetInst()->GetTopPanel());
+	if (tutScreen != nullptr) {
+		tutScreen->ShotTutClear();
+	}
 	Shot();
 }
 

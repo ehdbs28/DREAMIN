@@ -32,7 +32,7 @@ void HowToPlayScreen::Init()
 	jumpDescText->SetPos(Vec2(75, 300));
 	jumpDescText->SetSize(30);
 	TextUI* attackDescText = new TextUI;
-	attackDescText->SetText(L"4: C to attack");
+	attackDescText->SetText(L"4: C to shot bullet");
 	attackDescText->SetPos(Vec2(75, 350));
 	attackDescText->SetSize(30);
 

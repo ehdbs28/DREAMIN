@@ -141,6 +141,10 @@ void Game_Scene::SetFail()
 
 void Game_Scene::SetClear()
 {
+	if (m_isCleared) {
+		return;
+	}
+
 	m_isCleared = true;
 
 	NextStagePortal* portal = new NextStagePortal;

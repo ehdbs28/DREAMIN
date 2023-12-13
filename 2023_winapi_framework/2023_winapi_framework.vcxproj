@@ -197,6 +197,9 @@
     <ClInclude Include="ImageUI.h" />
     <ClInclude Include="InGameScreen.h" />
     <ClInclude Include="KeyMgr.h" />
+    <ClInclude Include="Laser.h" />
+    <ClInclude Include="LaserPattern.h" />
+    <ClInclude Include="LaserPoint.h" />
     <ClInclude Include="ModuleController.h" />
     <ClInclude Include="NextStagePortal.h" />
     <ClInclude Include="Object.h" />
@@ -259,6 +262,9 @@
     <ClCompile Include="ImageUI.cpp" />
     <ClCompile Include="InGameScreen.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
+    <ClCompile Include="Laser.cpp" />
+    <ClCompile Include="LaserPattern.cpp" />
+    <ClCompile Include="LaserPoint.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
     <ClCompile Include="NextStagePortal.cpp" />

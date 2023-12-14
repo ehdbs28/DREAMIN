@@ -349,6 +349,15 @@
     <ClInclude Include="SliderUI.h">
       <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
     </ClInclude>
+    <ClInclude Include="Laser.h">
+      <Filter>Engine\04. Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="LaserPoint.h">
+      <Filter>Engine\04. Object\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="LaserPattern.h">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -537,6 +546,15 @@
     </ClCompile>
     <ClCompile Include="SliderUI.cpp">
       <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
+    </ClCompile>
+    <ClCompile Include="Laser.cpp">
+      <Filter>Engine\04. Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserPoint.cpp">
+      <Filter>Engine\04. Object\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserPattern.cpp">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

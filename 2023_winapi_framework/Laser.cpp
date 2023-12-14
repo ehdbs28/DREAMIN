@@ -15,21 +15,27 @@
 #include "KeyMgr.h"
 #include "TimeMgr.h"
 
-Laser::Laser(float _shotDelay, float _shotTimer)
+Laser::Laser(float _shotDelay, float _shotTimer, float _destroyTimer)
 	: m_pLaserTex(nullptr)
 	, m_pPoint(nullptr)
 	, m_curTime(0.f)
 	, m_shotDelay(_shotDelay)
 	, m_shotTimer(_shotTimer)
+	, m_destroyTimer(_destroyTimer)
+	, m_isDestroy(false)
 	, m_isShot(false)
 {
 	m_pLaserTex = ResMgr::GetInst()->TexLoad(L"Laser", L"Texture\\Laser.bmp");
 	m_pPoint = new LaserPoint;
 	m_pPoint->SetScale(Vec2(30, 30));
 
+	CreateCollider();
+	GetCollider()->SetScale(Vec2(800, 100));
+
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"Ready", m_pLaserTex, Vec2(0, 0), Vec2(32, 32), Vec2(32, 0), 1, 0.1f);
 	GetAnimator()->CreateAnim(L"Shot", m_pLaserTex, Vec2(0, 32), Vec2(32, 32), Vec2(32, 0), 8, 0.05f);
+	GetAnimator()->CreateAnim(L"Destroy", m_pLaserTex, Vec2(0, 64), Vec2(32, 32), Vec2(32, 0), 4, 0.05f);
 	GetAnimator()->PlayAnim(L"Ready", true);
 }
 
@@ -43,16 +49,10 @@ void Laser::Update()
 	m_pPoint->Update();
 	GetAnimator()->Update();
 
-	if (KEY_PRESS(KEY_TYPE::E)) {
-		SetAngle(GetAngle() + fDT * 40);
-	}
-	if (KEY_PRESS(KEY_TYPE::Q)) {
-		SetAngle(GetAngle() - fDT * 40);
-	}
-
 	if (!m_isShot) {
 		m_curTime += fDT;
-		if (m_curTime >= m_shotDelay) {
+
+		if(m_curTime >= m_shotDelay) {
 			Particle* particle = new Particle(PARTICLE_TYPE::BOSS_SHOOT, 0.1f, false);
 			particle->SetPos(Vec2(GetPos().x - GetScale().x / 2 + 15, GetPos().y));
 			particle->SetScale(Vec2(50, 50));
@@ -64,9 +64,19 @@ void Laser::Update()
 		}
 	}
 	else {
-		m_curTime += fDT;
-		if (m_curTime >= m_shotTimer) {
-			//EventMgr::GetInst()->DeleteObject(this);
+		if (m_isDestroy) {
+			m_curTime += fDT;
+			if (m_curTime >= m_destroyTimer) {
+				EventMgr::GetInst()->DeleteObject(this);
+			}
+		}
+		else {
+			m_curTime += fDT;
+			if (m_curTime >= m_shotTimer) {
+				GetAnimator()->PlayAnim(L"Destroy", false);
+				m_isDestroy = true;
+				m_curTime = 0.f;
+			}
 		}
 	}
 }
@@ -91,6 +101,7 @@ void Laser::EnterCollision(Collider* _pOther)
 void Laser::SetPos(Vec2 _pos)
 {
 	Vec2 vScale = GetScale();
-	Object::SetPos(Vec2(_pos.x + vScale.x / 2, _pos.y + 15));
-	m_pPoint->SetPos(_pos);
+	Object::SetPos(Vec2(_pos.x + vScale.x / 2, _pos.y));
+	vScale = m_pPoint->GetScale();
+	m_pPoint->SetPos(Vec2(_pos.x + vScale.x / 2, _pos.y));
 }

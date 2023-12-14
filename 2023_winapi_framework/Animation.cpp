@@ -102,15 +102,24 @@ void Animation::Render(HDC _dc)
 		HBITMAP tempBitmap = CreateCompatibleBitmap(_dc, resolusion.x, resolusion.y);
 		SelectObject(tempDC, tempBitmap);
 
+		Vec2 leftTop = Vec2(
+			(int)min(tPoint[0].x, min(tPoint[1].x, tPoint[2].x)),
+			(int)min(tPoint[0].y, min(tPoint[1].y, tPoint[2].y))
+		);
+		float width = abs(Dot(Vec2(1, 0), (Vec2((int)tPoint[1].x, (int)tPoint[1].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))))
+					+ abs(Dot(Vec2(1, 0), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
+		float height = abs(Dot(Vec2(0, 1), (Vec2((int)tPoint[1].x, (int)tPoint[1].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))))
+					 + abs(Dot(Vec2(0, 1), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
+
 		BitBlt(
 			tempDC,
-			vPos.x,
-			vPos.y - vScale.y / 2,
-			vScale.x,
-			vScale.y,
+			leftTop.x,
+			leftTop.y,
+			width,
+			height,
 			_dc,
-			vPos.x,
-			vPos.y - vScale.y / 2,
+			leftTop.x,
+			leftTop.y,
 			SRCCOPY
 		);
 		PlgBlt(tempDC,
@@ -124,15 +133,15 @@ void Animation::Render(HDC _dc)
 		);
 		TransparentBlt(
 			_dc,
-			vPos.x,
-			vPos.y - vScale.y / 2,
-			vScale.x,
-			vScale.y,
+			leftTop.x,
+			leftTop.y,
+			width,
+			height,
 			tempDC,
-			vPos.x,
-			vPos.y - vScale.y / 2,
-			vScale.x,
-			vScale.y,
+			leftTop.x,
+			leftTop.y,
+			width,
+			height,
 			RGB(255, 0, 255)
 		);
 

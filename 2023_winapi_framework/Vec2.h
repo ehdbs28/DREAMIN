@@ -11,6 +11,7 @@ public:
 	Vec2(const Vec2& _vec);
 public:
 	float Length() { return (float)(sqrt(pow(x, 2) + pow(y, 2))); }
+	friend float Dot(Vec2 _vec1, Vec2 _vec2);
 	Vec2& Normalize()
 	{
 		float fLen = Length();

@@ -12,6 +12,8 @@
 #include "SceneMgr.h"
 #include "Scene.h"
 #include "Core.h"
+#include "KeyMgr.h"
+#include "TimeMgr.h"
 
 Laser::Laser(float _shotDelay, float _shotTimer)
 	: m_pLaserTex(nullptr)
@@ -41,6 +43,13 @@ void Laser::Update()
 	m_pPoint->Update();
 	GetAnimator()->Update();
 
+	if (KEY_PRESS(KEY_TYPE::E)) {
+		SetAngle(GetAngle() + fDT * 20);
+	}
+	if (KEY_PRESS(KEY_TYPE::Q)) {
+		SetAngle(GetAngle() - fDT * 20);
+	}
+
 	if (!m_isShot) {
 		m_curTime += fDT;
 		if (m_curTime >= m_shotDelay) {
@@ -57,7 +66,7 @@ void Laser::Update()
 	else {
 		m_curTime += fDT;
 		if (m_curTime >= m_shotTimer) {
-			EventMgr::GetInst()->DeleteObject(this);
+			//EventMgr::GetInst()->DeleteObject(this);
 		}
 	}
 }

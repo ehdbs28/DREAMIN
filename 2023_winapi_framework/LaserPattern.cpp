@@ -19,11 +19,11 @@ void LaserPattern::ExcutePattern()
 	if (m_pLaser == nullptr) {
 		m_pLaser = new Laser(1.5f, 1.5f);
 		m_pLaser->SetScale(Vec2(500, 100));
-		m_pLaser->SetPos(Vec2(70, 300));
+		m_pLaser->SetPos(Vec2(70, 300));	
 		m_pLaser->SetName(L"Laser");
-		//laser->SetAngle(30);
+		//m_pLaser->SetAngle(30);
 		SceneMgr::GetInst()->GetCurScene()->AddObject(m_pLaser, OBJECT_GROUP::MONSTER);
-	}
+	};
 
 	if (m_pLaser->GetIsDead()) {
 		m_pLaser = nullptr;

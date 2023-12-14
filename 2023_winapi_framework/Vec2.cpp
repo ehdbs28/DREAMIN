@@ -23,3 +23,8 @@ Vec2::Vec2(const Vec2& _vec)
 	: x(_vec.x)
 	, y(_vec.y)
 {}
+
+float Dot(Vec2 _vec1, Vec2 _vec2)
+{
+	return (_vec1.x * _vec2.x) + (_vec1.y * _vec2.y);
+}

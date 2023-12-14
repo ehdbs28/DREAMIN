@@ -358,6 +358,9 @@
     <ClInclude Include="LaserPattern.h">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClInclude>
+    <ClInclude Include="MovementPattern.h">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -554,6 +557,9 @@
       <Filter>Engine\04. Object\Bullet</Filter>
     </ClCompile>
     <ClCompile Include="LaserPattern.cpp">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="MovementPattern.cpp">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClCompile>
   </ItemGroup>

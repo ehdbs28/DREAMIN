@@ -201,6 +201,7 @@
     <ClInclude Include="LaserPattern.h" />
     <ClInclude Include="LaserPoint.h" />
     <ClInclude Include="ModuleController.h" />
+    <ClInclude Include="MovementPattern.h" />
     <ClInclude Include="NextStagePortal.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Particle.h" />
@@ -267,6 +268,7 @@
     <ClCompile Include="LaserPoint.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
+    <ClCompile Include="MovementPattern.cpp" />
     <ClCompile Include="NextStagePortal.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Particle.cpp" />

@@ -12,8 +12,6 @@
 #include "SceneMgr.h"
 #include "Scene.h"
 #include "Core.h"
-#include "KeyMgr.h"
-#include "TimeMgr.h"
 
 Laser::Laser(float _shotDelay, float _shotTimer, float _destroyTimer)
 	: m_pLaserTex(nullptr)

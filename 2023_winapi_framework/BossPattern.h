@@ -15,7 +15,7 @@ public:
 	const bool& IsExcute() const { return m_isExecute; }
 
 public:
-	void SetExcute() { m_isExecute = true; }
+	void virtual SetExcute() { m_isExecute = true; }
 
 protected:
 	ModuleController* m_pModuleController;

@@ -13,9 +13,15 @@ public:
 public:
     virtual void ExcutePattern() override;
 
+public:
+    virtual void SetExcute() override;
+
 private:
-    float m_rotateSpeed;
-    Laser* m_pLaser;
+    int m_bulletCnt;
+    int m_angle;
+    int m_interval;
+
+    vector<Laser*> m_vecLaser;
 
 };
 

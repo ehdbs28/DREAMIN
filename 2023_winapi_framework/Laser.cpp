@@ -44,10 +44,10 @@ void Laser::Update()
 	GetAnimator()->Update();
 
 	if (KEY_PRESS(KEY_TYPE::E)) {
-		SetAngle(GetAngle() + fDT * 20);
+		SetAngle(GetAngle() + fDT * 40);
 	}
 	if (KEY_PRESS(KEY_TYPE::Q)) {
-		SetAngle(GetAngle() - fDT * 20);
+		SetAngle(GetAngle() - fDT * 40);
 	}
 
 	if (!m_isShot) {

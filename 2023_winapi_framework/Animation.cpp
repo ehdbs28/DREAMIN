@@ -102,6 +102,7 @@ void Animation::Render(HDC _dc)
 		HBITMAP tempBitmap = CreateCompatibleBitmap(_dc, resolusion.x, resolusion.y);
 		SelectObject(tempDC, tempBitmap);
 
+		// 물어볼부분
 		Vec2 leftTop = Vec2(
 			(int)min(tPoint[0].x, min(tPoint[1].x, tPoint[2].x)),
 			(int)min(tPoint[0].y, min(tPoint[1].y, tPoint[2].y))
@@ -110,6 +111,20 @@ void Animation::Render(HDC _dc)
 					+ abs(Dot(Vec2(1, 0), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
 		float height = abs(Dot(Vec2(0, 1), (Vec2((int)tPoint[1].x, (int)tPoint[1].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))))
 					 + abs(Dot(Vec2(0, 1), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
+
+		if (leftTop.x < 0) {
+			leftTop.x = 0;
+		}
+		if (leftTop.y < 0) {
+			leftTop.y = 0;
+		}
+
+		if (leftTop.x + width >= resolusion.x) {
+			width -= leftTop.x + width - resolusion.x;
+		}
+		if (leftTop.y + height >= resolusion.y) {
+			height -= leftTop.y + height - resolusion.y;
+		}
 
 		BitBlt(
 			tempDC,
@@ -133,18 +148,12 @@ void Animation::Render(HDC _dc)
 		);
 		TransparentBlt(
 			_dc,
-			leftTop.x,
-			leftTop.y,
-			width,
-			height,
+			leftTop.x, leftTop.y, width, height,
 			tempDC,
-			leftTop.x,
-			leftTop.y,
-			width,
-			height,
+			leftTop.x, leftTop.y, width, height,
 			RGB(255, 0, 255)
 		);
-
+		
 		DeleteDC(tempDC);
 		DeleteObject(tempBitmap);
 	}

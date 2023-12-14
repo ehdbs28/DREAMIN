@@ -29,7 +29,7 @@ Boss::Boss()
 	GetCollider()->SetScale(Vec2(120.f, 120.f));
 
 	CreateDamageCaster();
-	GetDamageCaster()->SetMaxHealth(100);
+	GetDamageCaster()->SetMaxHealth(300);
 
 	m_pModuleController = new ModuleController;
 	m_pModuleController->SetOwner(this);

@@ -56,7 +56,7 @@ void Bullet::Render(HDC _dc)
 	float cosTheta = cosf(fRadian);
 	float sinTheta = sinf(fRadian);
 
-	for (int i = 0; i < 3; i++) {
+	for (int i = 0; i < 3; i++) {	
 		if (i == 0) {
 			fx = -vScale.x / 2.f;
 			fy = -vScale.y / 2.f;
@@ -81,7 +81,17 @@ void Bullet::Render(HDC _dc)
 	HBITMAP tempBitmap = CreateCompatibleBitmap(_dc, resolusion.x, resolusion.y);
 	SelectObject(tempDC, tempBitmap);
 
-	BitBlt(tempDC, 0, 0, resolusion.x, resolusion.y, _dc, 0, 0, SRCCOPY);
+	BitBlt(
+		tempDC,
+		vPos.x - vScale.x / 2,
+		vPos.y - vScale.y / 2,
+		vScale.x,
+		vScale.y,
+		_dc,
+		vPos.x - vScale.x / 2,
+		vPos.y - vScale.y / 2,
+		SRCCOPY
+	);
 	PlgBlt(tempDC,
 		tPoint,
 		m_pTex->GetDC(),
@@ -90,9 +100,15 @@ void Bullet::Render(HDC _dc)
 	);
 	TransparentBlt(
 		_dc,
-		0, 0, resolusion.x, resolusion.y,
+		vPos.x - vScale.x / 2,
+		vPos.y - vScale.y / 2,
+		vScale.x,
+		vScale.y,
 		tempDC,
-		0, 0, resolusion.x, resolusion.y,
+		vPos.x - vScale.x / 2,
+		vPos.y - vScale.y / 2,
+		vScale.x,
+		vScale.y,
 		RGB(255, 0, 255)
 	);
 	

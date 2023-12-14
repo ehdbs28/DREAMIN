@@ -179,6 +179,7 @@
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossIdleModule.h" />
+    <ClInclude Include="BossLaserAroundPattern.h" />
     <ClInclude Include="BossPattern.h" />
     <ClInclude Include="BossPatternModule.h" />
     <ClInclude Include="Bullet.h" />
@@ -248,6 +249,7 @@
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossIdleModule.cpp" />
+    <ClCompile Include="BossLaserAroundPattern.cpp" />
     <ClCompile Include="BossPattern.cpp" />
     <ClCompile Include="BossPatternModule.cpp" />
     <ClCompile Include="Bullet.cpp" />

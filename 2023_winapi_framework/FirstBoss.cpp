@@ -6,6 +6,7 @@
 #include "ResMgr.h"
 #include "LaserPattern.h"
 #include "MovementPattern.h"
+#include "BossLaserAroundPattern.h"
 
 FirstBoss::FirstBoss()
 {
@@ -17,8 +18,9 @@ FirstBoss::FirstBoss()
 	GetAnimator()->PlayAnim(L"Boss1_Idle", true);
 
 	BossPatternModule* patternModule = (BossPatternModule*)m_pModuleController->GetModule(L"PatternModule");
-	//patternModule->AddPattern(new LaserPattern(m_pModuleController));
+	patternModule->AddPattern(new LaserPattern(m_pModuleController));
 	patternModule->AddPattern(new MovementPattern(m_pModuleController));
+	patternModule->AddPattern(new BossLaserAroundPattern(m_pModuleController));
 }
 
 FirstBoss::~FirstBoss()

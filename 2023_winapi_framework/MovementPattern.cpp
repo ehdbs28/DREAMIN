@@ -28,7 +28,7 @@ void MovementPattern::ExcutePattern()
 	Vec2 lerp = m_origin + (m_destination - m_origin) * EaseInOutCubic(m_percent);
 	m_pModuleController->GetOwner()->SetPos(lerp);
 
-	if ((m_destination - lerp).Length() <= 0.05f) {
+	if (m_percent >= 1.f) {
 		m_isExecute = false;
 	}
 }

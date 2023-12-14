@@ -6,6 +6,7 @@
 
 LaserPattern::LaserPattern(ModuleController* _controller)
 	: BossPattern(_controller)
+	, m_pLaser(nullptr)
 {
 }
 
@@ -15,12 +16,17 @@ LaserPattern::~LaserPattern()
 
 void LaserPattern::ExcutePattern()
 {
-	m_isExecute = true;
-	Laser* laser = new Laser(1.5f, 0.5f);
-	laser->SetScale(Vec2(500, 100));
-	laser->SetPos(Vec2(70, 300));
-	laser->SetName(L"Laser");
-	laser->SetAngle(30);
-	SceneMgr::GetInst()->GetCurScene()->AddObject(laser, OBJECT_GROUP::MONSTER);
-	m_isExecute = false;
+	if (m_pLaser == nullptr) {
+		m_pLaser = new Laser(1.5f, 1.5f);
+		m_pLaser->SetScale(Vec2(500, 100));
+		m_pLaser->SetPos(Vec2(70, 300));
+		m_pLaser->SetName(L"Laser");
+		//laser->SetAngle(30);
+		SceneMgr::GetInst()->GetCurScene()->AddObject(m_pLaser, OBJECT_GROUP::MONSTER);
+	}
+
+	if (m_pLaser->GetIsDead()) {
+		m_pLaser = nullptr;
+		m_isExecute = false;
+	}
 }

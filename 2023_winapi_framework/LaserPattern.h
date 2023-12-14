@@ -1,5 +1,8 @@
 #pragma once
 #include "BossPattern.h"
+
+class Laser;
+
 class LaserPattern :
     public BossPattern
 {
@@ -12,6 +15,7 @@ public:
 
 private:
     float m_rotateSpeed;
+    Laser* m_pLaser;
 
 };
 

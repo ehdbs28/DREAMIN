@@ -27,7 +27,7 @@ Laser::Laser(float _shotDelay, float _shotTimer)
 
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"Ready", m_pLaserTex, Vec2(0, 0), Vec2(32, 32), Vec2(32, 0), 1, 0.1f);
-	GetAnimator()->CreateAnim(L"Shot", m_pLaserTex, Vec2(0, 32), Vec2(32, 32), Vec2(32, 0), 8, m_shotTimer / 8);
+	GetAnimator()->CreateAnim(L"Shot", m_pLaserTex, Vec2(0, 32), Vec2(32, 32), Vec2(32, 0), 8, 0.05f);
 	GetAnimator()->PlayAnim(L"Ready", true);
 }
 

@@ -56,6 +56,8 @@ void Laser::Update()
 			particle->SetScale(Vec2(50, 50));
 			SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
 
+			m_pPoint->SetScale(Vec2(125, 125));
+			m_pPoint->GetAnimator()->PlayAnim(L"Shot", true);
 			GetAnimator()->PlayAnim(L"Shot", false);
 			m_isShot = true;
 			m_curTime = 0.f;

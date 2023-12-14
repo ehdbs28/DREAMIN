@@ -59,6 +59,7 @@ Animation* Animator::FindAnim(const wstring& _strName)
 void Animator::PlayAnim(const wstring& _strName, bool _bRepeat, int _repeatcnt)
 {
 	m_pCurAnim = FindAnim(_strName);
+	m_pCurAnim->SetFrame(0);
 	m_IsRepeat = _bRepeat;
 	m_repeatcnt = _repeatcnt;
 }

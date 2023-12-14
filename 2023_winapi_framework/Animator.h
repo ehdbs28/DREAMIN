@@ -23,6 +23,7 @@ public:
 	void StopAnim();
 public:
 	Object* GetObj() const { return m_pOwner; }
+	Animation* GetCurAnim() { return m_pCurAnim; }
 	const bool& GetRepeat() const { return m_IsRepeat; }
 	const int& GetRepeatcnt() const { return m_repeatcnt; }
 	void SetRepeatcnt() { --m_repeatcnt; }

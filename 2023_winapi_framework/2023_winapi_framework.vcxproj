@@ -242,6 +242,7 @@
     <ClInclude Include="UIObject.h" />
     <ClInclude Include="UIPanel.h" />
     <ClInclude Include="Vec2.h" />
+    <ClInclude Include="WallAttack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -309,6 +310,7 @@
     <ClCompile Include="UIObject.cpp" />
     <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Vec2.cpp" />
+    <ClCompile Include="WallAttack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc" />

@@ -361,7 +361,6 @@
     <ClInclude Include="DownAttackPattern.h">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClInclude>
-    <ClInclude Include="Easing.h" />
     <ClInclude Include="Laser.h">
       <Filter>Engine\04. Object\BossAttackObject</Filter>
     </ClInclude>
@@ -370,6 +369,12 @@
     </ClInclude>
     <ClInclude Include="Object.h">
       <Filter>Engine\05. Scene</Filter>
+    </ClInclude>
+    <ClInclude Include="Easing.h">
+      <Filter>Engine\01. Header</Filter>
+    </ClInclude>
+    <ClInclude Include="WallAttack.h">
+      <Filter>Engine\04. Object\BossAttackObject</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -572,11 +577,16 @@
     <ClCompile Include="DownAttackPattern.cpp">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClCompile>
-    <ClCompile Include="Easing.cpp" />
     <ClCompile Include="Laser.cpp">
       <Filter>Engine\04. Object\BossAttackObject</Filter>
     </ClCompile>
     <ClCompile Include="LaserPoint.cpp">
+      <Filter>Engine\04. Object\BossAttackObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Easing.cpp">
+      <Filter>Engine\01. Header</Filter>
+    </ClCompile>
+    <ClCompile Include="WallAttack.cpp">
       <Filter>Engine\04. Object\BossAttackObject</Filter>
     </ClCompile>
   </ItemGroup>

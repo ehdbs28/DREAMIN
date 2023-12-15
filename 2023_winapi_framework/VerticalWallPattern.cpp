@@ -14,7 +14,7 @@ VerticalWallPattern::VerticalWallPattern(ModuleController* _controller)
 	, m_rotateTimer(0.5f)
 	, m_wallCnt(5)
 	, m_interval(0)
-	, m_generateDelay(0.05f)
+	, m_generateDelay(0.1f)
 	, m_readyToAttack(false)
 	, m_dir(1)
 {

@@ -9,7 +9,7 @@
 #include "EventMgr.h"
 #include "ResMgr.h"
 
-WallAttack::WallAttack(float _enableTimer, float _attackTimer)
+WallAttack::WallAttack(bool _vertical, float _enableTimer, float _attackTimer)
 	: m_pTex(nullptr)
 	, m_currentTime(0.f)
 	, m_enableTimer(_enableTimer)
@@ -23,8 +23,11 @@ WallAttack::WallAttack(float _enableTimer, float _attackTimer)
 	GetCollider()->SetScale(Vec2(100, 370));
 
 	CreateAnimator();
-	GetAnimator()->CreateAnim(L"Enable", m_pTex, Vec2(0, 0), Vec2(16, 16), Vec2(16, 0), 9, m_enableTimer / 9.f);
-	GetAnimator()->CreateAnim(L"Disable", m_pTex, Vec2(144, 0), Vec2(16, 16), Vec2(-16, 0), 9, m_enableTimer / 9.f);
+
+	int sy = _vertical ? 0 : 16;
+
+	GetAnimator()->CreateAnim(L"Enable", m_pTex, Vec2(0, sy), Vec2(16, 16), Vec2(16, 0), 9, m_enableTimer / 9.f);
+	GetAnimator()->CreateAnim(L"Disable", m_pTex, Vec2(144, sy), Vec2(16, 16), Vec2(-16, 0), 9, m_enableTimer / 9.f);
 	GetAnimator()->PlayAnim(L"Enable", false);
 }
 

@@ -6,6 +6,8 @@
 #include "ResMgr.h"
 #include "DownAttackPattern.h"
 #include "VerticalWallPattern.h"
+#include "HorizontalWallPattern.h"
+#include "MovementPattern.h"
 
 SecondBoss::SecondBoss()
 {
@@ -20,7 +22,9 @@ SecondBoss::SecondBoss()
 
 	BossPatternModule* patternModule = (BossPatternModule*)m_pModuleController->GetModule(L"PatternModule");
 	patternModule->AddPattern(new DownAttackPattern(m_pModuleController));
+	patternModule->AddPattern(new MovementPattern(m_pModuleController));
 	patternModule->AddPattern(new VerticalWallPattern(m_pModuleController));
+	patternModule->AddPattern(new HorizontalWallPattern(m_pModuleController));
 }
 
 SecondBoss::~SecondBoss()

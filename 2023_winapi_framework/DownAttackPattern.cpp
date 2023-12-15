@@ -7,6 +7,7 @@
 #include "WallAttack.h"
 #include "SceneMgr.h"
 #include "Scene.h"
+#include "CameraManager.h"
 
 DownAttackPattern::DownAttackPattern(ModuleController* _controller)
 	: BossPattern(_controller)
@@ -97,6 +98,7 @@ void DownAttackPattern::ExcutePattern()
 			m_pModuleController->GetOwner()->SetPos(lerp);
 
 			if (percent >= 1.f) {
+				CameraManager::GetInst()->Shake(50, 0.1f);
 				m_readyToAttack = true;
 				m_currentTime = 0.f;
 			}

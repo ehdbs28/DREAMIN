@@ -1,17 +1,17 @@
 #include "pch.h"
-#include "SecondBoss.h"
+#include "ThirdBoss.h"
 #include "BossPatternModule.h"
 #include "ModuleController.h"
 #include "Animator.h"
 #include "ResMgr.h"
-#include "FollowBulletPattern.h"
-#include "RadialBulletPattern.h"
+#include "DownAttackPattern.h"
+#include "VerticalWallPattern.h"
+#include "HorizontalWallPattern.h"
 #include "MovementPattern.h"
-#include "CrossBulletPattern.h"
 
-SecondBoss::SecondBoss()
+ThirdBoss::ThirdBoss()
 {
-	m_pTex = ResMgr::GetInst()->TexLoad(L"Boss3", L"Texture\\Boss2.bmp");
+	m_pTex = ResMgr::GetInst()->TexLoad(L"Boss2", L"Texture\\Boss3.bmp");
 
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"Idle", m_pTex, Vec2(0, 0),
@@ -21,12 +21,12 @@ SecondBoss::SecondBoss()
 	GetAnimator()->PlayAnim(L"Idle", false);
 
 	BossPatternModule* patternModule = (BossPatternModule*)m_pModuleController->GetModule(L"PatternModule");
-	patternModule->AddPattern(new CrossBulletPattern(m_pModuleController));
-	patternModule->AddPattern(new RadialBulletPattern(m_pModuleController));
-	patternModule->AddPattern(new FollowBulletPattern(m_pModuleController));
+	patternModule->AddPattern(new DownAttackPattern(m_pModuleController));
 	patternModule->AddPattern(new MovementPattern(m_pModuleController));
+	patternModule->AddPattern(new VerticalWallPattern(m_pModuleController));
+	patternModule->AddPattern(new HorizontalWallPattern(m_pModuleController));
 }
 
-SecondBoss::~SecondBoss()
+ThirdBoss::~ThirdBoss()
 {
 }

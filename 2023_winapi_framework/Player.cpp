@@ -40,6 +40,7 @@ Player::Player()
 	GetCollider()->SetScale(Vec2(30.f,50.f));
 	
 	CreateAnimator();
+
 #pragma region Add Animation Clip
 
 	GetAnimator()->CreateAnim(L"Minsung_Idle_Right_Top", m_pTex,Vec2(0.f, 0.f),
@@ -55,9 +56,9 @@ Player::Player()
 	GetAnimator()->CreateAnim(L"Minsung_Dash_Left_Top", m_pTex, Vec2(0.f, 80.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Jump_Right_Top", m_pTex, Vec2(0.f, 96.f),
-		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.1f);
 	GetAnimator()->CreateAnim(L"Minsung_Jump_Left_Top", m_pTex, Vec2(0.f, 112.f),
-		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.1f);
 	GetAnimator()->CreateAnim(L"Minsung_Shoot_Right_Top", m_pTex, Vec2(0.f, 128.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.05f);
 	GetAnimator()->CreateAnim(L"Minsung_Shoot_Left_Top", m_pTex, Vec2(0.f, 144.f),
@@ -75,9 +76,9 @@ Player::Player()
 	GetAnimator()->CreateAnim(L"Minsung_Dash_Left_Bottom", m_pTex, Vec2(0.f, 240.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 1, 0.2f);
 	GetAnimator()->CreateAnim(L"Minsung_Jump_Right_Bottom", m_pTex, Vec2(0.f, 256.f),
-		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.1f);
 	GetAnimator()->CreateAnim(L"Minsung_Jump_Left_Bottom", m_pTex, Vec2(0.f, 272.f),
-		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.2f);
+		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.1f);
 	GetAnimator()->CreateAnim(L"Minsung_Shoot_Right_Bottom", m_pTex, Vec2(0.f, 288.f),
 		Vec2(16.f, 16.f), Vec2(16.f, 0.f), 2, 0.05f);
 	GetAnimator()->CreateAnim(L"Minsung_Shoot_Left_Bottom", m_pTex, Vec2(0.f, 304.f),
@@ -120,10 +121,6 @@ Player::~Player()
 
 void Player::Update()
 {
-	if (KEY_PRESS(KEY_TYPE::D)) {
-		GetDamageCaster()->OnDamage(10);
-	}
-
 	m_pModuleController->Update();
 	GetAnimator()->Update();
 }
@@ -165,6 +162,9 @@ void Player::SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravi
 
 void Player::OnDamage(float _damage)
 {
+	if (m_isInvincibility) {
+		return;
+	}
 	GetDamageCaster()->OnDamage(_damage);
 }
 

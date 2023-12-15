@@ -21,13 +21,13 @@ TitleScreen::~TitleScreen()
 void TitleScreen::Init()
 {
 	ImageUI* titleBox = new ImageUI;
-	titleBox->SetScale(Vec2(400, 125));
-	titleBox->SetPos(Vec2(WINDOW_WIDTH / 2 - 205, 50));
+	titleBox->SetScale(Vec2(430, 125));
+	titleBox->SetPos(Vec2(WINDOW_WIDTH / 2 - 220, 50));
 	titleBox->SetTexture(L"UnSelectedBox");
 
 	TextUI* titleText = new TextUI;
-	titleText->SetText(L"TITLE");
-	titleText->SetPos(Vec2(WINDOW_WIDTH / 2 - 130, 70));
+	titleText->SetText(L"DREAMIN");
+	titleText->SetPos(Vec2(WINDOW_WIDTH / 2 - 170, 70));
 	titleText->SetSize(100);
 
 	UIMenuSystem* menuSystem = new UIMenuSystem;

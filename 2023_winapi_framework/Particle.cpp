@@ -28,6 +28,9 @@ Particle::Particle(PARTICLE_TYPE _type, float _duration, bool _repeat)
 	case PARTICLE_TYPE::BULLET_DESTROY:
 		m_pTex = ResMgr::GetInst()->TexLoad(L"BulletDestroyParticle", L"Texture\\Particle\\BulletDestroyParticle.bmp");
 		break;
+	case PARTICLE_TYPE::BOSS_BULLET_DESTROY:
+		m_pTex = ResMgr::GetInst()->TexLoad(L"BossBulletDestroyParticle", L"Texture\\Particle\\BossBulletDestroyParticle.bmp");
+		break;
 	case PARTICLE_TYPE::BOSS_SHOOT:
 		m_pTex = ResMgr::GetInst()->TexLoad(L"BossShootParticle", L"Texture\\Particle\\BossShootParticle.bmp");
 		break;

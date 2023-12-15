@@ -24,9 +24,11 @@ public:
 public:
     void SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravityUnder);
     void SetTarget(Boss* _target) { m_target = _target; }
+    void SetInvincibility(bool _invincibility) { m_isInvincibility = _invincibility; }
 
 public:
     const Boss* GetTarget() const { return m_target; }
+    const bool& IsInvincibility() const { return m_isInvincibility; }
 
 public:
     void OnDamage(float _damage);
@@ -37,5 +39,8 @@ private:
     ModuleController* m_pModuleController;
 
     Boss* m_target;
+
+    bool m_isInvincibility;
+
 };
 

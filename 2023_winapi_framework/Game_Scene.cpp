@@ -15,6 +15,7 @@
 #include "ResMgr.h"
 #include "UIManager.h"
 #include "InGameScreen.h"
+#include "ThirdBoss.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
@@ -70,6 +71,9 @@ void Game_Scene::Init()
 		}
 		else if (m_stageNum == 2) {
 			boss = new SecondBoss;
+		}
+		else if (m_stageNum == 3) {
+			boss = new ThirdBoss;
 		}
 		boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
 		boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f + 20.f));

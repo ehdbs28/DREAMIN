@@ -11,6 +11,7 @@
 #include "ResMgr.h"
 #include "UIManager.h"
 #include "TutScreen.h"
+#include "CameraManager.h"
 
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -40,6 +41,8 @@ void PlayerDashModule::EnterModule()
 
 void PlayerDashModule::Dash()
 {
+	((Player*)m_pController->GetOwner())->SetInvincibility(true);
+
 	m_dashDir = Vec2(0.f, 0.f);
 	m_dashDurationTimer = 0.f;
 
@@ -57,10 +60,12 @@ void PlayerDashModule::Dash()
 	}
 
 	if (m_dashDir.x != 0) {
+		CameraManager::GetInst()->Shake(5, 0.025);
 		m_pController->GetOwner()->SetFront(m_dashDir.x);
 	}
 
 	if (m_dashDir.y != 0 && m_pRigidbody->GetGravityScale() != m_dashDir.y) {
+		CameraManager::GetInst()->Shake(5, 0.025);
 		m_pRigidbody->SetGravityScale(m_dashDir.y);
 	}
 
@@ -79,5 +84,6 @@ void PlayerDashModule::UpdateModule()
 
 void PlayerDashModule::ExitModule()
 {
+	((Player*)m_pController->GetOwner())->SetInvincibility(false);
 	BaseModule::ExitModule();
 }

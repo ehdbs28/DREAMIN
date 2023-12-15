@@ -25,6 +25,10 @@ public:
 	{ return m_vFinalPos; }
 	const UINT& GetID() const { return m_ID; }
 	Object* GetObj() { return m_pOwner; }
+public:
+	Vec2 GetHeightVector();
+	Vec2 GetWidthVector();
+
 private:
 	UINT m_check;
 	Object* m_pOwner;

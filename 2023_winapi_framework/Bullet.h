@@ -1,13 +1,14 @@
 #pragma once
 #include "Object.h"
+
 class Texture;
-class Collider;
+
 class Bullet :
     public Object
 {
 public:
     Bullet(OBJECT_GROUP _ownerObjectGroup);
-    ~Bullet();
+    virtual ~Bullet();
 
 public:
     void Update() override;
@@ -22,11 +23,15 @@ public:
         SetAngle(atan2f(m_dir.y, m_dir.x) * (180.f / M_PI));
     }
     void SetDamage(int _damage) { m_damage = _damage; }
+    void SetSpeed(int _speed) { m_fSpeed = _speed; }
 
 public:
     void Destroy();
 
-private:
+protected:
+    virtual void GenerateDestroyParticle();
+
+protected:
     Texture* m_pTex;
 
     OBJECT_GROUP m_ownerObjectGroup;

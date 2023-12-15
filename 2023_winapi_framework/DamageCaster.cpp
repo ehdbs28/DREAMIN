@@ -2,6 +2,7 @@
 #include "DamageCaster.h"
 #include "EventMgr.h"
 #include "Object.h"
+#include "CameraManager.h"
 
 DamageCaster::DamageCaster()
 	: m_pOwner(nullptr)
@@ -18,6 +19,7 @@ void DamageCaster::OnDamage(int _damage)
 {
 	m_currentHealth -= _damage;
 	if (m_currentHealth <= 0.f) {
+		CameraManager::GetInst()->Shake(30, 0.25f);
 		m_pOwner->DeadHandle();
 		EventMgr::GetInst()->DeleteObject(m_pOwner);
 	}

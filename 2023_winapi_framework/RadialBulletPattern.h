@@ -1,14 +1,14 @@
 #pragma once
 #include "BossPattern.h"
 
-class WallAttack;
+class BossBullet;
 
-class HorizontalWallPattern :
+class RadialBulletPattern :
     public BossPattern
 {
 public:
-    HorizontalWallPattern(ModuleController* _controller);
-    ~HorizontalWallPattern();
+    RadialBulletPattern(ModuleController* _controller);
+    ~RadialBulletPattern();
 
 public:
     virtual void ExcutePattern() override;
@@ -17,18 +17,15 @@ public:
     virtual void SetExcute() override;
 
 private:
+    int m_bulletCnt;
+    int m_angle;
+    int m_interval;
+
     float m_currentTime;
+    float m_rotateTime;
     float m_rotateTimer;
     float m_generateDelay;
 
-    bool m_readyToAttack;
-
-    int m_interval;
-    int m_wallCnt;
-
-    int m_dir;
-
-    vector<WallAttack*> m_vecWalls;
-
+    vector<BossBullet*> m_vecBullet;
 };
 

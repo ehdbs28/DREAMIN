@@ -7,7 +7,7 @@ class WallAttack :
     public Object
 {
 public:
-    WallAttack(float _enableTimer = 0.3f, float _attackTimer = 1.f);
+    WallAttack(bool _vertical = true, float _enableTimer = 0.45f, float _attackTimer = 1.f);
     ~WallAttack();
 
 public:

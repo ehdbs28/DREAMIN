@@ -1,5 +1,6 @@
 #pragma once
 class Scene;
+class LoadingScreen;
 class SceneMgr
 {
 	SINGLE(SceneMgr);
@@ -7,6 +8,7 @@ public:
 	void Init();
 	void Update();
 	void Render(HDC _dc);
+	void LoadingRender(HDC _dc);
 public:
 	void LoadScene(const wstring& _scenename);
 	void RegisterScene(const wstring& _scenename, std::shared_ptr<Scene> _scene);
@@ -20,4 +22,7 @@ private:
 	std::shared_ptr<Scene> m_pCurScene; // ÇöÀç ¾À
 	// ¾ÀµéÀ» °ü¸®ÇÏ´Â ¸Ê.
 	map<wstring, std::shared_ptr<Scene>> m_mapScenes;
+
+	wstring m_nextSceneName;
+	LoadingScreen* m_pLoadingScreen;
 };

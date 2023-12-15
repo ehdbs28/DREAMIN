@@ -21,7 +21,7 @@ Bullet::Bullet(OBJECT_GROUP _ownerObjectGroup)
 {
 	m_pTex = ResMgr::GetInst()->TexLoad(L"Bullet", L"Texture\\Bullet.bmp");
 	CreateCollider();
-	GetCollider()->SetScale(Vec2(20.f, 50.f));
+	GetCollider()->SetScale(Vec2(50.f, 20.f));
 }
 
 Bullet::~Bullet()
@@ -136,9 +136,14 @@ void Bullet::EnterCollision(Collider* _pOther)
 
 void Bullet::Destroy()
 {
+	GenerateDestroyParticle();
+	EventMgr::GetInst()->DeleteObject(this);
+}
+
+void Bullet::GenerateDestroyParticle()
+{
 	Particle* particle = new Particle(PARTICLE_TYPE::BULLET_DESTROY, 0.05f, false);
 	particle->SetPos(GetPos());
 	particle->SetScale(Vec2(60, 60));
 	SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
-	EventMgr::GetInst()->DeleteObject(this);
 }

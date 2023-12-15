@@ -83,6 +83,7 @@ void Core::Render()
 
 	SceneMgr::GetInst()->Render(m_hbackDC);
 	UIManager::GetInst()->Render(m_hbackDC);
+	SceneMgr::GetInst()->LoadingRender(m_hbackDC);
 
 	Vec2 vCenter = CameraManager::GetInst()->GetShakingPos();
 

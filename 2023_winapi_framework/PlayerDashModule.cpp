@@ -81,6 +81,6 @@ void PlayerDashModule::UpdateModule()
 
 void PlayerDashModule::ExitModule()
 {
-	((Player*)m_pController->GetOwner())->SetInvincibility(true);
+	((Player*)m_pController->GetOwner())->SetInvincibility(false);
 	BaseModule::ExitModule();
 }

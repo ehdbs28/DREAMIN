@@ -3,5 +3,9 @@
 class ThirdBoss :
     public Boss
 {
+public:
+    ThirdBoss();
+    virtual ~ThirdBoss();
+
 };
 

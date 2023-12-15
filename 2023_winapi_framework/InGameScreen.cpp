@@ -46,7 +46,16 @@ void InGameScreen::SetStatus(bool _dead)
 		m_descText->SetSize(50);
 		m_descText->SetText(L"#00" + std::to_wstring(m_stageNum));
 	}
-	m_descText->SetColor(m_stageNum == 1 ? RGB(198, 208, 123) : RGB(91, 110, 225));
+
+	if (m_stageNum == 1) {
+		m_descText->SetColor(RGB(198, 208, 123));
+	}
+	else if (m_stageNum == 2) {
+		m_descText->SetColor(RGB(91, 110, 225));
+	}
+	else if (m_stageNum == 3) {
+		m_descText->SetColor(RGB(39, 98, 39));
+	}
 
 	AddObject(m_descText);
 }
@@ -56,7 +65,16 @@ void InGameScreen::SetStage(int _stage)
 	m_stageNum = _stage;
 	m_bossHpSlider->SetInnerImage(L"SliderInner" + std::to_wstring(_stage));
 	m_descText->SetText(L"#00" + std::to_wstring(m_stageNum));
-	m_descText->SetColor(m_stageNum == 1 ? RGB(198, 208, 123) : RGB(91, 110, 225));
+
+	if (m_stageNum == 1) {
+		m_descText->SetColor(RGB(198, 208, 123));
+	}
+	else if (m_stageNum == 2) {
+		m_descText->SetColor(RGB(91, 110, 225));
+	}
+	else if (m_stageNum == 3) {
+		m_descText->SetColor(RGB(39, 98, 39));
+	}
 }
 
 void InGameScreen::SetBossHpPercent(float _percent)

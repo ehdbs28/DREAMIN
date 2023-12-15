@@ -12,7 +12,7 @@ public:							\
 #define WINDOW_CLASS_NAME L"Gamep"
 #define WINDOW_WIDTH 800
 #define WINDOW_HEIGHT 600 
-#define MAX_STAGE 2
+#define MAX_STAGE 3
 
 #define RECT_RENDER(posx, posy, scalex, scaley, hdc) Rectangle(hdc, (int)(posx-scalex/2), (int)(posy-scaley/2), (int)(posx+scalex/2), (int)(posy+scaley/2))
 #define ELLIPSE_RENDER(posx, posy, scalex, scaley, hdc) Ellipse(hdc, (int)(posx-scalex/2), (int)(posy-scaley/2), (int)(posx+scalex/2), (int)(posy+scaley/2))

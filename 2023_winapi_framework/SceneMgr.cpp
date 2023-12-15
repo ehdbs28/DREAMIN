@@ -11,6 +11,7 @@ void SceneMgr::Init()
 	RegisterScene(L"Tut", std::make_shared<Game_Scene>(0));
 	RegisterScene(L"Stage1", std::make_shared<Game_Scene>(1));
 	RegisterScene(L"Stage2", std::make_shared<Game_Scene>(2));
+	RegisterScene(L"Stage3", std::make_shared<Game_Scene>(3));
 
 	LoadScene(L"Title");
 }

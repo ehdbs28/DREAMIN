@@ -23,5 +23,8 @@ void TitleScene::Init()
 	//ResMgr::GetInst()->LoadSound(L"LobbyBGM", L"Sound\\LobbyBGM.mp3", true);
 	ResMgr::GetInst()->Play(L"LobbyBGM");
 
+	ResMgr::GetInst()->LoadSound(L"UISound", L"Sound\\UISound.wav", false);
+	ResMgr::GetInst()->LoadSound(L"UIMoveSound", L"Sound\\UIMoveSound.wav", false);
+
 	AddObject(backGround, OBJECT_GROUP::BACKGROUND);
 }

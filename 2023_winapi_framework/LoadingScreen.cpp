@@ -15,8 +15,8 @@ LoadingScreen::LoadingScreen()
 	m_pTex = ResMgr::GetInst()->TexLoad(L"LoadingScreen", L"Texture\\UI\\LoadingScreen.bmp");
 
 	CreateAnimator();
-	GetAnimator()->CreateAnim(L"LoadOn", m_pTex, Vec2(0, 0), Vec2(16, 16), Vec2(16, 0), 16, 0.05f);
-	GetAnimator()->CreateAnim(L"LoadOff", m_pTex, Vec2(0, 16), Vec2(16, 16), Vec2(16, 0), 17, 0.05f);
+	GetAnimator()->CreateAnim(L"LoadOn", m_pTex, Vec2(0, 0), Vec2(16, 16), Vec2(16, 0), 16, 0.025f);
+	GetAnimator()->CreateAnim(L"LoadOff", m_pTex, Vec2(0, 16), Vec2(16, 16), Vec2(16, 0), 17, 0.025f);
 }
 
 LoadingScreen::~LoadingScreen()

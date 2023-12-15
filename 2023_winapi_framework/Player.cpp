@@ -121,10 +121,6 @@ Player::~Player()
 
 void Player::Update()
 {
-	if (KEY_PRESS(KEY_TYPE::D)) {
-		GetDamageCaster()->OnDamage(10);
-	}
-
 	m_pModuleController->Update();
 	GetAnimator()->Update();
 }

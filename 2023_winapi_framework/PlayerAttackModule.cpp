@@ -73,10 +73,11 @@ void PlayerAttackModule::Shot()
 	Vec2 vPos = m_pController->GetOwner()->GetPos();
 	Vec2 targetDir = (targetPos - vPos).Normalize();
 	Vec2 attackPoint = vPos + targetDir * 10.f;
+	attackPoint.y += 15;
 	
-	if (m_pRigidbody->GetGravityScale() == -1) {
-		attackPoint.y += 30;
-	}
+	//if (m_pRigidbody->GetGravityScale() == -1) {
+	//	attackPoint.y += 30;
+	//}
 
 	m_pController->GetOwner()->SetFront(targetDir.x >= 0 ? 1 : -1);
 

@@ -26,7 +26,6 @@ void Platform::Render(HDC _dc)
 	Vec2 scale = GetScale();
 
 	RECT_RENDER(pos.x, pos.y, scale.x, scale.y, _dc);
-	Component_Render(_dc);
 
 	SelectObject(_dc, prevBrush);
 	DeleteObject(brush);

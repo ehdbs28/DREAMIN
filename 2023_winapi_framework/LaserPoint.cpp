@@ -26,12 +26,5 @@ void LaserPoint::Update()
 
 void LaserPoint::Render(HDC _dc)
 {
-	//Vec2 vPos = GetPos();
-	//Vec2 vScale = GetScale();
-	//TransparentBlt(_dc,
-	//	vPos.x, vPos.y, vScale.x, vScale.y,
-	//	m_pTex->GetDC(),
-	//	0, 0, m_pTex->GetWidth(), m_pTex->GetHeight(),
-	//	RGB(255, 0, 255));
 	Component_Render(_dc);
 }

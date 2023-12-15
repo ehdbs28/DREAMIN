@@ -51,10 +51,10 @@ void InGameScreen::SetStatus(bool _dead)
 		m_descText->SetColor(RGB(198, 208, 123));
 	}
 	else if (m_stageNum == 2) {
-		m_descText->SetColor(RGB(91, 110, 225));
+		m_descText->SetColor(RGB(39, 98, 39));
 	}
 	else if (m_stageNum == 3) {
-		m_descText->SetColor(RGB(39, 98, 39));
+		m_descText->SetColor(RGB(91, 110, 225));
 	}
 
 	AddObject(m_descText);
@@ -70,10 +70,10 @@ void InGameScreen::SetStage(int _stage)
 		m_descText->SetColor(RGB(198, 208, 123));
 	}
 	else if (m_stageNum == 2) {
-		m_descText->SetColor(RGB(91, 110, 225));
+		m_descText->SetColor(RGB(39, 98, 39));
 	}
 	else if (m_stageNum == 3) {
-		m_descText->SetColor(RGB(39, 98, 39));
+		m_descText->SetColor(RGB(91, 110, 225));
 	}
 }
 

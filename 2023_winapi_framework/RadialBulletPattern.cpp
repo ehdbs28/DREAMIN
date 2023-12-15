@@ -6,6 +6,7 @@
 #include "BossBullet.h"
 #include "TimeMgr.h"
 #include "ModuleController.h"
+#include "CameraManager.h"
 
 RadialBulletPattern::RadialBulletPattern(ModuleController* _controller)
 	: BossPattern(_controller)
@@ -35,6 +36,8 @@ void RadialBulletPattern::ExcutePattern()
 	if (m_vecBullet.size() < m_bulletCnt) {
 		m_currentTime += fDT;
 		if (m_currentTime >= m_generateDelay) {
+			CameraManager::GetInst()->Shake(10, 0.1f);
+
 			float fRadian = m_angle * (M_PI / 180.f);
 			Vec2 vPos = m_pModuleController->GetOwner()->GetPos();
 			Vec2 vBulletPos = vPos + Vec2(cosf(fRadian), sinf(fRadian)) * 100 - Vec2(15, 0);

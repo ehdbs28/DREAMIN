@@ -8,6 +8,7 @@
 #include "Scene.h"
 #include "BossBullet.h"
 #include "Particle.h"
+#include "CameraManager.h"
 
 FollowBulletPattern::FollowBulletPattern(ModuleController* _controller)
 	: BossPattern(_controller)
@@ -26,6 +27,7 @@ void FollowBulletPattern::ExcutePattern()
 	if (m_vecBullet.size() < m_bulletCnt) {
 		m_currentTime += fDT;
 		if (m_currentTime >= m_generateDelay) {
+			CameraManager::GetInst()->Shake(10, 0.1f);
 			int angle = rand() % 360 * (M_PI / 180.f);
 			Vec2 vPos = m_pModuleController->GetOwner()->GetPos();
 			vPos += Vec2(cosf(angle), sinf(angle)) * 100 - Vec2(15, 0);

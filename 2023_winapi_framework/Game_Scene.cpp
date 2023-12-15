@@ -74,7 +74,6 @@ void Game_Scene::Init()
 		else if (m_stageNum == 3) {
 			boss = new ThirdBoss;
 		}
-		boss = new ThirdBoss;
 		boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
 		boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f + 20.f));
 		boss->SetScale(Vec2(150, 150));

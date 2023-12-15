@@ -10,6 +10,7 @@
 #include "Animator.h"
 #include "UIManager.h"
 #include "TutScreen.h"
+#include "CameraManager.h"
 
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -54,10 +55,12 @@ void PlayerDashModule::Dash()
 	}
 
 	if (m_dashDir.x != 0) {
+		CameraManager::GetInst()->Shake(5, 0.025);
 		m_pController->GetOwner()->SetFront(m_dashDir.x);
 	}
 
 	if (m_dashDir.y != 0 && m_pRigidbody->GetGravityScale() != m_dashDir.y) {
+		CameraManager::GetInst()->Shake(5, 0.025);
 		m_pRigidbody->SetGravityScale(m_dashDir.y);
 	}
 

@@ -7,6 +7,7 @@
 #include "Object.h"
 #include "TimeMgr.h"
 #include "Collider.h"
+#include "CameraManager.h"
 
 HorizontalWallPattern::HorizontalWallPattern(ModuleController* _controller)
 	: BossPattern(_controller)
@@ -41,6 +42,7 @@ void HorizontalWallPattern::ExcutePattern()
 		if (m_vecWalls.size() < m_wallCnt) {
 			m_currentTime += fDT;
 			if (m_currentTime >= m_generateDelay) {
+				CameraManager::GetInst()->Shake(3, 0.05f);
 				WallAttack* wall = new WallAttack(false);
 				wall->SetName(L"WallAttack");
 				wall->SetScale(Vec2(800, 60));

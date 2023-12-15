@@ -7,6 +7,7 @@
 #include "SceneMgr.h"
 #include "Scene.h"
 #include "Object.h"
+#include "CameraManager.h"
 
 CrossBulletPattern::CrossBulletPattern(ModuleController* _controller)
 	: BossPattern(_controller)
@@ -48,6 +49,7 @@ void CrossBulletPattern::ExcutePattern()
 		if (m_vecBullet.size() < m_bulletCnt) {
 			m_currentTime += fDT;
 			if (m_currentTime >= m_generateDelay) {
+				CameraManager::GetInst()->Shake(10, 0.1f);
 				int size = m_vecBullet.size();
 				for (int i = size;  i < size + 4; i++) {
 					Vec2 vPos = m_pModuleController->GetOwner()->GetPos();

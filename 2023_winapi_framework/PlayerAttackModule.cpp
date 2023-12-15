@@ -20,7 +20,7 @@ PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
 	, m_fAttackDelayTimer(0.f)
 	, m_fAttackDelay(0.075f)
-	, m_damage(1)
+	, m_damage(50)
 {
 	SetAnimationKey(L"Minsung_Shoot");
 }

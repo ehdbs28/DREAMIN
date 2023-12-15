@@ -9,6 +9,7 @@
 #include "EventMgr.h"
 #include <ctime>
 #include "UIManager.h"
+#include "CameraManager.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
@@ -39,6 +40,7 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	// ==== Manager Init ====
 	PathMgr::GetInst()->Init();
 	TimeMgr::GetInst()->Init();
+	CameraManager::GetInst()->Init(Vec2(WINDOW_WIDTH / 2.f, WINDOW_HEIGHT / 2.f));
 	KeyMgr::GetInst()->Init();
 	ResMgr::GetInst()->Init();
 	UIManager::GetInst()->Init();
@@ -68,6 +70,7 @@ void Core::Update()
 {
 	// === Manager Update === 
 	TimeMgr::GetInst()->Update();
+	CameraManager::GetInst()->Update();
 	KeyMgr::GetInst()->Update();
 	UIManager::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
@@ -81,7 +84,11 @@ void Core::Render()
 	SceneMgr::GetInst()->Render(m_hbackDC);
 	UIManager::GetInst()->Render(m_hbackDC);
 
-	BitBlt(m_hDC, 0,0, m_ptResolution.x, m_ptResolution.y, 
+	Vec2 vCenter = CameraManager::GetInst()->GetShakingPos();
+
+	BitBlt(m_hDC,
+		vCenter.x - m_ptResolution.x / 2.f, vCenter.y - m_ptResolution.y / 2.f,
+		m_ptResolution.x, m_ptResolution.y,
 		m_hbackDC, 0,0, SRCCOPY);
 }
 

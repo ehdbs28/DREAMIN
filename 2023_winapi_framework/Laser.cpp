@@ -10,6 +10,7 @@
 #include "LaserPoint.h"
 #include "Particle.h"
 #include "Core.h"
+#include "CameraManager.h"
 
 Laser::Laser(float _shotDelay, float _shotTimer, float _destroyTimer)
 	: m_pLaserTex(nullptr)
@@ -52,6 +53,7 @@ void Laser::Update()
 			m_pPoint->SetScale(Vec2(125, 125));
 			m_pPoint->GetAnimator()->PlayAnim(L"Shot", true);
 			GetAnimator()->PlayAnim(L"Shot", false);
+			CameraManager::GetInst()->Shake(7, m_shotTimer);
 			m_isShot = true;
 			m_curTime = 0.f;
 		}

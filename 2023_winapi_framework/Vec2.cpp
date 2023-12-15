@@ -23,3 +23,8 @@ Vec2::Vec2(const Vec2& _vec)
 	: x(_vec.x)
 	, y(_vec.y)
 {}
+
+Vec2 Lerp(Vec2& _from, Vec2& _to, const float& _percent)
+{
+	return _from + (_to - _from) * _percent;
+}

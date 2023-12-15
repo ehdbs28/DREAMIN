@@ -71,6 +71,7 @@ void Game_Scene::Init()
 		else if (m_stageNum == 2) {
 			boss = new SecondBoss;
 		}
+		boss = new SecondBoss;
 		boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
 		boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f + 20.f));
 		boss->SetScale(Vec2(150, 150));
@@ -81,7 +82,8 @@ void Game_Scene::Init()
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::BULLET);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::PLAYER);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::BULLET, OBJECT_GROUP::MONSTER);
-
+	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::PLAYER, OBJECT_GROUP::BOSS_ATTACK);
+	
 	//ResMgr::GetInst()->LoadSound(L"LobbyBGM", L"Sound\\LobbyBGM.mp3", true);
 	ResMgr::GetInst()->LoadSound(L"GameBGM", L"Sound\\GameBGM.mp3", true);
 	ResMgr::GetInst()->LoadSound(L"LobbyBGM", L"Sound\\LobbyBGM.mp3", true);

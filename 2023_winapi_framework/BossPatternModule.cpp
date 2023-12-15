@@ -27,10 +27,11 @@ void BossPatternModule::EnterModule()
 
 void BossPatternModule::UpdateModule()
 {
-	m_currentPattern->ExcutePattern();
 	if (!m_currentPattern->IsExcute()) {
 		m_pController->ChangeModule(L"IdleModule");
+		return;
 	}
+	m_currentPattern->ExcutePattern();
 }
 
 void BossPatternModule::ExitModule()
@@ -41,6 +42,7 @@ void BossPatternModule::ExitModule()
 void BossPatternModule::AddPattern(BossPattern* _newPattern)
 {
 	m_vecPattern.push_back(_newPattern);
+	ShufflePatternOrder();
 }
 
 void BossPatternModule::SelectPattern()
@@ -49,6 +51,7 @@ void BossPatternModule::SelectPattern()
 		ShufflePatternOrder();
 	}
 	m_currentPattern = m_vecPattern[m_vecOrder[m_patternIndex++]];
+	m_currentPattern->SetExcute();
 }
 
 void BossPatternModule::ShufflePatternOrder()

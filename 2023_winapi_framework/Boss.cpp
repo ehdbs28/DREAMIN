@@ -16,6 +16,7 @@
 #include "Particle.h"
 #include "InGameScreen.h"
 #include "UIManager.h"
+#include "Animation.h"
 
 Boss::Boss()
 	: m_pTex(nullptr)
@@ -29,7 +30,7 @@ Boss::Boss()
 	GetCollider()->SetScale(Vec2(120.f, 120.f));
 
 	CreateDamageCaster();
-	GetDamageCaster()->SetMaxHealth(100);
+	GetDamageCaster()->SetMaxHealth(300);
 
 	m_pModuleController = new ModuleController;
 	m_pModuleController->SetOwner(this);
@@ -58,11 +59,20 @@ void Boss::Update()
 void Boss::Render(HDC _dc)
 {
 	Component_Render(_dc);
+
+	Animation* pCurAnim = GetAnimator()->GetCurAnim();
+	if (pCurAnim->GetName() == L"Damaged") {
+		if (pCurAnim->GetCurFrame() + 1 == pCurAnim->GetMaxFrame()) {
+			GetAnimator()->PlayAnim(L"Idle", false);
+		}
+	}
 }
 
 void Boss::OnDamage(float _damage)
 {
 	GetDamageCaster()->OnDamage(_damage);
+
+	GetAnimator()->PlayAnim(L"Damaged", false);
 
 	float maxHealth = GetDamageCaster()->GetMaxHealth();
 	float curHealth = GetDamageCaster()->GetHealth();

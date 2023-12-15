@@ -7,8 +7,8 @@ BossIdleModule::BossIdleModule(ModuleController* _controller)
 	: BaseModule(_controller)
 	, m_cooldownTimer(0.f)
 	, m_cooldown(0.f)
-	, m_minCooldown(3)
-	, m_maxCooldown(4)
+	, m_minCooldown(1)
+	, m_maxCooldown(2)
 {
 }
 
@@ -28,7 +28,7 @@ void BossIdleModule::UpdateModule()
 {
 	m_cooldownTimer += fDT;
 	if (m_cooldownTimer >= m_cooldown) {
-		//m_pController->ChangeModule(L"PatternModule");
+		m_pController->ChangeModule(L"PatternModule");
 	}
 }
 

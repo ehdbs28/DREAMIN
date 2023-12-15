@@ -42,7 +42,9 @@ void BaseModule::UpdateModule() {
 void BaseModule::ExitModule()
 {
 	m_active = false;
-	m_pAnimator->StopAnim();
+	if (m_pAnimator) {
+		m_pAnimator->StopAnim();
+	}
 }
 
 void BaseModule::SetAnimationKey(wstring _key)

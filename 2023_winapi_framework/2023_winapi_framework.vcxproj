@@ -179,6 +179,7 @@
     <ClInclude Include="BaseWindow.h" />
     <ClInclude Include="Boss.h" />
     <ClInclude Include="BossIdleModule.h" />
+    <ClInclude Include="BossLaserAroundPattern.h" />
     <ClInclude Include="BossPattern.h" />
     <ClInclude Include="BossPatternModule.h" />
     <ClInclude Include="Bullet.h" />
@@ -188,16 +189,23 @@
     <ClInclude Include="CreditsScreen.h" />
     <ClInclude Include="DamageCaster.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="DownAttackPattern.h" />
+    <ClInclude Include="Easing.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="EventMgr.h" />
     <ClInclude Include="FirstBoss.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
+    <ClInclude Include="HorizontalWallPattern.h" />
     <ClInclude Include="HowToPlayScreen.h" />
     <ClInclude Include="ImageUI.h" />
     <ClInclude Include="InGameScreen.h" />
     <ClInclude Include="KeyMgr.h" />
+    <ClInclude Include="Laser.h" />
+    <ClInclude Include="LaserPattern.h" />
+    <ClInclude Include="LaserPoint.h" />
     <ClInclude Include="ModuleController.h" />
+    <ClInclude Include="MovementPattern.h" />
     <ClInclude Include="NextStagePortal.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Particle.h" />
@@ -235,6 +243,8 @@
     <ClInclude Include="UIObject.h" />
     <ClInclude Include="UIPanel.h" />
     <ClInclude Include="Vec2.h" />
+    <ClInclude Include="VerticalWallPattern.h" />
+    <ClInclude Include="WallAttack.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Animation.cpp" />
@@ -244,6 +254,7 @@
     <ClCompile Include="BaseWindow.cpp" />
     <ClCompile Include="Boss.cpp" />
     <ClCompile Include="BossIdleModule.cpp" />
+    <ClCompile Include="BossLaserAroundPattern.cpp" />
     <ClCompile Include="BossPattern.cpp" />
     <ClCompile Include="BossPatternModule.cpp" />
     <ClCompile Include="Bullet.cpp" />
@@ -252,15 +263,22 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="CreditsScreen.cpp" />
     <ClCompile Include="DamageCaster.cpp" />
+    <ClCompile Include="DownAttackPattern.cpp" />
+    <ClCompile Include="Easing.cpp" />
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="FirstBoss.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
+    <ClCompile Include="HorizontalWallPattern.cpp" />
     <ClCompile Include="HowToPlayScreen.cpp" />
     <ClCompile Include="ImageUI.cpp" />
     <ClCompile Include="InGameScreen.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
+    <ClCompile Include="Laser.cpp" />
+    <ClCompile Include="LaserPattern.cpp" />
+    <ClCompile Include="LaserPoint.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
+    <ClCompile Include="MovementPattern.cpp" />
     <ClCompile Include="NextStagePortal.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Particle.cpp" />
@@ -295,6 +313,8 @@
     <ClCompile Include="UIObject.cpp" />
     <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Vec2.cpp" />
+    <ClCompile Include="VerticalWallPattern.cpp" />
+    <ClCompile Include="WallAttack.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc" />

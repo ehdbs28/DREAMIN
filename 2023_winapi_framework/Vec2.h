@@ -11,6 +11,13 @@ public:
 	Vec2(const Vec2& _vec);
 public:
 	float Length() { return (float)(sqrt(pow(x, 2) + pow(y, 2))); }
+	static float Dot(const Vec2& _vec1, const Vec2& _vec2) {
+		return (_vec1.x * _vec2.x) + (_vec1.y * _vec2.y);
+	}
+	static Vec2 Lerp(Vec2& _from, Vec2& _to, const float& _percent)
+	{
+		return _from + (_to - _from) * _percent;
+	}
 	Vec2& Normalize()
 	{
 		float fLen = Length();

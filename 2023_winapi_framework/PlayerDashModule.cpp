@@ -38,6 +38,8 @@ void PlayerDashModule::EnterModule()
 
 void PlayerDashModule::Dash()
 {
+	((Player*)m_pController->GetOwner())->SetInvincibility(true);
+
 	m_dashDir = Vec2(0.f, 0.f);
 	m_dashDurationTimer = 0.f;
 
@@ -79,5 +81,6 @@ void PlayerDashModule::UpdateModule()
 
 void PlayerDashModule::ExitModule()
 {
+	((Player*)m_pController->GetOwner())->SetInvincibility(true);
 	BaseModule::ExitModule();
 }

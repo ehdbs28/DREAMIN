@@ -166,6 +166,9 @@ void Player::SetAnimation(wstring _key, bool _repeat, bool _isRight, bool _gravi
 
 void Player::OnDamage(float _damage)
 {
+	if (m_isInvincibility) {
+		return;
+	}
 	GetDamageCaster()->OnDamage(_damage);
 }
 

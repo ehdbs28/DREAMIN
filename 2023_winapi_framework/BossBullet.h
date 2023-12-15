@@ -8,7 +8,7 @@ class BossBullet :
     public Bullet
 {
 public:
-    BossBullet(OBJECT_GROUP _ownerObjectGroup, bool _following = false, Player* _pTarget);
+    BossBullet(OBJECT_GROUP _ownerObjectGroup, bool _following = false, const Player* _pTarget = nullptr, float _lifeTime = 4.f);
     virtual ~BossBullet();
 
 public:
@@ -19,7 +19,10 @@ protected:
 
 private:
     bool m_following;
-    Player* m_pTarget;
+    const Player* m_pTarget;
+
+    float m_currentTime;
+    float m_lifeTime;
 
 };
 

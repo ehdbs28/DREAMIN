@@ -23,6 +23,7 @@ public:
         SetAngle(atan2f(m_dir.y, m_dir.x) * (180.f / M_PI));
     }
     void SetDamage(int _damage) { m_damage = _damage; }
+    void SetSpeed(int _speed) { m_fSpeed = _speed; }
 
 public:
     void Destroy();

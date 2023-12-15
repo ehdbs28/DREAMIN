@@ -136,6 +136,7 @@ void Bullet::EnterCollision(Collider* _pOther)
 
 void Bullet::Destroy()
 {
+	GenerateDestroyParticle();
 	EventMgr::GetInst()->DeleteObject(this);
 }
 

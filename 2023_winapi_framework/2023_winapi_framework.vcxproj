@@ -233,6 +233,7 @@
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TextUI.h" />
     <ClInclude Include="Texture.h" />
+    <ClInclude Include="ThirdBoss.h" />
     <ClInclude Include="TimeMgr.h" />
     <ClInclude Include="TitleScene.h" />
     <ClInclude Include="TitleScreen.h" />
@@ -303,6 +304,7 @@
     <ClCompile Include="SliderUI.cpp" />
     <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="Texture.cpp" />
+    <ClCompile Include="ThirdBoss.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
     <ClCompile Include="TitleScene.cpp" />
     <ClCompile Include="TitleScreen.cpp" />

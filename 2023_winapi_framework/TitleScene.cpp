@@ -20,7 +20,6 @@ void TitleScene::Init()
 	backGround->SetParallaxSpeed(30.f);
 	ResMgr::GetInst()->LoadSound(L"LobbyBGM", L"Sound\\LobbyBGM.mp3", true);
 	ResMgr::GetInst()->LoadSound(L"UISound", L"Sound\\UISound.wav", false);
-	ResMgr::GetInst()->LoadSound(L"UISound", L"Sound\\UISound.wav", false);
 
 	ResMgr::GetInst()->Play(L"LobbyBGM");
 

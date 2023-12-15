@@ -93,6 +93,7 @@ void Game_Scene::Init()
 	//ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
 	//ResMgr::GetInst()->Volume(SOUND_CHANNEL::BGM, 1.0f);
 
+	ResMgr::GetInst()->Stop(SOUND_CHANNEL::BGM);
 	ResMgr::GetInst()->Play(L"GameBGM");
 }
 

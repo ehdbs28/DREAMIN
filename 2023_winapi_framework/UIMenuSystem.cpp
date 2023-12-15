@@ -3,6 +3,7 @@
 #include "UIMenu.h"
 #include "KeyMgr.h"
 #include "UIPanel.h"
+#include "ResMgr.h"
 
 UIMenuSystem::UIMenuSystem()
 	: m_selectIndex(0)
@@ -55,6 +56,7 @@ void UIMenuSystem::MenuUpHandle()
 	if (m_selectIndex <= 0) {
 		return;
 	}
+	//ResMgr::GetInst()->Play(L"UIMoveSound");
 	--m_selectIndex;
 }
 
@@ -63,10 +65,12 @@ void UIMenuSystem::MenuDownHandle()
 	if (m_selectIndex >= m_vecMenus.size()) {
 		return;
 	}
+	//ResMgr::GetInst()->Play(L"UIMoveSound");
 	++m_selectIndex;
 }
 
 void UIMenuSystem::EnterHandle()
 {
+	ResMgr::GetInst()->Play(L"UISound");
 	m_vecMenus[m_selectIndex]->OnEnter();
 }

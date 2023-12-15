@@ -6,6 +6,8 @@
 #include "TimeMgr.h"
 #include "Object.h"
 #include "DamageCaster.h"
+#include "EventMgr.h"
+#include "ResMgr.h"
 
 WallAttack::WallAttack(float _enableTimer, float _attackTimer)
 	: m_pTex(nullptr)
@@ -13,9 +15,12 @@ WallAttack::WallAttack(float _enableTimer, float _attackTimer)
 	, m_enableTimer(_enableTimer)
 	, m_attackTimer(_attackTimer)
 	, m_isAttack(false)
+	, m_isDestroy(false)
 {
+	m_pTex = ResMgr::GetInst()->TexLoad(L"WallAttack", L"Texture\\StageWallAttack.bmp");
+
 	CreateCollider();
-	//GetCollider()->SetScale();
+	GetCollider()->SetScale(Vec2(100, 370));
 
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"Enable", m_pTex, Vec2(0, 0), Vec2(16, 16), Vec2(16, 0), 9, m_enableTimer / 9.f);
@@ -29,6 +34,8 @@ WallAttack::~WallAttack()
 
 void WallAttack::Update()
 {
+	GetAnimator()->Update();
+
 	if (!m_isAttack) {
 		m_currentTime += fDT;
 		if (m_currentTime >= m_enableTimer) {
@@ -37,9 +44,19 @@ void WallAttack::Update()
 		}
 	}
 	else {
-		m_currentTime += fDT;
-		if (m_currentTime >= m_attackTimer) {
-			GetAnimator()->PlayAnim(L"Disable", false);
+		if (m_isDestroy) {
+			m_currentTime += fDT;
+			if (m_currentTime >= m_enableTimer) {
+				EventMgr::GetInst()->DeleteObject(this);
+			}
+		}
+		else {
+			m_currentTime += fDT;
+			if (m_currentTime >= m_attackTimer) {
+				GetAnimator()->PlayAnim(L"Disable", false);
+				m_isDestroy = true;
+				m_currentTime = 0.f;
+			}
 		}
 	}
 }

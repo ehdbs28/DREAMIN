@@ -25,6 +25,7 @@ private:
     float m_attackTimer;
 
     bool m_isAttack;
+    bool m_isDestroy;
 
 };
 

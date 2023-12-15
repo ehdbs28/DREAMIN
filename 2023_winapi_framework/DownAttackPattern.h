@@ -1,6 +1,8 @@
 #pragma once
 #include "BossPattern.h"
 
+class WallAttack;
+
 class DownAttackPattern :
     public BossPattern
 {
@@ -21,8 +23,16 @@ private:
     float m_currentTime;
     float m_movementTimer;
     float m_downTimer;
+    float m_generateDelay;
 
+    bool m_arrived;
     bool m_readyToAttack;
+    bool m_isEnd;
+
+    float m_interval;
+    int m_wallCnt;
+
+    vector<WallAttack*> m_vecWalls;
 
 };
 

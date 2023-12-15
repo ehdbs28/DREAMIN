@@ -9,8 +9,6 @@
 #include "DamageCaster.h"
 #include "LaserPoint.h"
 #include "Particle.h"
-#include "SceneMgr.h"
-#include "Scene.h"
 #include "Core.h"
 
 Laser::Laser(float _shotDelay, float _shotTimer, float _destroyTimer)
@@ -51,11 +49,6 @@ void Laser::Update()
 		m_curTime += fDT;
 
 		if(m_curTime >= m_shotDelay) {
-			Particle* particle = new Particle(PARTICLE_TYPE::BOSS_SHOOT, 0.1f, false);
-			particle->SetPos(Vec2(GetPos().x - GetScale().x / 2 + 15, GetPos().y));
-			particle->SetScale(Vec2(50, 50));
-			SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
-
 			m_pPoint->SetScale(Vec2(125, 125));
 			m_pPoint->GetAnimator()->PlayAnim(L"Shot", true);
 			GetAnimator()->PlayAnim(L"Shot", false);

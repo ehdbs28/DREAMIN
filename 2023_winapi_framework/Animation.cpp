@@ -46,11 +46,14 @@ void Animation::Update()
 void Animation::Render(HDC _dc)
 {
 	Object* pObj = m_pAnimator->GetObj();
+	Vec2 vPos = pObj->GetPos();
+	Vec2 vScale = pObj->GetScale();
 
-	if (pObj->GetName() != L"Laser") {
-		Vec2 vPos = pObj->GetPos();
-		Vec2 vScale = pObj->GetScale();
+	if (pObj->GetName() == L"Laser") {
+		vPos = Vec2(pObj->GetPos().x - pObj->GetScale().x / 2 + 15, pObj->GetPos().y);
+	}
 
+	if(!m_isRotate){
 		// 오프셋 적용
 		TransparentBlt(_dc
 			,(int)(vPos.x - vScale.x /2.f)
@@ -65,34 +68,31 @@ void Animation::Render(HDC _dc)
 			,RGB(255,0,255));
 	}
 	else {
-		Vec2 vPos = Vec2(pObj->GetPos().x - pObj->GetScale().x / 2 + 15, pObj->GetPos().y);
-		Vec2 vScale = pObj->GetScale();
 		float angle = pObj->GetAngle();
 		int Width = m_pTex->GetWidth();
 		int Height = m_pTex->GetHeight();
 
 		POINT tPoint[3] = { 0, };
-		float fx, fy, fxDest, fyDest;
+		Vec2 pos[3] = {};
+		float fxDest, fyDest;
 		float fRadian = angle * (M_PI / 180.f);
 		float cosTheta = cosf(fRadian);
 		float sinTheta = sinf(fRadian);
 
-		for (int i = 0; i < 3; i++) {
-			if (i == 0) {
-				fx = 0;
-				fy = -vScale.y / 2.f;
-			}
-			else if (i == 1) {
-				fx = vScale.x;
-				fy = -vScale.y / 2.f;
-			}
-			else {
-				fx = 0;
-				fy = vScale.y / 2.f;
-			}
+		if (pObj->GetName() == L"Laser") {
+			pos[0] = Vec2(0.f, -vScale.y / 2.f);
+			pos[1] = Vec2(vScale.x, -vScale.y / 2.f);
+			pos[2] = Vec2(0.f, vScale.y / 2.f);
+		}
+		else {
+			pos[0] = Vec2(-vScale.x / 2.f, -vScale.y / 2.f);
+			pos[1] = Vec2(vScale.x / 2.f, -vScale.y / 2.f);
+			pos[2] = Vec2(-vScale.x / 2.f, vScale.y / 2.f);
+		}
 
-			fxDest = fx * cosTheta - fy * sinTheta;
-			fyDest = fx * sinTheta + fy * cosTheta;
+		for (int i = 0; i < 3; i++) {
+			fxDest = pos[i].x * cosTheta - pos[i].y * sinTheta;
+			fyDest = pos[i].x * sinTheta + pos[i].y * cosTheta;
 			tPoint[i].x = fxDest + vPos.x;
 			tPoint[i].y = fyDest + vPos.y;
 		}
@@ -159,9 +159,10 @@ void Animation::Render(HDC _dc)
 	}
 }
 
-void Animation::Create(Texture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, Vec2 _vStep, int _framecount, float _fDuration)
+void Animation::Create(Texture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, Vec2 _vStep, int _framecount, float _fDuration, bool _isRotate)
 {
 	m_pTex = _pTex;
+	m_isRotate = _isRotate;
 	for (int i = 0; i < _framecount; ++i)
 	{
 		m_vecAnimFrame.push_back(tAnimFrame({ _vLT + _vStep * i,

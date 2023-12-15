@@ -52,12 +52,12 @@ void DownAttackPattern::ExcutePattern()
 
 					WallAttack* wall1 = new WallAttack;
 					wall1->SetName(L"WallAttack");
-					wall1->SetScale(Vec2(100, 370));
+					wall1->SetScale(Vec2(100, 360));
 					wall1->SetPos(Vec2(vPos.x + m_interval * (m_vecWalls.size() / 2.f), WINDOW_HEIGHT / 2.f));
 
 					WallAttack* wall2 = new WallAttack;
 					wall2->SetName(L"WallAttack");
-					wall2->SetScale(Vec2(100, 370));
+					wall2->SetScale(Vec2(100, 360));
 					wall2->SetPos(Vec2(vPos.x - m_interval * (m_vecWalls.size() / 2.f), WINDOW_HEIGHT / 2.f));
 
 					m_vecWalls.push_back(wall1);

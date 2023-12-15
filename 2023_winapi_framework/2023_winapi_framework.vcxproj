@@ -196,6 +196,7 @@
     <ClInclude Include="FirstBoss.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
+    <ClInclude Include="HorizontalWallPattern.h" />
     <ClInclude Include="HowToPlayScreen.h" />
     <ClInclude Include="ImageUI.h" />
     <ClInclude Include="InGameScreen.h" />
@@ -242,6 +243,7 @@
     <ClInclude Include="UIObject.h" />
     <ClInclude Include="UIPanel.h" />
     <ClInclude Include="Vec2.h" />
+    <ClInclude Include="VerticalWallPattern.h" />
     <ClInclude Include="WallAttack.h" />
   </ItemGroup>
   <ItemGroup>
@@ -266,6 +268,7 @@
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="FirstBoss.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
+    <ClCompile Include="HorizontalWallPattern.cpp" />
     <ClCompile Include="HowToPlayScreen.cpp" />
     <ClCompile Include="ImageUI.cpp" />
     <ClCompile Include="InGameScreen.cpp" />
@@ -310,6 +313,7 @@
     <ClCompile Include="UIObject.cpp" />
     <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Vec2.cpp" />
+    <ClCompile Include="VerticalWallPattern.cpp" />
     <ClCompile Include="WallAttack.cpp" />
   </ItemGroup>
   <ItemGroup>

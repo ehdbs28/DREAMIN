@@ -5,6 +5,7 @@
 #include "Animator.h"
 #include "ResMgr.h"
 #include "DownAttackPattern.h"
+#include "VerticalWallPattern.h"
 
 SecondBoss::SecondBoss()
 {
@@ -12,13 +13,14 @@ SecondBoss::SecondBoss()
 
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"Idle", m_pTex, Vec2(0, 0),
-		Vec2(16, 16), Vec2(16, 0), 1, 0.2f);
+		Vec2(16, 16), Vec2(16, 0), 1, 0.2f, true);
 	GetAnimator()->CreateAnim(L"Damaged", m_pTex, Vec2(0, 16),
-		Vec2(16, 16), Vec2(16, 0), 2, 0.05f);
+		Vec2(16, 16), Vec2(16, 0), 2, 0.05f, true);
 	GetAnimator()->PlayAnim(L"Idle", false);
 
 	BossPatternModule* patternModule = (BossPatternModule*)m_pModuleController->GetModule(L"PatternModule");
 	patternModule->AddPattern(new DownAttackPattern(m_pModuleController));
+	patternModule->AddPattern(new VerticalWallPattern(m_pModuleController));
 }
 
 SecondBoss::~SecondBoss()

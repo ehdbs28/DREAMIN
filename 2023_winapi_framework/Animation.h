@@ -18,7 +18,7 @@ public:
 	void Render(HDC _dc);
 public:
 	void Create(Texture* _pTex, Vec2 _vLT, Vec2 _vSliceSize, 
-		Vec2 _vStep, int _framecount, float _fDuration);
+		Vec2 _vStep, int _framecount, float _fDuration, bool _isRotate);
 public:
 	const wstring& GetName() const { return m_strName; }
 	void SetFrame(int _frame) { m_CurFrame = _frame; }
@@ -35,6 +35,7 @@ private:
 	vector<tAnimFrame> m_vecAnimFrame;
 	wstring m_strName;
 	Animator* m_pAnimator;
+	bool m_isRotate;
 
 };
 

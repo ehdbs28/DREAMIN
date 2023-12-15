@@ -136,9 +136,13 @@ void Bullet::EnterCollision(Collider* _pOther)
 
 void Bullet::Destroy()
 {
+	EventMgr::GetInst()->DeleteObject(this);
+}
+
+void Bullet::GenerateDestroyParticle()
+{
 	Particle* particle = new Particle(PARTICLE_TYPE::BULLET_DESTROY, 0.05f, false);
 	particle->SetPos(GetPos());
 	particle->SetScale(Vec2(60, 60));
 	SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
-	EventMgr::GetInst()->DeleteObject(this);
 }

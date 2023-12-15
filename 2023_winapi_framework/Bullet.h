@@ -1,13 +1,14 @@
 #pragma once
 #include "Object.h"
+
 class Texture;
-class Collider;
+
 class Bullet :
     public Object
 {
 public:
     Bullet(OBJECT_GROUP _ownerObjectGroup);
-    ~Bullet();
+    virtual ~Bullet();
 
 public:
     void Update() override;
@@ -26,7 +27,10 @@ public:
 public:
     void Destroy();
 
-private:
+protected:
+    virtual void GenerateDestroyParticle();
+
+protected:
     Texture* m_pTex;
 
     OBJECT_GROUP m_ownerObjectGroup;

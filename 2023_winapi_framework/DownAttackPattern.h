@@ -1,12 +1,12 @@
 #pragma once
 #include "BossPattern.h"
 
-class MovementPattern :
+class DownAttackPattern :
     public BossPattern
 {
 public:
-    MovementPattern(ModuleController* _controlle);
-    ~MovementPattern();
+    DownAttackPattern(ModuleController* _controller);
+    ~DownAttackPattern();
 
 public:
     virtual void ExcutePattern() override;
@@ -15,14 +15,14 @@ public:
     virtual void SetExcute() override;
 
 private:
-    Vec2 m_destinations[4];
-
-    Vec2 m_origin;
+    Vec2 m_originPos;
     Vec2 m_destination;
 
     float m_currentTime;
     float m_movementTimer;
-    float m_percent;
+    float m_downTimer;
+
+    bool m_readyToAttack;
 
 };
 

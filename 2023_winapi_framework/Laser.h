@@ -16,7 +16,7 @@ public:
     void Render(HDC _dc) override;
 
 public:
-    void EnterCollision(Collider* _pOther) override;
+    void StayCollision(Collider* _pOther) override;
 
 public:
     void SetPos(Vec2 _pos) override;

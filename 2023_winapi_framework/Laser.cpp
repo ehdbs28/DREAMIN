@@ -87,7 +87,7 @@ void Laser::Render(HDC _dc)
 	Component_Render(_dc);
 }
 
-void Laser::EnterCollision(Collider* _pOther)
+void Laser::StayCollision(Collider* _pOther)
 {
 	if (!m_isShot) {
 		return;

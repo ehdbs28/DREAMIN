@@ -3,7 +3,7 @@
 #include "ModuleController.h"
 #include "Object.h"
 #include "TimeMgr.h"
-
+#include "Easing.h"
 MovementPattern::MovementPattern(ModuleController* _controlle)
 	: BossPattern(_controlle)
 	, m_currentTime(0.f)
@@ -25,7 +25,7 @@ void MovementPattern::ExcutePattern()
 {
 	m_currentTime += fDT;
 	m_percent = m_currentTime / m_movementTimer;
-	Vec2 lerp = m_origin + (m_destination - m_origin) * EaseInOutCubic(m_percent);
+	Vec2 lerp = Vec2::Lerp(m_origin, m_destination, EaseInOutCubic(m_percent));
 	m_pModuleController->GetOwner()->SetPos(lerp);
 
 	if (m_percent >= 1.f) {
@@ -43,9 +43,4 @@ void MovementPattern::SetExcute()
 	m_destination = m_destinations[index];
 	
 	BossPattern::SetExcute();
-}
-
-float MovementPattern::EaseInOutCubic(float _x)
-{
-	return (_x < 0.5 ? 4 * _x * _x * _x : 1 - powf(-2 * _x + 2, 3) / 2);
 }

@@ -40,7 +40,7 @@ void LaserPattern::ExcutePattern()
 			laser->SetAngle(m_targetAngle);
 
 			m_vecLaser.push_back(laser);
-			SceneMgr::GetInst()->GetCurScene()->AddObject(laser, OBJECT_GROUP::BULLET);
+			SceneMgr::GetInst()->GetCurScene()->AddObject(laser, OBJECT_GROUP::BOSS_ATTACK);
 			m_angle += m_interval;
 			m_currentTime = 0;
 		}

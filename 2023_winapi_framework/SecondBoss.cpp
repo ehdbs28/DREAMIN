@@ -4,6 +4,7 @@
 #include "ModuleController.h"
 #include "Animator.h"
 #include "ResMgr.h"
+#include "DownAttackPattern.h"
 
 SecondBoss::SecondBoss()
 {
@@ -17,7 +18,7 @@ SecondBoss::SecondBoss()
 	GetAnimator()->PlayAnim(L"Idle", false);
 
 	BossPatternModule* patternModule = (BossPatternModule*)m_pModuleController->GetModule(L"PatternModule");
-	//patternModule->AddPattern()
+	patternModule->AddPattern(new DownAttackPattern(m_pModuleController));
 }
 
 SecondBoss::~SecondBoss()

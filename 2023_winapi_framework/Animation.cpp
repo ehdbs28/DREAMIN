@@ -107,10 +107,10 @@ void Animation::Render(HDC _dc)
 			(int)min(tPoint[0].x, min(tPoint[1].x, tPoint[2].x)),
 			(int)min(tPoint[0].y, min(tPoint[1].y, tPoint[2].y))
 		);
-		float width = abs(Dot(Vec2(1, 0), (Vec2((int)tPoint[1].x, (int)tPoint[1].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))))
-					+ abs(Dot(Vec2(1, 0), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
-		float height = abs(Dot(Vec2(0, 1), (Vec2((int)tPoint[1].x, (int)tPoint[1].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))))
-					 + abs(Dot(Vec2(0, 1), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
+		float width = abs(Vec2::Dot(Vec2(1, 0), (Vec2((int)tPoint[1].x, (int)tPoint[1].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))))
+					+ abs(Vec2::Dot(Vec2(1, 0), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
+		float height = abs(Vec2::Dot(Vec2(0, 1), (Vec2((int)tPoint[1].x, (int)tPoint[1].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))))
+					 + abs(Vec2::Dot(Vec2(0, 1), (Vec2((int)tPoint[2].x, (int)tPoint[2].y) - Vec2((int)tPoint[0].x, (int)tPoint[0].y))));
 
 		if (leftTop.x < 0) {
 			leftTop.x = 0;

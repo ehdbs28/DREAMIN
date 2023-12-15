@@ -24,7 +24,7 @@ Vec2::Vec2(const Vec2& _vec)
 	, y(_vec.y)
 {}
 
-float Dot(Vec2 _vec1, Vec2 _vec2)
+Vec2 Lerp(Vec2& _from, Vec2& _to, const float& _percent)
 {
-	return (_vec1.x * _vec2.x) + (_vec1.y * _vec2.y);
+	return _from + (_to - _from) * _percent;
 }

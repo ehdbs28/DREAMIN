@@ -110,11 +110,14 @@
     <Filter Include="Engine\05. Scene\TitleScene">
       <UniqueIdentifier>{f15f1fe2-8ab4-49cd-b524-4ed86d52bd64}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\09.UI">
-      <UniqueIdentifier>{b9d2e450-6caa-4da0-9384-a209c97d7046}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\04. Object\Particle">
       <UniqueIdentifier>{979f4951-c4be-4bdc-b6bf-d29373311424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Manager\UIManager">
+      <UniqueIdentifier>{993b3d31-a972-4380-a5f5-5bf8e9cbe9f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI">
+      <UniqueIdentifier>{b9d2e450-6caa-4da0-9384-a209c97d7046}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\09.UI\UIObject">
       <UniqueIdentifier>{db4132b9-b9f9-465d-be4d-2db1a669b5cb}</UniqueIdentifier>
@@ -122,23 +125,23 @@
     <Filter Include="Engine\09.UI\UIObject\TextUI">
       <UniqueIdentifier>{b64a8630-cce9-41da-a7de-685b42824078}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Manager\UIManager">
-      <UniqueIdentifier>{993b3d31-a972-4380-a5f5-5bf8e9cbe9f8}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\09.UI\Screen">
-      <UniqueIdentifier>{ee30dc92-b168-4d7b-a906-6e934c27e7bd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\09.UI\Screen\TitleScreen">
-      <UniqueIdentifier>{cfb38fbe-bf86-4730-ab08-523a8e129fe0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Engine\09.UI\UIObject\Utils">
       <UniqueIdentifier>{5c4b91a6-2cd9-4bae-8374-abf753ebafd7}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\09.UI\UIObject\Utils\MenuSystem">
       <UniqueIdentifier>{bc5a3fa8-7e55-440c-abc3-96c36612f4ee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\09.UI\UIObject\Utils\SliderUI">
+      <UniqueIdentifier>{0d36690a-62af-4822-bf97-79d75fc265e7}</UniqueIdentifier>
+    </Filter>
     <Filter Include="Engine\09.UI\UIObject\ImageUI">
       <UniqueIdentifier>{05878bfe-2031-4f53-9075-2e5a6ae66fdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen">
+      <UniqueIdentifier>{ee30dc92-b168-4d7b-a906-6e934c27e7bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\TitleScreen">
+      <UniqueIdentifier>{cfb38fbe-bf86-4730-ab08-523a8e129fe0}</UniqueIdentifier>
     </Filter>
     <Filter Include="Engine\09.UI\Screen\HowToPlayScreen">
       <UniqueIdentifier>{0a1341cd-bd19-4f65-a845-63ec204062f8}</UniqueIdentifier>
@@ -152,8 +155,8 @@
     <Filter Include="Engine\09.UI\Screen\TutScreen">
       <UniqueIdentifier>{80089f4b-3d12-47b5-9115-1b4f4cb59c7a}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\09.UI\UIObject\Utils\SliderUI">
-      <UniqueIdentifier>{0d36690a-62af-4822-bf97-79d75fc265e7}</UniqueIdentifier>
+    <Filter Include="Engine\04. Object\BossAttackObject">
+      <UniqueIdentifier>{75697aa5-9b35-4ebf-9bf0-53208102de84}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -183,9 +186,6 @@
     </ClInclude>
     <ClInclude Include="BaseWindow.h">
       <Filter>Engine\02. Core</Filter>
-    </ClInclude>
-    <ClInclude Include="Object.h">
-      <Filter>Engine\04. Object</Filter>
     </ClInclude>
     <ClInclude Include="Vec2.h">
       <Filter>Engine\01. Header</Filter>
@@ -349,12 +349,6 @@
     <ClInclude Include="SliderUI.h">
       <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
     </ClInclude>
-    <ClInclude Include="Laser.h">
-      <Filter>Engine\04. Object\Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="LaserPoint.h">
-      <Filter>Engine\04. Object\Bullet</Filter>
-    </ClInclude>
     <ClInclude Include="LaserPattern.h">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClInclude>
@@ -363,6 +357,19 @@
     </ClInclude>
     <ClInclude Include="BossLaserAroundPattern.h">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="DownAttackPattern.h">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClInclude>
+    <ClInclude Include="Easing.h" />
+    <ClInclude Include="Laser.h">
+      <Filter>Engine\04. Object\BossAttackObject</Filter>
+    </ClInclude>
+    <ClInclude Include="LaserPoint.h">
+      <Filter>Engine\04. Object\BossAttackObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Object.h">
+      <Filter>Engine\05. Scene</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -553,12 +560,6 @@
     <ClCompile Include="SliderUI.cpp">
       <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
     </ClCompile>
-    <ClCompile Include="Laser.cpp">
-      <Filter>Engine\04. Object\Bullet</Filter>
-    </ClCompile>
-    <ClCompile Include="LaserPoint.cpp">
-      <Filter>Engine\04. Object\Bullet</Filter>
-    </ClCompile>
     <ClCompile Include="LaserPattern.cpp">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
     </ClCompile>
@@ -567,6 +568,16 @@
     </ClCompile>
     <ClCompile Include="BossLaserAroundPattern.cpp">
       <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="DownAttackPattern.cpp">
+      <Filter>Engine\04. Object\Boss\Pattern</Filter>
+    </ClCompile>
+    <ClCompile Include="Easing.cpp" />
+    <ClCompile Include="Laser.cpp">
+      <Filter>Engine\04. Object\BossAttackObject</Filter>
+    </ClCompile>
+    <ClCompile Include="LaserPoint.cpp">
+      <Filter>Engine\04. Object\BossAttackObject</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

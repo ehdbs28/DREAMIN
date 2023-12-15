@@ -189,6 +189,8 @@
     <ClInclude Include="CreditsScreen.h" />
     <ClInclude Include="DamageCaster.h" />
     <ClInclude Include="define.h" />
+    <ClInclude Include="DownAttackPattern.h" />
+    <ClInclude Include="Easing.h" />
     <ClInclude Include="enums.h" />
     <ClInclude Include="EventMgr.h" />
     <ClInclude Include="FirstBoss.h" />
@@ -258,6 +260,8 @@
     <ClCompile Include="Core.cpp" />
     <ClCompile Include="CreditsScreen.cpp" />
     <ClCompile Include="DamageCaster.cpp" />
+    <ClCompile Include="DownAttackPattern.cpp" />
+    <ClCompile Include="Easing.cpp" />
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="FirstBoss.cpp" />
     <ClCompile Include="Game_Scene.cpp" />

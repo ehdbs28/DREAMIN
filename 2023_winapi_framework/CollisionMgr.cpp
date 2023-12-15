@@ -88,19 +88,46 @@ void CollisionMgr::CollisionGroupUpdate(OBJECT_GROUP _eLeft, OBJECT_GROUP _eRigh
 
 bool CollisionMgr::IsCollision(Collider* _pLeft, Collider* _pRight)
 {
-	// 충돌검사 알고리즘
-	// AABB 
 	Vec2 vLeftPos = _pLeft->GetFinalPos();
+	if (_pLeft->GetObj()->GetName() == L"Laser") {
+		vLeftPos = Vec2(_pLeft->GetObj()->GetPos().x - _pLeft->GetObj()->GetScale().x / 2 + 15,
+			_pLeft->GetObj()->GetPos().y);
+	}
 	Vec2 vRightPos = _pRight->GetFinalPos();
-	Vec2 vLeftScale = _pLeft->GetScale();
-	Vec2 vRightScale = _pRight->GetScale();
-	if (abs(vRightPos.x - vLeftPos.x) < (vLeftScale.x + vRightScale.x) / 2.f
-		&& abs(vRightPos.y - vLeftPos.y) < (vLeftScale.y + vRightScale.y) / 2.f)
-	{
-		return true;
+	if (_pRight->GetObj()->GetName() == L"Laser") {
+		vRightPos = Vec2(_pRight->GetObj()->GetPos().x - _pRight->GetObj()->GetScale().x / 2 + 15,
+			_pRight->GetObj()->GetPos().y);
 	}
 
-	return false;
+	Vec2 vDist = vRightPos - vLeftPos;
+
+	Vec2 vLeftHeight = _pLeft->GetHeightVector();
+	Vec2 vLeftWidth = _pLeft->GetWidthVector();
+	Vec2 vRightHeight = _pRight->GetHeightVector();
+	Vec2 vRightWidth = _pRight->GetWidthVector();
+
+	Vec2 vectors[4] = {
+		vLeftHeight,
+		vLeftWidth,
+		vRightHeight,
+		vRightWidth
+	};
+
+	for (int i = 0; i < 4; i++) {
+		double sum = 0.;
+		Vec2 normalVector = vectors[i].Normalized();
+
+		for (int j = 0; j < 4; j++) {
+			sum += abs(Vec2::Dot(vectors[j], normalVector));
+		}
+
+		float distanceVecltor = abs(Vec2::Dot(vDist, normalVector));
+		if (distanceVecltor > sum) {
+			return false;
+		}
+	}
+
+	return true;
 }
 
 void CollisionMgr::CheckGroup(OBJECT_GROUP _eLeft, OBJECT_GROUP _eRight)

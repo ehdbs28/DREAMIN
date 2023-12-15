@@ -98,6 +98,10 @@ void Game_Scene::Update()
 		else {
 			m_executeTimer = m_exexuteDelay;
 		}
+
+		if (KEY_PRESS(KEY_TYPE::R)) {
+			Restart();
+		}
 	}
 }
 

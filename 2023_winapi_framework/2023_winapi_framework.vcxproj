@@ -182,10 +182,10 @@
     <ClInclude Include="BossPattern.h" />
     <ClInclude Include="BossPatternModule.h" />
     <ClInclude Include="Bullet.h" />
-    <ClInclude Include="BulletPattern.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="CollisionMgr.h" />
     <ClInclude Include="Core.h" />
+    <ClInclude Include="CreditsScreen.h" />
     <ClInclude Include="DamageCaster.h" />
     <ClInclude Include="define.h" />
     <ClInclude Include="enums.h" />
@@ -193,8 +193,10 @@
     <ClInclude Include="FirstBoss.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="Game_Scene.h" />
+    <ClInclude Include="HowToPlayScreen.h" />
+    <ClInclude Include="ImageUI.h" />
+    <ClInclude Include="InGameScreen.h" />
     <ClInclude Include="KeyMgr.h" />
-    <ClInclude Include="LaserPattern.h" />
     <ClInclude Include="ModuleController.h" />
     <ClInclude Include="NextStagePortal.h" />
     <ClInclude Include="Object.h" />
@@ -219,9 +221,19 @@
     <ClInclude Include="SceneMgr.h" />
     <ClInclude Include="SecondBoss.h" />
     <ClInclude Include="SelectGDI.h" />
+    <ClInclude Include="SliderUI.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="TextUI.h" />
     <ClInclude Include="Texture.h" />
     <ClInclude Include="TimeMgr.h" />
+    <ClInclude Include="TitleScene.h" />
+    <ClInclude Include="TitleScreen.h" />
+    <ClInclude Include="TutScreen.h" />
+    <ClInclude Include="UIManager.h" />
+    <ClInclude Include="UIMenu.h" />
+    <ClInclude Include="UIMenuSystem.h" />
+    <ClInclude Include="UIObject.h" />
+    <ClInclude Include="UIPanel.h" />
     <ClInclude Include="Vec2.h" />
   </ItemGroup>
   <ItemGroup>
@@ -235,16 +247,18 @@
     <ClCompile Include="BossPattern.cpp" />
     <ClCompile Include="BossPatternModule.cpp" />
     <ClCompile Include="Bullet.cpp" />
-    <ClCompile Include="BulletPattern.cpp" />
     <ClCompile Include="Collider.cpp" />
     <ClCompile Include="CollisionMgr.cpp" />
     <ClCompile Include="Core.cpp" />
+    <ClCompile Include="CreditsScreen.cpp" />
     <ClCompile Include="DamageCaster.cpp" />
     <ClCompile Include="EventMgr.cpp" />
     <ClCompile Include="FirstBoss.cpp" />
     <ClCompile Include="Game_Scene.cpp" />
+    <ClCompile Include="HowToPlayScreen.cpp" />
+    <ClCompile Include="ImageUI.cpp" />
+    <ClCompile Include="InGameScreen.cpp" />
     <ClCompile Include="KeyMgr.cpp" />
-    <ClCompile Include="LaserPattern.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="ModuleController.cpp" />
     <ClCompile Include="NextStagePortal.cpp" />
@@ -268,8 +282,18 @@
     <ClCompile Include="SceneMgr.cpp" />
     <ClCompile Include="SecondBoss.cpp" />
     <ClCompile Include="SelectGDI.cpp" />
+    <ClCompile Include="SliderUI.cpp" />
+    <ClCompile Include="TextUI.cpp" />
     <ClCompile Include="Texture.cpp" />
     <ClCompile Include="TimeMgr.cpp" />
+    <ClCompile Include="TitleScene.cpp" />
+    <ClCompile Include="TitleScreen.cpp" />
+    <ClCompile Include="TutScreen.cpp" />
+    <ClCompile Include="UIManager.cpp" />
+    <ClCompile Include="UIMenu.cpp" />
+    <ClCompile Include="UIMenuSystem.cpp" />
+    <ClCompile Include="UIObject.cpp" />
+    <ClCompile Include="UIPanel.cpp" />
     <ClCompile Include="Vec2.cpp" />
   </ItemGroup>
   <ItemGroup>

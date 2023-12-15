@@ -12,6 +12,7 @@ public:
 	void OnDamage(int _damage);
 
 public:
+	const int& GetMaxHealth() const { return m_maxHealth; }
 	const int& GetHealth() const { return m_currentHealth; }
 
 public:

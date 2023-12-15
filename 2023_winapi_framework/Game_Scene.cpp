@@ -13,6 +13,8 @@
 #include "TimeMgr.h"
 #include "NextStagePortal.h"
 #include "ResMgr.h"
+#include "UIManager.h"
+#include "InGameScreen.h"
 
 Game_Scene::Game_Scene(int _stageNum)
 	: m_stageNum(_stageNum)
@@ -49,7 +51,7 @@ void Game_Scene::Init()
 	BackGround* backGround = new BackGround;
 	backGround->SetName(L"BackGround");
 	backGround->SetPos(Vec2(0, -WINDOW_HEIGHT));
-	backGround->Setting(m_stageNum);
+	backGround->Setting(L"StageBackGround" + std::to_wstring(m_stageNum));
 
 	Player* player = new Player;
 	player->SetName(L"Player");
@@ -61,17 +63,19 @@ void Game_Scene::Init()
 	AddObject(upperPlatform, OBJECT_GROUP::MAP);
 	AddObject(underPlatform, OBJECT_GROUP::MAP);
 
-	Boss* boss = nullptr;
-	if (m_stageNum == 1) {
-		boss = new FirstBoss;
+	if (m_stageNum != 0) {
+		Boss* boss = nullptr;
+		if (m_stageNum == 1) {
+			boss = new FirstBoss;
+		}
+		else if (m_stageNum == 2) {
+			boss = new SecondBoss;
+		}
+		boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
+		boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f + 20.f));
+		boss->SetScale(Vec2(150, 150));
+		AddObject(boss, OBJECT_GROUP::MONSTER);
 	}
-	else if (m_stageNum == 2) {
-		boss = new SecondBoss;
-	}
-	boss->SetName(L"Boss" + std::to_wstring(m_stageNum));
-	boss->SetPos(Vec2((float)WINDOW_WIDTH / 2.f, (float)WINDOW_HEIGHT / 3.f + 20.f));
-	boss->SetScale(Vec2(150, 150));
-	AddObject(boss, OBJECT_GROUP::MONSTER);
 
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::PLAYER);
 	CollisionMgr::GetInst()->CheckGroup(OBJECT_GROUP::MAP, OBJECT_GROUP::BULLET);
@@ -151,6 +155,10 @@ void Game_Scene::SetFail()
 
 void Game_Scene::SetClear()
 {
+	if (m_isCleared) {
+		return;
+	}
+
 	m_isCleared = true;
 
 	NextStagePortal* portal = new NextStagePortal;
@@ -164,17 +172,21 @@ void Game_Scene::Restart()
 {
 	wstring nextStage = L"Stage" + std::to_wstring(m_stageNum);
 	SceneMgr::GetInst()->LoadScene(nextStage);
+	std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetStatus(false);
 }
 
 void Game_Scene::NextStage()
 {
 	m_isCleared = true;
-	if (m_stageNum > MAX_STAGE) {
-		//
-		Release();
+	if (m_stageNum >= MAX_STAGE) {
+		SceneMgr::GetInst()->LoadScene(L"Title");
+		UIManager::GetInst()->LoadPanel(L"Title");
 	}
 	else {
 		wstring nextStage = L"Stage" + std::to_wstring(m_stageNum + 1);
 		SceneMgr::GetInst()->LoadScene(nextStage);
+		UIManager::GetInst()->LoadPanel(L"InGame");
+		std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetStatus(false);
+		std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetStage(m_stageNum + 1);
 	}
 }

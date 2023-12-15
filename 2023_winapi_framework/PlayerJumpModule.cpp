@@ -7,6 +7,8 @@
 #include "Animator.h"
 #include "Player.h"
 #include "ResMgr.h"
+#include "UIManager.h"
+#include "TutScreen.h"
 
 PlayerJumpModule::PlayerJumpModule(ModuleController* _controller)
 	: PlayerAirModule(_controller)
@@ -22,6 +24,10 @@ PlayerJumpModule::~PlayerJumpModule()
 void PlayerJumpModule::EnterModule()
 {
 	BaseModule::EnterModule();
+	auto tutScreen = std::dynamic_pointer_cast<TutScreen>(UIManager::GetInst()->GetTopPanel());
+	if (tutScreen != nullptr) {
+		tutScreen->JumpTutClear();
+	}
 	m_pRigidbody->SetVelocity(Vec2(0.f, m_fJumpPower * m_pRigidbody->GetGravityScale()));
 	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
 	ResMgr::GetInst()->Play(L"JumpSound");

@@ -32,6 +32,7 @@ SelectGDI::SelectGDI(HDC _dc, HFONT _font)
 {
 	m_hFont = _font;
 	m_hDefaultFont = (HFONT)SelectObject(_dc, m_hFont);
+	SetBkMode(_dc, TRANSPARENT);
 }
 
 SelectGDI::~SelectGDI()

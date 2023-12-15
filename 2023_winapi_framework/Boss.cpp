@@ -14,6 +14,8 @@
 #include "Game_Scene.h"
 #include "DamageCaster.h"
 #include "Particle.h"
+#include "InGameScreen.h"
+#include "UIManager.h"
 
 Boss::Boss()
 	: m_pTex(nullptr)
@@ -61,6 +63,10 @@ void Boss::Render(HDC _dc)
 void Boss::OnDamage(float _damage)
 {
 	GetDamageCaster()->OnDamage(_damage);
+
+	float maxHealth = GetDamageCaster()->GetMaxHealth();
+	float curHealth = GetDamageCaster()->GetHealth();
+	std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetBossHpPercent(curHealth / maxHealth);
 }
 
 void Boss::DeadHandle()

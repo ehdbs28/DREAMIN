@@ -25,6 +25,8 @@
 #include "Particle.h"
 #include "SceneMgr.h"
 #include "Scene.h"
+#include "InGameScreen.h"
+#include "UIManager.h"
 
 Player::Player()
 	: m_pTex(nullptr)
@@ -172,5 +174,6 @@ void Player::DeadHandle()
 	particle->SetPos(GetPos());
 	particle->SetScale(Vec2(125, 125));
 	SceneMgr::GetInst()->GetCurScene()->AddObject(particle, OBJECT_GROUP::PARTICLE);
+	std::dynamic_pointer_cast<InGameScreen>(UIManager::GetInst()->GetTopPanel())->SetStatus(true);
 	std::dynamic_pointer_cast<Game_Scene>(SceneMgr::GetInst()->GetCurScene())->SetFail();
 }

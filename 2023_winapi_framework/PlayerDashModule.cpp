@@ -9,6 +9,8 @@
 #include "PlayerMovementModule.h"
 #include "Animator.h"
 #include "ResMgr.h"
+#include "UIManager.h"
+#include "TutScreen.h"
 
 PlayerDashModule::PlayerDashModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -29,6 +31,10 @@ void PlayerDashModule::EnterModule()
 	BaseModule::EnterModule();
 	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
 	ResMgr::GetInst()->Play(L"DashSound");
+	auto tutScreen = std::dynamic_pointer_cast<TutScreen>(UIManager::GetInst()->GetTopPanel());
+	if (tutScreen != nullptr) {
+		tutScreen->DashTutClear();
+	}
 	Dash();
 }
 

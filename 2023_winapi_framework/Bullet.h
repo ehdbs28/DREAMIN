@@ -23,7 +23,7 @@ public:
     }
     void SetDamage(int _damage) { m_damage = _damage; }
 
-private:
+public:
     void Destroy();
 
 private:

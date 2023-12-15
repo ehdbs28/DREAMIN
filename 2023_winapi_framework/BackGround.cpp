@@ -16,11 +16,10 @@ BackGround::~BackGround()
 {
 }
 
-void BackGround::Setting(int _stage)
+void BackGround::Setting(wstring _name)
 {
-	wstring key = L"BackGroundTex" + std::to_wstring(_stage) + L".bmp";
-	wstring path = L"Texture\\StageBackGround" + std::to_wstring(_stage) + L".bmp";
-	m_pTex = ResMgr::GetInst()->TexLoad(key, path);
+	wstring path = L"Texture\\" + _name + L".bmp";
+	m_pTex = ResMgr::GetInst()->TexLoad(_name, path);
 }
 
 void BackGround::Update()

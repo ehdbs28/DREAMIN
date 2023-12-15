@@ -1,25 +1,36 @@
 #include "pch.h"
 #include "SceneMgr.h"
 #include "Game_Scene.h"
+#include "TitleScene.h"
+
 void SceneMgr::Init()
 {
 	m_pCurScene = nullptr;
 	// ¾À µî·Ï
+	RegisterScene(L"Title", std::make_shared<TitleScene>());
+	RegisterScene(L"Tut", std::make_shared<Game_Scene>(0));
 	RegisterScene(L"Stage1", std::make_shared<Game_Scene>(1));
 	RegisterScene(L"Stage2", std::make_shared<Game_Scene>(2));
 
-	// Ã¹ ¾À ÁöÁ¤
-	LoadScene(L"Stage1");
+	LoadScene(L"Title");
 }
 
 void SceneMgr::Update()
 {
+	if (m_pCurScene == nullptr) {
+		return;
+	}
+
 	m_pCurScene->Update();
 	m_pCurScene->FinalUpdate();
 }
 
 void SceneMgr::Render(HDC _dc)
 {
+	if (m_pCurScene == nullptr) {
+		return;
+	}
+
 	m_pCurScene->Render(_dc);
 }
 

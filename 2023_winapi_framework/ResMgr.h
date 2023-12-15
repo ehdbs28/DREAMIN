@@ -1,6 +1,7 @@
 #pragma once
 #include "fmod.hpp"
 #pragma comment(lib, "fmod_vc")
+
 enum class SOUND_CHANNEL
 {
 	BGM, EFFECT, END
@@ -18,6 +19,8 @@ public:
 	Texture* TexLoad(const wstring& _strKey,
 		const wstring& _strRelativePath);
 	Texture* TexFind(const wstring& _strKey);
+	HFONT LoadFont(const wstring& _strFontName, int _size);
+	void AddFont(const wstring& _strFontName);
 	void Release();
 private:
 	map<wstring, Texture*> m_mapTex;

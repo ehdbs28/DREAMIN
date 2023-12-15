@@ -107,6 +107,54 @@
     <Filter Include="Engine\04. Object\Player\Module\GroundModule">
       <UniqueIdentifier>{9d8080e9-962a-46dd-9ecc-90eda07e7c4a}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Engine\05. Scene\TitleScene">
+      <UniqueIdentifier>{f15f1fe2-8ab4-49cd-b524-4ed86d52bd64}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI">
+      <UniqueIdentifier>{b9d2e450-6caa-4da0-9384-a209c97d7046}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\04. Object\Particle">
+      <UniqueIdentifier>{979f4951-c4be-4bdc-b6bf-d29373311424}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject">
+      <UniqueIdentifier>{db4132b9-b9f9-465d-be4d-2db1a669b5cb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\TextUI">
+      <UniqueIdentifier>{b64a8630-cce9-41da-a7de-685b42824078}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\03. Manager\UIManager">
+      <UniqueIdentifier>{993b3d31-a972-4380-a5f5-5bf8e9cbe9f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen">
+      <UniqueIdentifier>{ee30dc92-b168-4d7b-a906-6e934c27e7bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\TitleScreen">
+      <UniqueIdentifier>{cfb38fbe-bf86-4730-ab08-523a8e129fe0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\Utils">
+      <UniqueIdentifier>{5c4b91a6-2cd9-4bae-8374-abf753ebafd7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\Utils\MenuSystem">
+      <UniqueIdentifier>{bc5a3fa8-7e55-440c-abc3-96c36612f4ee}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\ImageUI">
+      <UniqueIdentifier>{05878bfe-2031-4f53-9075-2e5a6ae66fdf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\HowToPlayScreen">
+      <UniqueIdentifier>{0a1341cd-bd19-4f65-a845-63ec204062f8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\CreditsScreen">
+      <UniqueIdentifier>{f4ef25ad-edf1-4a0e-b62f-76dcdcc5cd99}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\InGameScreen">
+      <UniqueIdentifier>{182d7607-78f1-4205-8ffb-dc652a5652ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\Screen\TutScreen">
+      <UniqueIdentifier>{80089f4b-3d12-47b5-9115-1b4f4cb59c7a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Engine\09.UI\UIObject\Utils\SliderUI">
+      <UniqueIdentifier>{0d36690a-62af-4822-bf97-79d75fc265e7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -152,9 +200,6 @@
       <Filter>Engine\03. Manager\SceneManager</Filter>
     </ClInclude>
     <ClInclude Include="Game_Scene.h">
-      <Filter>Engine\05. Scene\MainScene</Filter>
-    </ClInclude>
-    <ClInclude Include="Start_Scene.h">
       <Filter>Engine\05. Scene\MainScene</Filter>
     </ClInclude>
     <ClInclude Include="Res.h">
@@ -235,8 +280,6 @@
     <ClInclude Include="PlayerJumpModule.h">
       <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
     </ClInclude>
-    <ClInclude Include="BulletPattern.h" />
-    <ClInclude Include="LaserPattern.h" />
     <ClInclude Include="PlayerAirModule.h">
       <Filter>Engine\04. Object\Player\Module\AirModule</Filter>
     </ClInclude>
@@ -246,12 +289,6 @@
     <ClInclude Include="FirstBoss.h">
       <Filter>Engine\04. Object\Boss</Filter>
     </ClInclude>
-    <ClInclude Include="BulletPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="LaserPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
     <ClInclude Include="BossIdleModule.h">
       <Filter>Engine\04. Object\Boss\Module</Filter>
     </ClInclude>
@@ -260,6 +297,57 @@
     </ClInclude>
     <ClInclude Include="BackGround.h">
       <Filter>Engine\04. Object\MapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="Particle.h">
+      <Filter>Engine\04. Object\Particle</Filter>
+    </ClInclude>
+    <ClInclude Include="NextStagePortal.h">
+      <Filter>Engine\04. Object\MapObject</Filter>
+    </ClInclude>
+    <ClInclude Include="SecondBoss.h">
+      <Filter>Engine\04. Object\Boss</Filter>
+    </ClInclude>
+    <ClInclude Include="UIObject.h">
+      <Filter>Engine\09.UI\UIObject</Filter>
+    </ClInclude>
+    <ClInclude Include="TextUI.h">
+      <Filter>Engine\09.UI\UIObject\TextUI</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScreen.h">
+      <Filter>Engine\09.UI\Screen\TitleScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="UIManager.h">
+      <Filter>Engine\03. Manager\UIManager</Filter>
+    </ClInclude>
+    <ClInclude Include="UIPanel.h">
+      <Filter>Engine\09.UI</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMenu.h">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="UIMenuSystem.h">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageUI.h">
+      <Filter>Engine\09.UI\UIObject\ImageUI</Filter>
+    </ClInclude>
+    <ClInclude Include="HowToPlayScreen.h">
+      <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="TitleScene.h">
+      <Filter>Engine\05. Scene\TitleScene</Filter>
+    </ClInclude>
+    <ClInclude Include="CreditsScreen.h">
+      <Filter>Engine\09.UI\Screen\CreditsScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="InGameScreen.h">
+      <Filter>Engine\09.UI\Screen\InGameScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="TutScreen.h">
+      <Filter>Engine\09.UI\Screen\TutScreen</Filter>
+    </ClInclude>
+    <ClInclude Include="SliderUI.h">
+      <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -301,9 +389,6 @@
       <Filter>Engine\03. Manager\SceneManager</Filter>
     </ClCompile>
     <ClCompile Include="Game_Scene.cpp">
-      <Filter>Engine\05. Scene\MainScene</Filter>
-    </ClCompile>
-    <ClCompile Include="Start_Scene.cpp">
       <Filter>Engine\05. Scene\MainScene</Filter>
     </ClCompile>
     <ClCompile Include="main.cpp">
@@ -384,8 +469,6 @@
     <ClCompile Include="PlayerJumpModule.cpp">
       <Filter>Engine\04. Object\Player\Module\JumpModule</Filter>
     </ClCompile>
-    <ClCompile Include="BulletPattern.cpp" />
-    <ClCompile Include="LaserPattern.cpp" />
     <ClCompile Include="PlayerAirModule.cpp">
       <Filter>Engine\04. Object\Player\Module\AirModule</Filter>
     </ClCompile>
@@ -395,12 +478,6 @@
     <ClCompile Include="FirstBoss.cpp">
       <Filter>Engine\04. Object\Boss</Filter>
     </ClCompile>
-    <ClCompile Include="BulletPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="LaserPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
     <ClCompile Include="BossIdleModule.cpp">
       <Filter>Engine\04. Object\Boss\Module</Filter>
     </ClCompile>
@@ -409,6 +486,57 @@
     </ClCompile>
     <ClCompile Include="BackGround.cpp">
       <Filter>Engine\04. Object\MapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="Particle.cpp">
+      <Filter>Engine\04. Object\Particle</Filter>
+    </ClCompile>
+    <ClCompile Include="NextStagePortal.cpp">
+      <Filter>Engine\04. Object\MapObject</Filter>
+    </ClCompile>
+    <ClCompile Include="SecondBoss.cpp">
+      <Filter>Engine\04. Object\Boss</Filter>
+    </ClCompile>
+    <ClCompile Include="UIObject.cpp">
+      <Filter>Engine\09.UI\UIObject</Filter>
+    </ClCompile>
+    <ClCompile Include="TextUI.cpp">
+      <Filter>Engine\09.UI\UIObject\TextUI</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScreen.cpp">
+      <Filter>Engine\09.UI\Screen\TitleScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="UIManager.cpp">
+      <Filter>Engine\03. Manager\UIManager</Filter>
+    </ClCompile>
+    <ClCompile Include="UIPanel.cpp">
+      <Filter>Engine\09.UI</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMenu.cpp">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="UIMenuSystem.cpp">
+      <Filter>Engine\09.UI\UIObject\Utils\MenuSystem</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageUI.cpp">
+      <Filter>Engine\09.UI\UIObject\ImageUI</Filter>
+    </ClCompile>
+    <ClCompile Include="HowToPlayScreen.cpp">
+      <Filter>Engine\09.UI\Screen\HowToPlayScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="TitleScene.cpp">
+      <Filter>Engine\05. Scene\TitleScene</Filter>
+    </ClCompile>
+    <ClCompile Include="CreditsScreen.cpp">
+      <Filter>Engine\09.UI\Screen\CreditsScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="InGameScreen.cpp">
+      <Filter>Engine\09.UI\Screen\InGameScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="TutScreen.cpp">
+      <Filter>Engine\09.UI\Screen\TutScreen</Filter>
+    </ClCompile>
+    <ClCompile Include="SliderUI.cpp">
+      <Filter>Engine\09.UI\UIObject\Utils\SliderUI</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -13,6 +13,9 @@
 #include "Rigidbody.h"
 #include "Particle.h"
 #include "ResMgr.h"
+#include "UIManager.h"
+#include "UIPanel.h"
+#include "TutScreen.h"
 
 PlayerAttackModule::PlayerAttackModule(ModuleController* _controller)
 	: BaseModule(_controller)
@@ -32,6 +35,12 @@ void PlayerAttackModule::EnterModule()
 	BaseModule::EnterModule();
 	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
 	ResMgr::GetInst()->Play(L"GunSound");
+
+	auto tutScreen = std::dynamic_pointer_cast<TutScreen>(UIManager::GetInst()->GetTopPanel());
+	if (tutScreen != nullptr) {
+		tutScreen->ShotTutClear();
+	}
+	
 	Shot();
 }
 
@@ -55,16 +64,30 @@ void PlayerAttackModule::Shot()
 {
 	m_fAttackDelayTimer = 0.f;
 
-	Vec2 targetPos = ((Player*)m_pController->GetOwner())->GetTarget()->GetPos();
-	//Vec2 targetPos = KeyMgr::GetInst()->GetMousePos();
+	Player* pPlayer = (Player*)m_pController->GetOwner();
+	const Boss* pTarget = pPlayer->GetTarget();
+	Vec2 targetPos;
+
+	if (pTarget == nullptr) {
+		Vec2 vPos = pPlayer->GetPos();
+		targetPos = vPos + Vec2(pPlayer->GetFrontDir(), 0);
+	}
+	else {
+		targetPos = pTarget->GetPos();
+	}
+
 	Vec2 vPos = m_pController->GetOwner()->GetPos();
 	Vec2 targetDir = (targetPos - vPos).Normalize();
-	Vec2 attackPoint = vPos + targetDir * 0.3f;
+	Vec2 attackPoint = vPos + targetDir * 10.f;
+	
+	if (m_pRigidbody->GetGravityScale() == -1) {
+		attackPoint.y += 30;
+	}
 
 	m_pController->GetOwner()->SetFront(targetDir.x >= 0 ? 1 : -1);
 
 	Bullet* pBullet = new Bullet(OBJECT_GROUP::PLAYER);
-	pBullet->SetName(L"PlayerBullet");
+	pBullet->SetName(L"Bullet_Player");
 	pBullet->SetPos(attackPoint);
 	pBullet->SetScale(Vec2(90.f, 90.f));
 	pBullet->SetDamage(m_damage);

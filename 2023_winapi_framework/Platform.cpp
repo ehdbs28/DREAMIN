@@ -1,6 +1,7 @@
 #include "pch.h"
 #include "Platform.h"
 #include "Collider.h"
+#include "Bullet.h"
 
 Platform::Platform()
 {
@@ -29,4 +30,11 @@ void Platform::Render(HDC _dc)
 
 	SelectObject(_dc, prevBrush);
 	DeleteObject(brush);
+}
+
+void Platform::EnterCollision(Collider* _pOther)
+{
+	if (_pOther->GetObj()->GetName().rfind(L"Bullet", 0) == 0) {
+		((Bullet*)_pOther->GetObj())->Destroy();
+	}
 }

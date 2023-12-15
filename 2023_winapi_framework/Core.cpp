@@ -8,6 +8,7 @@
 #include "CollisionMgr.h"
 #include "EventMgr.h"
 #include <ctime>
+#include "UIManager.h"
 
 bool Core::Init(HWND _hWnd, POINT _ptResolution)
 {
@@ -40,6 +41,7 @@ bool Core::Init(HWND _hWnd, POINT _ptResolution)
 	TimeMgr::GetInst()->Init();
 	KeyMgr::GetInst()->Init();
 	ResMgr::GetInst()->Init();
+	UIManager::GetInst()->Init();
 	SceneMgr::GetInst()->Init();
 
 	return true;
@@ -64,10 +66,10 @@ void Core::GameLoop()
 
 void Core::Update()
 {
-
 	// === Manager Update === 
 	TimeMgr::GetInst()->Update();
 	KeyMgr::GetInst()->Update();
+	UIManager::GetInst()->Update();
 	CollisionMgr::GetInst()->Update();
 	SceneMgr::GetInst()->Update();
 }
@@ -77,6 +79,7 @@ void Core::Render()
 	PatBlt(m_hbackDC, 0, 0, m_ptResolution.x, m_ptResolution.y, BLACKNESS);
 
 	SceneMgr::GetInst()->Render(m_hbackDC);
+	UIManager::GetInst()->Render(m_hbackDC);
 
 	BitBlt(m_hDC, 0,0, m_ptResolution.x, m_ptResolution.y, 
 		m_hbackDC, 0,0, SRCCOPY);

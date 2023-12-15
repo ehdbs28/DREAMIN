@@ -11,7 +11,7 @@ LaserPoint::LaserPoint()
 
 	CreateAnimator();
 	GetAnimator()->CreateAnim(L"Idle", m_pTex, Vec2(0, 0), Vec2(16, 16), Vec2(16, 0), 3, 0.1f);
-	GetAnimator()->CreateAnim(L"Shot", m_pTex, Vec2(0, 16), Vec2(16, 16), Vec2(16, 0), 3, 0.01f);
+	GetAnimator()->CreateAnim(L"Shot", m_pTex, Vec2(0, 16), Vec2(16, 16), Vec2(16, 0), 3, 0.02f);
 	GetAnimator()->PlayAnim(L"Idle", false);
 }
 

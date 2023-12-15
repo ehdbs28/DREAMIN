@@ -32,7 +32,7 @@ void BossLaserAroundPattern::ExcutePattern()
 
 			Laser* laser = new Laser(1.5f, 1.5f);
 			laser->SetName(L"Laser");
-			laser->SetScale(Vec2(800, 100));
+			laser->SetScale(Vec2(800, 200));
 			Vec2 vPos = m_pModuleController->GetOwner()->GetPos();
 			vPos += Vec2(cosf(fRadian), sinf(fRadian)) * 100 - Vec2(15, 0);
 			laser->SetPos(vPos);

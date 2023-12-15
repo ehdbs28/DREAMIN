@@ -11,7 +11,7 @@
 
 LaserPattern::LaserPattern(ModuleController* _controller)
 	: BossPattern(_controller)
-	, m_bulletCnt(10)
+	, m_bulletCnt(5)
 	, m_angle(0)
 	, m_interval(360 / m_bulletCnt)
 	, m_generateDelay(0.05f)
@@ -31,11 +31,11 @@ void LaserPattern::ExcutePattern()
 		if (m_currentTime >= m_generateDelay) {
 			float fRadian = m_angle * (M_PI / 180.f);
 
-			Laser* laser = new Laser(1.5f, 1.5f);
+			Laser* laser = new Laser(0.8f, 0.8f);
 			laser->SetName(L"Laser");
-			laser->SetScale(Vec2(800, 100));
+			laser->SetScale(Vec2(800, 200));
 			Vec2 vPos = m_pModuleController->GetOwner()->GetPos();
-			vPos += Vec2(cosf(fRadian), sinf(fRadian)) * 100 - Vec2(15, 0);
+			vPos += Vec2(cosf(fRadian), sinf(fRadian)) * 100;
 			laser->SetPos(vPos);
 			laser->SetAngle(m_targetAngle);
 

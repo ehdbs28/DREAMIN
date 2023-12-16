@@ -8,6 +8,7 @@
 #include "SceneMgr.h"
 #include "Scene.h"
 #include "CameraManager.h"
+#include "ResMgr.h"
 
 DownAttackPattern::DownAttackPattern(ModuleController* _controller)
 	: BossPattern(_controller)
@@ -99,6 +100,7 @@ void DownAttackPattern::ExcutePattern()
 
 			if (percent >= 1.f) {
 				CameraManager::GetInst()->Shake(50, 0.1f);
+				ResMgr::GetInst()->Play(L"Explosion");
 				m_readyToAttack = true;
 				m_currentTime = 0.f;
 			}

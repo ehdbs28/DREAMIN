@@ -54,6 +54,7 @@ void Laser::Update()
 			m_pPoint->GetAnimator()->PlayAnim(L"Shot", true);
 			GetAnimator()->PlayAnim(L"Shot", false);
 			CameraManager::GetInst()->Shake(7, m_shotTimer);
+			ResMgr::GetInst()->Play(L"LaserShoot2");
 			m_isShot = true;
 			m_curTime = 0.f;
 		}

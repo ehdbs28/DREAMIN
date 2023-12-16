@@ -8,6 +8,7 @@
 #include "Player.h"
 #include "Boss.h"
 #include "TimeMgr.h"
+#include "ResMgr.h"
 
 BossLaserAroundPattern::BossLaserAroundPattern(ModuleController* _controller)
 	: BossPattern(_controller)
@@ -37,6 +38,8 @@ void BossLaserAroundPattern::ExcutePattern()
 			vPos += Vec2(cosf(fRadian), sinf(fRadian)) * 100 - Vec2(15, 0);
 			laser->SetPos(vPos);
 			laser->SetAngle(m_angle);
+
+			ResMgr::GetInst()->Play(L"LaserReady");
 
 			m_vecLaser.push_back(laser);
 			SceneMgr::GetInst()->GetCurScene()->AddObject(laser, OBJECT_GROUP::BULLET);

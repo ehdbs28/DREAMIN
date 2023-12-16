@@ -17,6 +17,7 @@
 #include "InGameScreen.h"
 #include "UIManager.h"
 #include "Animation.h"
+#include "ResMgr.h"
 
 Boss::Boss()
 	: m_pTex(nullptr)
@@ -38,6 +39,11 @@ Boss::Boss()
 	m_pModuleController->AddModule(L"IdleModule", new BossIdleModule(m_pModuleController));
 	m_pModuleController->AddModule(L"PatternModule", new BossPatternModule(m_pModuleController));
 	m_pModuleController->ChangeModule(L"IdleModule");
+	ResMgr::GetInst()->LoadSound(L"Explosion", L"Sound\\Explosion.wav", false);
+	ResMgr::GetInst()->LoadSound(L"LaserReady", L"Sound\\LaserReady.wav", false);
+	ResMgr::GetInst()->LoadSound(L"LaserShoot1", L"Sound\\LaserShoot1.wav", false);
+	ResMgr::GetInst()->LoadSound(L"LaserShoot2", L"Sound\\LaserShoot2.wav", false);
+
 
 	std::vector<Object*> objs = SceneMgr::GetInst()->GetCurScene()->GetGroupObject(OBJECT_GROUP::PLAYER);
 	m_pTarget = (Player*)objs.front();

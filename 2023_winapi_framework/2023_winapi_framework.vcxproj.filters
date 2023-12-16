@@ -158,12 +158,6 @@
     <Filter Include="Engine\04. Object\BossAttackObject">
       <UniqueIdentifier>{75697aa5-9b35-4ebf-9bf0-53208102de84}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Engine\03. Manager\CameraManager">
-      <UniqueIdentifier>{b0dd37f2-06dc-4ba4-be21-ef0bfd587a38}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Engine\04. Object\LoadingScreen">
-      <UniqueIdentifier>{2b941d3f-2d57-4772-8872-c643589c924d}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -379,36 +373,18 @@
     <ClInclude Include="WallAttack.h">
       <Filter>Engine\04. Object\BossAttackObject</Filter>
     </ClInclude>
+    <ClInclude Include="VerticalWallPattern.h" />
+    <ClInclude Include="HorizontalWallPattern.h" />
     <ClInclude Include="Object.h">
       <Filter>Engine\04. Object</Filter>
     </ClInclude>
-    <ClInclude Include="CameraManager.h">
-      <Filter>Engine\03. Manager\CameraManager</Filter>
-    </ClInclude>
-    <ClInclude Include="ThirdBoss.h">
-      <Filter>Engine\04. Object\Boss</Filter>
-    </ClInclude>
-    <ClInclude Include="BossBullet.h">
-      <Filter>Engine\04. Object\BossAttackObject</Filter>
-    </ClInclude>
-    <ClInclude Include="CrossBulletPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="FollowBulletPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="HorizontalWallPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="RadialBulletPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="VerticalWallPattern.h">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClInclude>
-    <ClInclude Include="LoadingScreen.h">
-      <Filter>Engine\04. Object\LoadingScreen</Filter>
-    </ClInclude>
+    <ClInclude Include="BossBullet.h" />
+    <ClInclude Include="CameraManager.h" />
+    <ClInclude Include="CrossBulletPattern.h" />
+    <ClInclude Include="FollowBulletPattern.h" />
+    <ClInclude Include="LoadingScreen.h" />
+    <ClInclude Include="RadialBulletPattern.h" />
+    <ClInclude Include="ThirdBoss.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="2023_winapi_framework.rc">
@@ -622,32 +598,14 @@
     <ClCompile Include="WallAttack.cpp">
       <Filter>Engine\04. Object\BossAttackObject</Filter>
     </ClCompile>
-    <ClCompile Include="CameraManager.cpp">
-      <Filter>Engine\03. Manager\CameraManager</Filter>
-    </ClCompile>
-    <ClCompile Include="ThirdBoss.cpp">
-      <Filter>Engine\04. Object\Boss</Filter>
-    </ClCompile>
-    <ClCompile Include="BossBullet.cpp">
-      <Filter>Engine\04. Object\BossAttackObject</Filter>
-    </ClCompile>
-    <ClCompile Include="CrossBulletPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="FollowBulletPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="HorizontalWallPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="RadialBulletPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="VerticalWallPattern.cpp">
-      <Filter>Engine\04. Object\Boss\Pattern</Filter>
-    </ClCompile>
-    <ClCompile Include="LoadingScreen.cpp">
-      <Filter>Engine\04. Object\LoadingScreen</Filter>
-    </ClCompile>
+    <ClCompile Include="VerticalWallPattern.cpp" />
+    <ClCompile Include="HorizontalWallPattern.cpp" />
+    <ClCompile Include="BossBullet.cpp" />
+    <ClCompile Include="CameraManager.cpp" />
+    <ClCompile Include="CrossBulletPattern.cpp" />
+    <ClCompile Include="FollowBulletPattern.cpp" />
+    <ClCompile Include="LoadingScreen.cpp" />
+    <ClCompile Include="RadialBulletPattern.cpp" />
+    <ClCompile Include="ThirdBoss.cpp" />
   </ItemGroup>
 </Project>

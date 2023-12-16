@@ -31,7 +31,6 @@ void PlayerDashModule::EnterModule()
 {
 	BaseModule::EnterModule();
 	ResMgr::GetInst()->Volume(SOUND_CHANNEL::EFFECT, 1.0f);
-	ResMgr::GetInst()->Play(L"DashSound");
 	auto tutScreen = std::dynamic_pointer_cast<TutScreen>(UIManager::GetInst()->GetTopPanel());
 	if (tutScreen != nullptr) {
 		tutScreen->DashTutClear();
@@ -61,11 +60,13 @@ void PlayerDashModule::Dash()
 
 	if (m_dashDir.x != 0) {
 		CameraManager::GetInst()->Shake(5, 0.025);
+		ResMgr::GetInst()->Play(L"DashSound");
 		m_pController->GetOwner()->SetFront(m_dashDir.x);
 	}
 
 	if (m_dashDir.y != 0 && m_pRigidbody->GetGravityScale() != m_dashDir.y) {
 		CameraManager::GetInst()->Shake(5, 0.025);
+		ResMgr::GetInst()->Play(L"DashSound");
 		m_pRigidbody->SetGravityScale(m_dashDir.y);
 	}
 

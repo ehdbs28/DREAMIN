@@ -47,7 +47,6 @@ void HorizontalWallPattern::ExcutePattern()
 				wall->SetName(L"WallAttack");
 				wall->SetScale(Vec2(800, 60));
 				wall->GetCollider()->SetScale(Vec2(800, 60));
-				wall->SetAngle(90);
 
 				if (m_dir == 1) {
 					wall->SetPos(Vec2(WINDOW_WIDTH / 2.f, 120 + (m_vecWalls.size() + 1) * m_interval));

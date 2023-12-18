@@ -20,7 +20,7 @@
 
 ## 게임 플레이 방법
 
-<img src="ReadmeResource/Movement.gif" width="250"/><img src="ReadmeResource/jump.gif" width="250"/><img src="ReadmeResource/shot.gif" width="250"/>
+<img src="ReadmeResource/movement.gif" width="250"/><img src="ReadmeResource/jump.gif" width="250"/><img src="ReadmeResource/shot.gif" width="250"/>
 
 `left` 와 `right` 키로 기본적인 좌우 움직임이 가능합니다. `x` 키로 점프하고 `c` 키로 총알을 발사할 수 있습니다.
 

@@ -4,7 +4,7 @@
 
 [**다운로드 바로가기**](https://drive.google.com/file/d/1NyNnK5bCA9hRgJhQKi62bwb4VmMycPdx/view?usp=sharing)
 <br>
-[**다운로드시 주의사항**](https://github.com/ehdbs28/DREAMIN/ReadmeResource/DownloadInfo.md)
+[**다운로드시 주의사항**](https://github.com/ehdbs28/DREAMIN/blob/main/ReadmeResource/DownloadInfo.md)
 
 `대쉬`와 `점프` 그리고 `공격` 간단한 조작으로 다양한 패턴을 가진 보스를 격파해나가는 보스러쉬 액션 게임입니다. 
 
